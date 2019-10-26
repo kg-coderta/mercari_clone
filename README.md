@@ -36,7 +36,7 @@ Things you may want to cover:
 - has_many :saling_items, -> { where("buyer_id is NULL") }, foreign_key: "saler_id", class_name: "Item"
 - has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: "saler_id", class_name: "Item"
 
-## itemテーブル 
+## itemテーブル 
 
 |Column|Type|Options|
 |------|----|-------|
@@ -49,7 +49,7 @@ Things you may want to cover:
 |date|string|null: false|
 |price|integer|null: false|
 
-### Association
+### Association
 
 - belongs_to :saler, class_name: "User"
 - belongs_to :buyer, class_name: "User"
@@ -57,18 +57,18 @@ Things you may want to cover:
 - belongs_to :brand
 - belongs_to :category
 
-## photoテーブル 
+## photoテーブル 
 
 |Column|Type|Options|
 |------|----|-------|
 |url|string|null: false|
 |item_id|integer|null: false, foreign_key: true|
 
-### Association
+### Association
 
 - belongs_to :item
 
-## brandテーブル
+## brandテーブル
 
 |Column|Type|Options|
 |------|----|-------|
