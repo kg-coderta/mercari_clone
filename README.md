@@ -23,7 +23,7 @@ Things you may want to cover:
 
 * ...
 
-## user
+## user テーブル 
 
   |Column|Type|Options|
   |------|----|-------|
@@ -37,7 +37,7 @@ Things you may want to cover:
   - has_many :saling_items, -> { where("buyer_id is NULL") }, foreign_key: "saler_id", class_name: "Item"
   - has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: "saler_id", class_name: "Item"
 
-## item
+## item テーブル 
 
   |Column|Type|Options|
   |------|----|-------|
@@ -58,7 +58,7 @@ Things you may want to cover:
   - belongs_to :brand
   - belongs_to :category
 
-## photo
+## photo テーブル 
 
   |Column|Type|Options|
   |------|----|-------|
@@ -69,7 +69,7 @@ Things you may want to cover:
 
   - belongs_to :item
 
-## brand
+## brand テーブル
 
   |Column|Type|Options|
   |------|----|-------|
@@ -77,9 +77,9 @@ Things you may want to cover:
 
 ### Association
 
-  - has_many :item
+  - has_many :items
 
-## category
+## category テーブル
 
   |Column|Type|Options|
   |------|----|-------|
@@ -88,4 +88,4 @@ Things you may want to cover:
 
 ### Association
 
-  - has_many :item
+  - has_many :items
