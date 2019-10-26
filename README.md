@@ -25,11 +25,11 @@ Things you may want to cover:
 
 ## user テーブル 
 
- |Column|Type|Options|
- |------|----|-------|
- |email|string|unique: true
- |password|string|unique: true
- |item_id|integer|foreign_key: true
+|Column|Type|Options|
+|------|----|-------|
+|email|string|unique: true|
+|password|string|unique: true|
+|item_id|integer|foreign_key: true|
 
 ### Association
 
@@ -41,9 +41,9 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false
-|description|text|null: false
-|state|string|null: false
+|name|string|null: false|
+|description|text|null: false|
+|state|string|null: false|
 |size|string| 
 |method|string|null: false|
 |region|string|null: false|
