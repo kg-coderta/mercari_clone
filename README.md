@@ -29,7 +29,6 @@ Things you may want to cover:
 |------|----|-------|
 |email|string|unique: true|
 |password|string|unique: true|
-|item_id|integer|foreign_key: true|
 
 ### Association
 - has_many :buyed_items,foreign_key:"buyer_id", class_name: "Item"
