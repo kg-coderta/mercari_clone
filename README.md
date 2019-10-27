@@ -39,7 +39,7 @@ Things you may want to cover:
 - has_one :profile
 - has_many :comments
 
-## adressesテーブル
+## addressesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -51,7 +51,6 @@ Things you may want to cover:
 |user_id|integer|null: false, foreign_key: true|
 
 ### Association
-
 - belongs_to :user
 
 ## profilesテーブル
@@ -69,7 +68,6 @@ Things you may want to cover:
 |user_id|integer|null :false|
 
 ### Association
-
 - belongs_to :user
 
 ## itemsテーブル 
@@ -86,7 +84,6 @@ Things you may want to cover:
 |price|integer|null: false|
 
 ### Association
-
 - belongs_to :saler, class_name: "User"
 - belongs_to :buyer, class_name: "User"
 - has_many :photos
@@ -102,7 +99,6 @@ Things you may want to cover:
 |item_id|integer|null: false, foreign_key: true|
 
 ### Association
-
 - belongs_to :item
 
 ## brandsテーブル
@@ -112,10 +108,9 @@ Things you may want to cover:
 |name|string|null: false|
 
 ### Association
-
 - has_many :items
 
-### categorysテーブル
+## categoriesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -123,7 +118,6 @@ Things you may want to cover:
 |ancestory|string| 
 
 ### Association
-
 - has_many :items
 
 ## commentsテーブル
@@ -135,6 +129,5 @@ Things you may want to cover:
 |item_id|integer|null :false|
 
 ### Association
-
 - belongs_to :user
 - belongs_to :item
