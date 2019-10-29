@@ -7,5 +7,157 @@
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  %body
+  -# %body
+  .body
+
+    .header
+      .header-upper
+        .header-upper-right
+
+      .header-lower
+        .header-lower-left
+        
+
+          .header-lower-left-category-search
+            %a.sc-iuJeZd.jWbaWJ{:href => "/jp/category/"}
+              %svg.sc-cvbbAY.sc-cmthru.cMONNg{"aria-hidden" => "true", :height => "16", :viewbox => "0 0 20 16", :width => "20"}
+                %path{:d => "M18.799 15.25h-11.5a1.25 1.25 0 1 1 0-2.5h11.5a1.25 1.25 0 0 1 0 2.5zm0-6h-11.5a1.25 1.25 0 1 1 0-2.5h11.5a1.25 1.25 0 0 1 0 2.5zm0-6h-11.5a1.25 1.25 0 1 1 0-2.5h11.5a1.25 1.25 0 0 1 0 2.5zM2 16a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0-6a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0-6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z", :fill => "currentColor", "fill-rule" => "nonzero"}
+              %span.sc-esOvli.efpZZH カテゴリーから探す
+          .header-lower-left-brand-search
+            %a.sc-iuJeZd.jWbaWJ{:href => "/jp/brand/"}
+              %svg.sc-csuQGl.sc-hMFtBS.fKrfKU{"aria-hidden" => "true", :height => "16", :viewbox => "0 0 23 16", :width => "23"}
+                %path{:d => "M6.315 0L4.473 1.806 2.833.019.73 1.977l1.69 1.84L1.198 5.02c-1.594 1.594-1.594 4.188-.01 5.772L6.3 16h13.272a3.08 3.08 0 0 0 3.077-3.077V3.076A3.08 3.08 0 0 0 19.57 0H6.315zm13.46 12.925a.211.211 0 0 1-.205.205H7.504L3.227 8.771a1.226 1.226 0 0 1-.01-1.71L4.38 5.92l1.28 1.371a2.68 2.68 0 1 0 2.13-1.93L6.433 3.907 7.49 2.87h12.082a.211.211 0 0 1 .206.205v9.848h-.002z", :fill => "currentColor", "fill-rule" => "nonzero"}
+              %span.sc-esOvli.efpZZH ブランドから探す
+        .header-lower-right
+          .header-lower-right-new
+            %a.header-lower-right-new__icon{:href => "/jp/signup/"} 新規会員登録
+          .header-lower-right-login
+            %a.header-lower-right-login__icon{:href => "/jp/login/?login_callback=%2Fjp%2F"} ログイン
+
+
     = yield
+
+    -# %aside.bottom-banner
+    -#   .bottom-banner-center
+    -#     .bottom-banner-center-inner
+    -#       %h2 スマホでかんたんフリマアプリ
+    -#       %p 今すぐ無料ダウンロード！
+    -#       .bottom-banner-icon.clearfix
+    -#         %figure
+    -#           %img{:alt => "", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/mercari_icon.png?465897195", :width => "68"}/
+    -#         %ul.clearfix
+    -#           %li
+    -#             %a{:href => "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8", :target => "_blank"}
+    -#               %img{:alt => "", :height => "40", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?465897195", :width => "133"}/
+    -#           %li
+    -#             %a{:href => "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", :target => "_blank"}
+    -#               %img{:alt => "", :height => "40", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?465897195", :width => "133"}/
+    -#     %figure
+    -#       %img{:alt => "", :src => "//www-mercari-jp.akamaized.net/assets/img/common/jp/download_content_pc.png?465897195"}/
+
+    -# %aside.bottom-banner
+    -# .bottom-banner-center
+    -#   .bottom-banner__innner-text
+    -#     スマホでかんたんフリマアプリ
+    -#     .bottom-banner__inner-text-dl 今すぐ無料ダウンロード！
+    -# -# .sc-jMMfwr.fqhRHK.sc-ejGVNB.ezxxhU
+    -# -#   .sc-eLdqWK.chTgRp
+    -# -#     .sc-iiUIRa.iVGjEK
+    -# -#       .sc-hgRTRy.bdqVww スマホでかんたんフリマアプリ
+    -#       .sc-iIHSe.jURitu 今すぐ無料ダウンロード！
+    -#       .sc-gldTML.dhItlX
+        -#     %img.sc-feryYK.jSTnBt{:alt => "", :src => "https://web-jp-assets.mercdn.net/_next/static/images/mercari_icon-f75780e32e41e052c8aaa8b446331cd8.png"}/
+        -#     %a.sc-cJOK.lgmdCB{:href => "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8", :target => "_blank"}
+        -#       %img.sc-ccSCjj.sc-jKmXuR.kDwjrS{:alt => "", :src => "https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg"}/
+        -#     %a.sc-cJOK.lgmdCB{:href => "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", :target => "_blank"}
+        -#       %img.sc-ccSCjj.sc-elNKlv.fofvah{:alt => "", :src => "https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg"}/
+        -# %figure.sc-bYwvMP.kzQJRg
+        -#   %img.sc-hUMlYv.cYtUcH{:alt => "", :src => "https://web-jp-assets.mercdn.net/_next/static/images/download_app_pc-a4418175e8be071827ac88d073f40e4a.png"}/
+
+    .footer
+      .footer-nav
+        .footer-about
+          %h2.footer-about__title メルカリについて
+          %ul.footer-about__list
+            %li.footer-about__list__contents
+              %a.footer-about__list__contents__name{href: "https://about.mercari.com/"} 会社概要（運営会社）
+            %li.footer-about__list__contents
+              %a.footer-about__list__contents__name{href: "/jp/jobs/"} 採用情報
+            %li.footer-about__list__contents
+              %a.footer-about__list__contents__name{href: "https://about.mercari.com/press/news/"} プレスリリース
+            %li.footer-about__list__contents
+              %a.footer-about__list__contents__name{href: "https://jp-news.mercari.com/", :target => "_blank"} 公式ブログ
+            %li.footer-about__list__contents
+              %a.footer-about__list__contents__name{href: "/jp/logo-guidelines/"} メルカリロゴ利用ガイドライン
+            %a.footer-about__list__contents A
+      
+            -# %a.footer-about__list__contents{href: "https://twitter.com/mercari_jp", :target => "_blank"}
+            -#   %svg.footer-about__list__contents__name{"aria-hidden" => "true", :height => "16", :viewbox => "0 0 21 16", :width => "21"}
+            -#     %path{:d => "M6.343 15.969c7.61 0 11.773-6.134 11.773-11.444 0-.172 0-.345-.008-.517a8.303 8.303 0 0 0 2.066-2.086 8.576 8.576 0 0 1-2.38.635A4.07 4.07 0 0 0 19.616.329a8.377 8.377 0 0 1-2.63.973 4.186 4.186 0 0 0-3.019-1.27c-2.283 0-4.14 1.803-4.14 4.023 0 .314.041.62.106.918A11.866 11.866 0 0 1 1.404.769a3.936 3.936 0 0 0-.557 2.023c0 1.396.735 2.628 1.84 3.35a4.278 4.278 0 0 1-1.872-.503v.055c0 1.945 1.428 3.577 3.317 3.945-.347.094-.71.141-1.09.141-.266 0-.524-.023-.774-.07.524 1.6 2.057 2.76 3.865 2.792a8.452 8.452 0 0 1-5.14 1.725 8.19 8.19 0 0 1-.985-.054 12.02 12.02 0 0 0 6.335 1.796", :fill => "currentColor", "fill-rule" => "evenodd"}
+   
+            %a.footer-about__list__contents B
+            -# %a.footer-about__list__contents:href => "https://www.facebook.com/mercarijp", :target => "_blank"}
+            -#   %svg.footer-about__list__contents__name{"aria-hidden" => "true", :height => "16", :viewbox => "0 0 16 16", :width => "16"}
+            -#     %path{:d => "M15.111 0H.89A.889.889 0 0 0 0 .889V15.11c0 .491.398.889.889.889h7.658V9.813H6.469V7.391h2.078V5.613c0-2.066 1.262-3.193 3.11-3.193.623-.002 1.244.03 1.863.096v2.15h-1.276c-1.002 0-1.197.478-1.197 1.178v1.543h2.397l-.31 2.422h-2.087V16h4.064c.491 0 .889-.398.889-.889V.89A.889.889 0 0 0 15.111 0z", :fill => "currentColor", "fill-rule" => "evenodd"}
+            -# ロゴはあとで
+    
+        .footer-help
+          %h2.footer-about__title ヘルプ＆ガイド
+          %ul.footer-about__list
+            %li.footer-about__list__contents
+              %a.footer-about__list__contents__name{:href => "/jp/help_center/"} メルカリガイド
+            %li.footer-about__list__contents
+              %a.footer-about__list__contents__name{:href => "/jp/rakuraku-mercari/"} らくらくメルカリ便
+            %li.footer-about__list__contents
+              %a.footer-about__list__contents__name{:href => "/jp/yuyu-mercari/"} ゆうゆうメルカリ便
+            %li.footer-about__list__contents
+              %a.footer-about__list__contents__name{:href => "/jp/rakuraku-ogata/"} 大型メルカリ便
+            %li.footer-about__list__contents
+              %a.footer-about__list__contents__name{:href => "/jp/guide/car/"} 車体取引ガイド
+            %li.footer-about__list__contents
+              %a.footer-about__list__contents__name{:href => "/jp/safe/description/", :target => "_blank"} メルカリあんしん・あんぜん宣言！
+            %li.footer-about__list__contents
+              %a.footer-about__list__contents__name{:href => "/jp/authenticity/"} 偽ブランド品撲滅への取り組み
+            %li.footer-about__list__contents
+              %a.footer-about__list__contents__name{:href => "/jp/box/"} メルカリボックス
+        .footer-privacy
+          %h2.footer-about__title プライバシーと利用規約
+          .footer-privacy__left
+            %ul.footer-about__list
+              %li.footer-about__list__contents
+                %a.footer-about__list__contents__name{:href => "/jp/privacy/"} プライバシーポリシー
+              %li.footer-about__list__contents
+                %a.footer-about__list__contents__name{:href => "/jp/tos/"} メルカリ利用規約
+              %li.footer-about__list__contents
+                %a.footer-about__list__contents__name{:href => "/jp/tos_smartphone_support/"} あんしんスマホサポート制度に関する利用特約
+              %li.footer-about__list__contents
+                %a.footer-about__list__contents__name{:href => "/jp/compliance/"} コンプライアンスポリシー
+          .footer-privacy__right
+            %ul.footer-about__list
+              %li.footer-about__list__contents
+                %a.footer-about__list__contents__name{:href => "/jp/data_security/"} 個人データの安全管理に係る基本方針
+              %li.footer-about__list__contents
+                %a.footer-about__list__contents__name{:href => "/jp/tokutei/"} 特定商取引に関する表記
+              %li.footer-about__list__contents
+                %a.footer-about__list__contents__name{:href => "/jp/shikin_kessai/"} 資金決済法に基づく表示
+              %li.footer-about__list__contents
+                %a.footer-about__list__contents__name{:href => "https://about.mercari.com/csr/safety/"} 法令順守と犯罪抑止のために
+        .footer-country
+          %h2.footer-about__title 国
+          %ul.footer-about__list
+            %li.footer-about__list__contents
+              %a.footer-about__list__contents__name{:href => "/jp/"} 日本
+              %a.footer-about__list__contents__name{:href => "/"} United States
+
+
+              -# 下2段のaタグはクラス違うので放置中
+              -# ハッシュロケット未修正なので修正すること
+
+      .bottom
+        %a.bottom__icon{:href => "/jp/"}
+          %img.bottom__icon__img{:alt => "Mercari", :src => "https://web-jp-assets.mercdn.net/_next/static/images/logo-white-1a0696cf557ee1ed6f3c3444661d21ad.svg"}/
+        %span.bottom__icon__copywrites © 2019 Mercari
+
+
+        -# aタグはLink toにする
+        -# linktoが入る箱にdisplay:inline;入れる

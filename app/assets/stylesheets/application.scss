@@ -2,5 +2,202 @@
   box-sizing: border-box;
 }
 
+.body {
+  height: 100vh;
+  width: 100vw;
+  // display: flex;
+
+    .header{
+      height: 100px;
+      width: calc(100vw - 25px);
+      margin: 0 25px;
+      padding-top: 8px;
+      background-color: lightgray;
+      box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+      position: relative;
+      z-index: 3;
+
+        .header-upper{
+          height: 40px;
+          background-color: bisque;
+
+        }
+        .header-lower{
+          height: 44px;
+          margin-top: 8px;
+          background-color: bisque;
+          display: flex;
+          -webkit-box-pack: justify;
+          justify-content: space-between;
+            .header-lower-left{
+              height: 44px;
+              display: flex;
+              .header-lower-left-category-search{
+                background-color: red;
+                height: 44px;
+                padding-right:10px;
+              }
+              .header-lower-left-brand-search{
+                background-color: yellow;
+                height: 44px;
+                padding-left:10px;
+              }
+            }
+        }
+    }
+
+
+    // .bottom-banner{
+    //   // background: url(/jp/assets/img/common/jp/top/download_bg_pc.jpg?12295559);
+    //   // background-position: center;
+    //   // background-size: cover;
+    //     .bottom-banner-center{
+    //       overflow: hidden;
+    //       position: relative;
+    //       display: none;
+    //       // width: 750px;
+    //       height: 260px;
+    //       margin: 0 auto;
+    //       color: #fff;
+    //       background-color: aquamarine;
+    //         .bottom-banner-center-inner{
+    //           background-color: aqua;
+    //           color: #fff;
+    //           height:30px;
+    //           width:30px;
+    //           .bottom-banner__inner-text{
+
+    //             .bottom-banner__inner-text-dl{
+
+    //             }
+    //           }
+    //         }
+    //     }
+    // }
+    
+
+
+    .footer{
+      background-color: rgb(34, 34, 34);
+      color: rgb(255, 255, 255);
+      font-size: 12px;
+      padding: 0px 20px 10px 20px;
+      // width: 100%;
+        .footer-nav {
+          width: calc( 100% - 420px);
+          // flex-wrap: nowrap;
+          margin: 0 190px;
+          display: flex;
+
+
+            .footer-about{
+              margin-top: 18px;
+              width: auto;
+              padding: 0px 40px 0px 0px;
+
+              &__title{
+                color: white;
+                font-size: 16px;
+                font-family: Arial;
+                font-weight: 600;
+                line-height: 1.4em;
+              }
+
+              &__list__contents{
+                margin-top: 16px;
+              }
+
+              &__list__contents__name{
+              color: lightgray;
+              font-size: 12px;
+              }
+            }
+            .footer-help{
+              margin-top: 18px;
+              padding: 0 40px 0 0;
+
+            }
+            .footer-privacy{
+              margin-top: 18px;
+              display: inline-block;
+              vertical-align: top;
+              margin-top: 18px;
+              padding-right: 40px;
+              width: 43%;
+                &__title{
+                  // display: block;
+                  margin-block-start: 0.83em;
+                  margin-block-end: 0.83em;
+                  margin-inline-start: 0px;
+                  margin-inline-end: 0px;
+                  display: flex;
+                }
+
+    
+                  &__left{
+                    color:white;
+                    float: left;
+                    width: 45%;
+                    
+                  }
+                  &__right{
+                    padding-left: 10px;
+                    float: right;
+                    width :45%;
+                  }
+                
+
+
+            }
+            .footer-country{
+              margin-top: 18px;
+              width: auto;
+
+                // .footer__list__contents__country{
+              // color: white;
+            }
+
+            }
+          
+      }
+
+      .bottom{
+        width: 1020px;
+        margin: 30px auto 20px;
+        -webkit-box-align: center;
+        align-items: center;
+        display: flex;
+          &__icon__copywrites{
+            text-align: center;
+            padding-left: 15px;
+            width: 75%;
+          }
+      }
+}
+
+
+
+
+
+
+
+
+
+
+
+a:-webkit-any-link{
+  text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
+
 @import "reset";
 @import "pages";
