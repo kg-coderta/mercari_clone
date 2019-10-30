@@ -9,7 +9,7 @@
       .profile-box__image-container
         .profile-box__image-container__user-info
           %figure.user-image
-            %img.user-img{height: "60", src: "//static.mercdn.net/images/member_photo_noimage_thumb.png", width: "60"}/
+            = image_tag "user_none_img.png", size: "60x60", class: "user-img"
           = f.text_field :nickname, class:'user_name', placeholder:"例)AYA☆セール中"
       .profile-box__message-container
         = form_with model: @user do |f|
