@@ -1,0 +1,67 @@
+.profile-box{
+  width:680px;
+  float: left;
+  &__header{
+    text-align: center;
+    padding: 8px 24px;
+    background-color: #fff;
+    .profile{
+      margin: 0;
+    }
+  }
+  &__image-container{
+    background-image: image-url('mypage_back.jpg');
+    background-size: cover;
+    padding: 72px 16px 24px;
+    text-align: center;
+    &__user-info{
+        text-align: center;
+          .user-image{
+        margin: 0;
+        display:inline-block;
+        vertical-align: middle;
+        overflow: hidden;
+        }
+        .user-img{
+        border-radius: 50%;
+        }
+      }
+      .user_name{
+        width: 220px;
+        margin: 0 0 0 8px;
+        height:48px;
+        padding:10px 16px 8px;
+        border-radius: 4px;
+        border: 1px solid;
+        background-color: #fff;
+        line-height: 1.5;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+      }
+    }
+  &__message-container{
+    padding: 40px 16px;
+    background-color: #fff;
+    .user-message{
+      min-height: 216px;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      padding: 10px;
+      line-height: 1.5;
+    }
+    .change-btn{
+      background-color:#ea352d;
+      width: 100%;
+      line-height: 48px;
+      margin:16px 0 0;
+      color: #fff;
+      font-size: 14px;
+      cursor: pointer;
+    }
+  }
+}
+
