@@ -1,5 +1,9 @@
 html {
   background: rgb(245, 245, 245);
+  // ↓追加しました
+  height: 100%;
+  overflow: auto;
+  box-sizing: border-box;
 }
 
 .my-contents {
