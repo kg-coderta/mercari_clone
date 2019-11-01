@@ -75,7 +75,7 @@ gem 'haml-rails'
 gem 'erb2haml'
 gem 'devise'
 gem 'tzinfo-data'
-
+gem 'font-awesome-rails'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'dotenv-rails'
