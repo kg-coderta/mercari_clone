@@ -13,7 +13,8 @@
  *= require_tree .
  *= require_self
  */
- 
+ @import "format";
+ @import "reset";
  @import "mypages/logout";
  @import "mixins/clearfix";
  @import "mixins/tag-list";

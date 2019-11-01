@@ -1,15 +1,11 @@
-body {
+html {
   background: rgb(245, 245, 245);
-  overflow: scroll;
 }
-
-
 .my-contents {
   &:after {
     content: '';
     display: block;
     clear: both;
-    
   }
   width: 1020px;
   margin: 40px auto;
@@ -40,31 +36,6 @@ body {
       }
       .mypage-head {
         margin-top: 40px;
-      }
-    }
-  }
-  .logout-content {
-    width: 680px;
-    float: left;
-    background-color: #fff;
-    .logout-box {
-      padding: 64px;
-      max-width: 320px;
-      margin: 0 auto;
-      .logout-btn {
-        display: block;
-        width: 100%;
-        line-height: 48px;
-        font-size: 14px;
-        border: 1px solid transparent;
-        transition: all ease-out .3s;
-        cursor: pointer;
-        text-align: center;
-      }
-      .btn-red {
-        background: #ea352d;
-        border: 1px solid #ea352d;
-        color: #fff;
       }
     }
   }
