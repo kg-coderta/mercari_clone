@@ -1,0 +1,35 @@
+.header
+  .header-box
+    .header-upper
+      .header-upper-left
+        .header-upper-left__link
+          = link_to root_path do
+            = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/logo-acdd90ac4f472d5a6f7a330d33ab1225.svg", class: "head-upper-left__img"
+        .header-upper-left-space
+      .header-upper-right
+        = form_with method: :get, local: true do |f|
+          = f.text_field :search, class:'header-upper-right-search' , placeholder: "何かお探しですか？"
+          %button{type: "submit", class: 'soul'}
+            =fa_icon "search", class:'fa-search'
+
+
+    .header-lower
+      .header-lower-left
+      
+
+        .header-lower-left-category-search
+          =link_to root_path do
+            .header-lower-left-category-search__category-icon
+              = fa_icon 'list-ul', class: 'upper-list'
+              カテゴリで探す
+          
+          = link_to root_path do
+            .header-lower-left-category-search__category-guide
+              = fa_icon 'tag' ,class: 'upper-tag'
+              ブランドから探す
+            
+      .header-lower-right
+        .header-lower-right-new
+          = link_to "新規会員登録", "/jp/signup/", class: "header-lower-right-new__icon"
+        .header-lower-right-login
+          = link_to "ログイン", "/jp/login/?login_callback=%2Fjp%2F", class: "header-lower-right-login__icon"
