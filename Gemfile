@@ -71,6 +71,7 @@ group :production do
 end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 
+gem 'font-awesome-rails'
 gem 'haml-rails'
 gem 'erb2haml'
 gem 'devise'
@@ -80,3 +81,4 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'dotenv-rails'
 gem 'pry-rails'
+
