@@ -1,0 +1,42 @@
+html {
+  background: rgb(245, 245, 245);
+}
+.my-contents {
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+  width: 1020px;
+  margin: 40px auto;
+  .side-bar {
+    width: 300px;
+    margin: 0 40px 0 0;
+    float: left;
+    .mypage {
+      .mypage-list {
+        padding: 0;
+        margin: 0;
+        .mypage-list-item {
+          display: block;
+          padding: 16px;
+          margin: 0.05rem;
+          font-size: 14px;
+          list-style: none;
+          position: relative;
+          background-color: #fff;
+          cursor: pointer;
+          .icon-arrow-right {
+            position: absolute;
+            top: 30%;
+            right: 16px;
+            color: #ccc;
+          }
+        }
+      }
+      .mypage-head {
+        margin-top: 40px;
+      }
+    }
+  }
+}

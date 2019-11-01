@@ -1,0 +1,78 @@
+.mypage-content{
+  width:680px;
+  float:left;
+  .mypage-user {
+    position: relative;
+    height: 160px;
+    padding: 20px;
+    background-image: image-url("mypage_back.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    .mypage-user-icon-box{
+      display: block;
+      position: relative;
+      top: 21%;
+      left: 0;
+      right: 0;
+      .mypage-user-icon{
+        overflow: hidden;
+        width: 60px;
+        height: 60px;
+        margin: 0 auto;
+        border-radius: 50%;
+      }
+      .mypage-number{
+        margin: 8px 0 0;
+        font-size: 0;
+        .mypage-rate{
+          display: inline-block;
+          font-size: 14px;
+        }
+        .mypage-exhibit{
+          display: inline-block;
+          margin: 0 0 0 16px;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  .mypage-tab-contents{
+    margin: 0;
+    background: #fff;
+  }
+  .mypage-below-tab-contents{
+    margin: 40px 0 0;
+    background: #fff;
+    .mypage-below-tab-head{
+      background: #fafafa;
+      font-size: 16px;
+      line-height: 72px;
+      padding: 0 16px
+    }
+  } 
+  .mypage-tabs{
+    background: #eee;
+    font-size: 16px;
+    line-height: 72px;
+    display: flex;
+    color: #333;
+    text-align: center;
+    &__left{
+      width: 50%; 
+    }
+    &__right{
+      width: 50%; 
+    }
+  }
+  .mypage-content-not-found{
+    padding: 160px 0 60px;
+    background-image: image-url("mercari_logo.svg");
+    background-repeat: no-repeat;
+    background-position: center 40px;
+    background-size: 78px 85px;
+    text-align: center;
+    font-size: 16px;
+    color: #ccc;
+  }
+}

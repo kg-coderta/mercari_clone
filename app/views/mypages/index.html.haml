@@ -1,0 +1,33 @@
+.my-contents.clearfix
+  = render 'sidebar'
+  .mypage-content
+    %section.mypage-user
+      .mypage-user-icon-box        
+        = image_tag "yotuba.jpeg", height: "60", width: "60", class:"mypage-user-icon"
+        %h2.bold 四葉
+        .mypage-number
+          .mypage-rate
+            評価
+            %span.bold 120
+          .mypage-exhibit
+            出品数
+            %span.bold 105
+    %section.mypage-tab-contents
+      %ul.bold.mypage-tabs
+        %li.mypage-tabs__left
+          お知らせ
+        %li.mypage-tabs__right
+          やることリスト
+      .tab-content
+        %ul#mypage-tab-content
+          %li.mypage-content-not-found.bold 現在、やることリストはありません
+    %section.mypage-below-tab-contents
+      %h2.bold.mypage-below-tab-head 購入した商品
+      %ul.bold.mypage-tabs
+        %li.mypage-tabs__left
+          取引中
+        %li.mypage-tabs__right
+          過去の取引
+      .tab-content
+        %ul#mypage-tab-content
+          %li.mypage-content-not-found.bold 取引中の商品がありません
