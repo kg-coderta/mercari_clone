@@ -1,0 +1,21 @@
+.progress_header
+  %h1
+    = link_to root_path, class: "mercari-logo" do
+      = image_tag "mercari_logo.svg", size: "185x49", class: "mercari_img"
+  %nav.progress_bar
+    %ol
+      %li.active
+        会員情報
+        .progress_status.first
+      %li
+        電話番号認証
+        .progress_status.second
+      %li
+        お届け先住所入力
+        .progress_status.third
+      %li
+        支払い方法
+        .progress_status.forth
+      %li
+        完了
+        .progress_status.last

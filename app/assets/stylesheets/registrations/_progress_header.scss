@@ -1,0 +1,63 @@
+.progress_header{
+  height: 128px;
+  text-align: center;
+  h1{
+    display:inline-block;
+    margin: 40px 0 0;
+    .mercari_img{
+      margin: 0 8px 0 0;
+    }
+  }
+  .progress_bar{
+    // border-top: 1px solid #eee;
+    display: inline-block;
+    padding: 40px 0 0 44px;
+    vertical-align: top;
+    border: 0; 
+    font-size: 0;
+    ol{
+      list-style: none;
+    }
+    li{
+      display: inline-block;
+      font-size: 12px;
+      min-width: 60px;
+      color: #888;
+      margin: 0 40px 0 0;
+      position: relative;
+      .progress_status{
+        width: 12px;
+        height: 12px;
+        margin: 8px auto 0;
+        background: #ccc;
+        border-radius: 50%;
+      }
+      .progress_status::before{
+        display: block;
+        content: '';
+        width: 100%;
+        height: 2px;
+        background: #ccc;
+        right: 50%;
+        position: absolute;
+        bottom: 5px;
+      }
+      .progress_status::after{
+        display: block;
+        content: '';
+        height: 2px;
+        width: 100%;
+        background: #ccc;
+        left: 50%;
+        position: absolute;
+        bottom: 5px;
+      }
+      .first::before{
+        content: none;
+      }
+      .last::after{
+        content: none;
+      }
+    }
+  }
+}
