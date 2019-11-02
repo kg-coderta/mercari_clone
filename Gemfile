@@ -75,3 +75,5 @@ gem 'haml-rails'
 gem 'erb2haml'
 gem 'devise'
 gem 'tzinfo-data'
+gem 'active_hash'
+gem "font-awesome-rails"
