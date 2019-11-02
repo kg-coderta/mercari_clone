@@ -1,0 +1,12 @@
+.my-contents.clearfix
+  = render 'sidebar'
+
+  .card-content
+  %section.l-chapter-container
+    %h2.l-chapter-head クレジットカード情報入力
+    %form#add-card-form.l-single-inner.registration-form{:action => "https://www.mercari.com/jp/mypage/card/add/", "data-adyen-id" => "card-form", :method => "POST", :novalidate => "novalidate"}
+      %input{:name => "__csrf_value", :type => "hidden", :value => "5f6849074451e67a8461a53509968ea90a8368d04a3d75edac96a19d3a6da9bc2b2811f0941f5c1310af585d90152d04f46e2164d160d0ae95dfa52e8ab4ea956"}/
+      .l-single-content
+
+  
+
