@@ -70,8 +70,6 @@ group :production do
   gem 'unicorn', '5.4.1'
 end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-
-gem 'font-awesome-rails'
 gem 'haml-rails'
 gem 'erb2haml'
 gem 'devise'

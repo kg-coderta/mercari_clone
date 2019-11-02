@@ -2,17 +2,13 @@ body{
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
   font-size: 14px;
   color: #333;
-}
-h3 {
-  font-size: 16px; 
-}
-
-
-body {
   background: rgb(245, 245, 245);
   height: 100%;
   overflow: auto;
   box-sizing: border-box;
+}
+h3 {
+  font-size: 16px; 
 }
 .bold {
   font-weight: 600;
