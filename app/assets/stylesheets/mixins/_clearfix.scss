@@ -4,4 +4,8 @@
     display: block;
     clear: both;
   }
+
+  .clearfix{
+    @include clearfix;
+  }
 }
