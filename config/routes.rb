@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-
   root 'items#index'
-  resources :mypages, only: [:index, :destroy, :edit]
+  resources :mypages, only: [:index, :destroy, :edit] 
+  resources :addresses, only:[:new, :edit]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   

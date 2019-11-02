@@ -1,0 +1,72 @@
+.id-content {
+  background: #fff;
+  float:left;
+  width: 680px;
+  .id-head {
+    padding: 12px 4%;
+    border-bottom: 2px solid #f5f5f5;
+    text-align: center;
+    font-size: 24px;
+  }
+  .id-inner {
+    padding: 64px;
+    line-height: 1.5;
+    .id-text-right {
+      width: 106%;
+      text-align: right;
+      margin-top: 8px;
+      color: #0099e8;
+      text-decoration: none;
+    }
+    .address-form{
+      margin: 40px 0 0;
+      .form-label{
+        display: inline;
+      }
+      .form-arbitrary{
+        margin: 0 0 0 8px;
+        padding: 2px 4px;
+        border-radius: 2px;
+        color: #fff;
+        background: #ccc;
+        font-size: 12px;
+        vertical-align: top;
+      }
+    }
+    .input-address{
+      width: 100%;
+      margin: 8px 0 0;
+      height: 48px;
+      padding: 10px 16px 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      background: #fff;
+      line-height: 1.5;
+      font-size: 16px;
+      color: black
+    }
+    select{
+      width: 100%;
+      margin: 8px 0 0;
+      height: 48px;
+      border: 1px solid #ccc;
+      background: #fff;
+      font-size: 16px;
+      color: black
+    }
+    .mypage-identification button{
+      margin: 40px 0 0 0;
+    }
+    .btn-red{
+      width: 100%;
+      margin: 40px 0 0 0;
+      background: #ea352d;
+      border: 1px solid #ea352d;
+      color: #fff;
+      line-height: 48px;
+      font-size: 14px;
+    }
+  }   
+}
+
+
