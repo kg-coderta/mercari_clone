@@ -1,14 +1,159 @@
+  .card-container{
+    height: 562px;
+    width: 680px;
+    background-color: gray;
+    background: rgb(245, 245, 245);
+    padding:8px, 24px;
+    float:left;
+    .card-container-box-head{
+      width:100%;
+      color:black;
+      background-color: white;
+      height: 50px;
+      font-size: 24px;
+      font-weight: 600;
+      text-align: center;
+      line-height: 50px;
+    }
+    .card-container-box-bottom{
+      width: 100%;
+      height:512px;
+      background-color: white;
+      padding:40px 40px 64px 40px;
+      margin-top: 1px;
+      .card-container-box-bottom-center{
+        height:408px;
+        margin: 0 128px;
+        &__number{
+          position: relative;
+          .number-text{
+            font-weight: 600;
+            font-size: 12px;
+            vertical-align: bottom;
+          }
+          .number-require{
+            margin: 0 0 0 8px;
+            padding: 2px 4px;
+            border-radius: 2px;
+            color: #fff;
+            font-size: 12px;
+            vertical-align: bottom;
+            background: #ea352d;
+          }
 
-  .card-content{
-    height: 700px;
-    width: 562px;
-    background-color: #fff;
-    float:right;
+          .number-input{
+            height: 48px;
+            width: 100%;
+            padding: 10px 16px 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: #fff;
+            line-height: 1.5;
+            font-size: 16px;
+            margin-top: 8px;
+          }
 
+          .number-cards{
+            margin-top: 8px;
+            .number-cards-img{
+              display: inline;
+            }
+          }
+        }
 
-    .l-chapter-container{
-      .l-chapter-head{
-        color:green;
+        &__expire{
+          margin-top: 24px;
+          .number-text{
+            font-weight: 600;
+            font-size: 12px;
+            vertical-align: bottom;
+          }
+          .number-require{
+            margin: 0 0 0 8px;
+            padding: 2px 4px;
+            border-radius: 2px;
+            color: #fff;
+            font-size: 12px;
+            vertical-align: bottom;
+            background: #ea352d;
+            margin: 2px 4px;
+          }
+          .expire{
+            display: flex;
+            .expire-months{
+              width: 50%;
+              height: 48px;
+              margin: 8px 0 0 0;
+              .expire-months-select{
+                height: 48px;
+                width: 78%;
+                background-color: #fff;
+              }
+            }
+            .expire-years{
+              width: 50%;
+              height: 48px;
+              margin: 8px 0 0 0;
+              .expire-years-select{
+                height: 48px;
+                width: 78%;
+                background-color: #fff;
+              }
+            }
+          }
+        }
+        &__secure{
+          margin-top: 24px;
+          .number-text{
+            font-weight: 600;
+            font-size: 12px;
+            vertical-align: bottom;
+          }
+          .number-require{
+            margin: 0 0 0 8px;
+            padding: 2px 4px;
+            border-radius: 2px;
+            color: #fff;
+            font-size: 12px;
+            vertical-align: bottom;
+            background: #ea352d;
+            margin: 2px 4px;
+          }
+          .number-input{
+            height: 48px;
+            width: 100%;
+            padding: 10px 16px 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: #fff;
+            line-height: 1.5;
+            font-size: 16px;
+            margin-top: 8px;
+          }
+          &__text{
+            display: inline-block;
+            width: 100%;
+            height: 12px;
+            color: #0099e8;
+            line-height: 12px;
+            font-size: 12px;
+            text-align: right;
+          }
+        }
+        &__add{
+          height: 48px;
+          width: 100%;
+          .btn-red{
+            background-color: red;
+            color: white;
+            text-align: center;
+            height: 48px;
+            width: 100%;
+            font-size: 12px;
+            margin-top: 24px;
+            border: 1px solid #ea352d;
+          }
+        }
       }
     }
   }
