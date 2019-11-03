@@ -1,0 +1,66 @@
+.registration-index
+  = render 'devise/registrations/regist_header'
+  .a-container
+    .a-container__main
+      .a-container__main__header
+        .a-container__main__header__text 商品の情報を入力
+      .a-container__main__picturebox
+        %label.label 出品画像
+        %span.required 必須
+        .text 最大10枚までアップロードできます
+        .a-container__main__picturebox__drop drag and drop
+
+        
+      .a-container__main__name
+        %label.label 商品名
+        %span.required 必須
+        = form_with  local: true do |f|
+          = f.text_field :name, class: "name-input", placeholder: "商品名(必須：40文字まで)"
+        .a-container__main__name__details
+          %label.label 商品の説明
+          %span.required 必須
+          = form_with  local: true do |f|
+            = f.text_area :name, class: "details-input", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+          
+
+      .a-container__main__details
+        %h3.a-container__main__details__text 商品の詳細
+        .a-container__main__details__box
+          .a-container__main__details__box__upper
+            %label.label カテゴリー
+            %span.required 必須
+            %select.a-container__main__details__box__upper__category
+              %option{value: ""} ---
+              %option{value: "1"} レディース
+              %option{value: "2"} メンズ
+              %option{value: "3"} ベビー・キッズ
+              %option{value: "4"} インテリア・住まい・小物
+              %option{value: "5"} 本・音楽・ゲーム
+              %option{value: "1328"} おもちゃ・ホビー・グッズ
+              %option{value: "6"} コスメ・香水・美容
+              %option{value: "7"} 家電・スマホ・カメラ
+              %option{value: "8"} スポーツ・レジャー
+              %option{value: "9"} ハンドメイド
+              %option{value: "1027"} チケット
+              %option{value: "1318"} 自動車・オートバイ
+              %option{value: "10"} その他
+
+          .a-container__main__details__box__bottom
+            .a-container__main__details__box__bottom__status
+              %label.label 状態
+              %span.required 必須
+
+
+      .a-container__main__delivery
+
+      .a-container__main__price
+
+      .a-container__main__submit
+
+
+
+
+
+      
+  = render 'devise/registrations/regist_footer'
+
