@@ -70,14 +70,13 @@ group :production do
   gem 'unicorn', '5.4.1'
 end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-
 gem 'haml-rails'
 gem 'erb2haml'
 gem 'devise'
 gem 'tzinfo-data'
-
+gem 'active_hash'
+gem 'font-awesome-rails'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'dotenv-rails'
 gem 'pry-rails'
-gem 'font-awesome-rails'

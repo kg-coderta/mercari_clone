@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'items#index'
   resources :items, only: [:index, :show]
   resources :mypages, only: [:index, :destroy, :edit]
+  resources :addresses, only:[:new, :edit]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
@@ -13,7 +14,7 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
+    get '/users/index' => 'devise/registrations#index'
   end
 
-  
 end
