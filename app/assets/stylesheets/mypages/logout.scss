@@ -1,14 +1,8 @@
 body {
   background: rgb(245, 245, 245);
-  overflow: scroll;
 }
 
 .my-contents {
-  &:after {
-    content: '';
-    display: block;
-    clear: both;
-  }
   width: 1020px;
   margin: 40px auto;
   .side-bar {
