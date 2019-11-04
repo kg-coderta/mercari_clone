@@ -1,6 +1,748 @@
-.nav-wrapper
-  - if user_signed_in?
-    = link_to "ログアウト", destroy_user_session_path, method: :delete
-  - else
-    = link_to "ログイン", new_user_session_path, class: 'post'
-    = link_to "新規登録", new_user_registration_path, class: 'post'
+= render 'items/shared/header'
+.center
+  .center-banner
+    = image_tag "https://www-mercari-jp.akamaized.net/assets/img/featured/camp/index/index_keyvisual.png" ,class: "camp"
+
+  .center-category
+    %h3.center-category-upper 人気のカテゴリー
+
+    %ul.center-category__lower
+      %li.center-category__lower__details
+        .center-category__lower__details__topic
+        = link_to "レディース",root_path,class: "link"
+      %li.center-category__lower__details
+        .center-category__lower__details__topic
+        = link_to "メンズ",root_path,class: "link"
+      %li.center-category__lower__details
+        .center-category__lower__details__topic
+        = link_to "家電・スマホ・カメラ", root_path,class: "link"
+      %li.center-category__lower__details
+        .center-category__lower__details__topic
+        = link_to "おもちゃ・ホビー・グッズ", root_path,class: "link"
+  .center-mid
+    .center-mid-new
+      %h3.center-mid-new__item レディース新着アイテム
+      = link_to "もっと見る ＞ ","",class: 'more'
+
+    .center-mid__contents-box
+      %div
+        %ul.center-mid__contents-box__list
+          %li.center-mid__contents-box__list__items
+        
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+
+                .center-mid__contents-box__list__items__box__text soul fixeeeeeeeeeeeeeeeeeeeeeeeeeeeeeewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeewwwwwwwwwwwwwwwwwwwwwwwwwwww
+                .center-mid__contents-box__list__items__box__price ¥10,000
+
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price ¥16,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price ¥19,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price ¥90,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price  ¥10,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price  ¥10,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price  ¥10,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price  ¥10,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price  ¥10,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price   ¥500 
+
+  .center-mid
+    .center-mid-new
+      %h3.center-mid-new__item メンズ新着アイテム
+      = link_to "もっと見る ＞ ","",class: 'more'
+
+    .center-mid__contents-box
+      %div
+        %ul.center-mid__contents-box__list
+          %li.center-mid__contents-box__list__items
+        
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture     
+                .center-mid__contents-box__list__items__box__text soul fixeeeeeeeeeeeeeeeeeeeeeeeeeeeeeewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeewwwwwwwwwwwwwwwwwwwwwwwwwwww
+                .center-mid__contents-box__list__items__box__price ¥10,000
+
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price ¥16,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price ¥19,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price ¥90,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price  ¥10,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price  ¥10,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price  ¥10,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price  ¥10,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price  ¥10,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price   ¥500  
+
+  .center-mid
+    .center-mid-new
+      %h3.center-mid-new__item 家電・スマホ・カメラ新着アイテム
+      = link_to "もっと見る ＞ ","",class: 'more'
+
+    .center-mid__contents-box
+      %div
+        %ul.center-mid__contents-box__list
+          %li.center-mid__contents-box__list__items
+        
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture     
+                .center-mid__contents-box__list__items__box__text soul fixeeeeeeeeeeeeeeeeeeeeeeeeeeeeeewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeewwwwwwwwwwwwwwwwwwwwwwwwwwww
+                .center-mid__contents-box__list__items__box__price ¥10,000
+
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price ¥16,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price ¥19,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price ¥90,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price  ¥10,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price  ¥10,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price  ¥10,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price  ¥10,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price  ¥10,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price   ¥500  
+
+  .center-mid
+    .center-mid-new
+      %h3.center-mid-new__item おもちゃ・ホビー・グッズ新着アイテム
+      = link_to "もっと見る ＞ ","",class: 'more'
+
+    .center-mid__contents-box
+      %div
+        %ul.center-mid__contents-box__list
+          %li.center-mid__contents-box__list__items
+        
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture     
+                .center-mid__contents-box__list__items__box__text soul fixeeeeeeeeeeeeeeeeeeeeeeeeeeeeeewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeewwwwwwwwwwwwwwwwwwwwwwwwwwww
+                .center-mid__contents-box__list__items__box__price ¥10,000
+
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price ¥16,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price ¥19,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price ¥90,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price  ¥10,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price  ¥10,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price  ¥10,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price  ¥10,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price  ¥10,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price   ¥500  
+
+  .center-category
+    %h3.center-category-upper 人気のブランド
+
+    %ul.center-category__lower
+      %li.center-category__lower__details
+        .center-category__lower__details__topic
+        = link_to "シャネル",root_path,class: "link"
+      %li.center-category__lower__details
+        .center-category__lower__details__topic
+        = link_to "ルイヴィトン",root_path,class: "link"
+      %li.center-category__lower__details
+        .center-category__lower__details__topic
+        = link_to "シュプリーム", root_path,class: "link"
+      %li.center-category__lower__details
+        .center-category__lower__details__topic
+        = link_to "ナイキ", root_path,class: "link"
+
+  .center-mid
+    .center-mid-new
+      %h3.center-mid-new__item レディース新着アイテム
+      = link_to "もっと見る ＞ ","",class: 'more'
+
+    .center-mid__contents-box
+      %div
+        %ul.center-mid__contents-box__list
+          %li.center-mid__contents-box__list__items
+        
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture     
+                .center-mid__contents-box__list__items__box__text soul fixeeeeeeeeeeeeeeeeeeeeeeeeeeeeeewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeewwwwwwwwwwwwwwwwwwwwwwwwwwww
+                .center-mid__contents-box__list__items__box__price ¥10,000
+
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price ¥16,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price ¥19,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price ¥90,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price  ¥10,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price  ¥10,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price  ¥10,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price  ¥10,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price  ¥10,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price   ¥500 
+
+  .center-mid
+    .center-mid-new
+      %h3.center-mid-new__item メンズ新着アイテム
+      = link_to "もっと見る ＞ ","",class: 'more'
+
+    .center-mid__contents-box
+      %div
+        %ul.center-mid__contents-box__list
+          %li.center-mid__contents-box__list__items
+        
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture     
+                .center-mid__contents-box__list__items__box__text soul fixeeeeeeeeeeeeeeeeeeeeeeeeeeeeeewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeewwwwwwwwwwwwwwwwwwwwwwwwwwww
+                .center-mid__contents-box__list__items__box__price ¥10,000
+
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price ¥16,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price ¥19,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price ¥90,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price  ¥10,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price  ¥10,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                = link_to "",""
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+
+                .center-mid__contents-box__list__items__box__price  ¥10,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price  ¥10,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price  ¥10,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price   ¥500  
+
+  .center-mid
+    .center-mid-new
+      %h3.center-mid-new__item 家電・スマホ・カメラ新着アイテム
+      = link_to "もっと見る ＞ ","",class: 'more'
+
+    .center-mid__contents-box
+      %div
+        %ul.center-mid__contents-box__list
+          %li.center-mid__contents-box__list__items
+        
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture     
+                .center-mid__contents-box__list__items__box__text soul fixeeeeeeeeeeeeeeeeeeeeeeeeeeeeeewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeewwwwwwwwwwwwwwwwwwwwwwwwwwww
+                .center-mid__contents-box__list__items__box__price ¥10,000
+
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price ¥16,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price ¥19,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price ¥90,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price  ¥10,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price  ¥10,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price  ¥10,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price  ¥10,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price  ¥10,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price   ¥500  
+
+  .center-mid
+    .center-mid-new
+      %h3.center-mid-new__item おもちゃ・ホビー・グッズ新着アイテム
+      = link_to "もっと見る ＞ ","",class: 'more'
+
+    .center-mid__contents-box
+      %div
+        %ul.center-mid__contents-box__list
+          %li.center-mid__contents-box__list__items
+        
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture     
+                .center-mid__contents-box__list__items__box__text soul fixeeeeeeeeeeeeeeeeeeeeeeeeeeeeeewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeewwwwwwwwwwwwwwwwwwwwwwwwwwww
+                .center-mid__contents-box__list__items__box__price ¥10,000
+
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price ¥16,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price ¥19,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price ¥90,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price  ¥10,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price  ¥10,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price  ¥10,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price  ¥10,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price  ¥10,000
+
+          %li.center-mid__contents-box__list__items
+            %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              .center-mid__contents-box__list__items__box
+                .center-mid__contents-box__list__items__box__picture
+                  
+                .center-mid__contents-box__list__items__box__text soul fix
+                .center-mid__contents-box__list__items__box__price   ¥500  
+
+  .box-for-fix
+= render 'items/shared/footer'
+        

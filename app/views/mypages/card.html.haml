@@ -1,0 +1,81 @@
+= render 'items/shared/header'
+.my-contents.clearfix
+  = render 'sidebar'
+
+  .card-container
+    .card-container-box
+      .card-container-box-head クレジットカード情報入力
+      .card-container-box-bottom
+        .card-container-box-bottom-center
+
+          .card-container-box-bottom-center__number
+            %label.number-text カード番号
+            %span.number-require 必須
+            = form_with  local: true do |f|
+              = f.text_field :name, class: "number-input", placeholder: "半角数字のみ"
+            %ul.number-cards
+              %li.number-cards-img
+                = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg', size: "49x20"
+              %li.number-cards-img
+                = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/master-card.svg', size: "34x20"
+              %li.number-cards-img
+                = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg', size: "30x20"
+              %li.number-cards-img
+                = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/jcb.svg', size: "32x20"
+              %li.number-cards-img
+                = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/american_express.svg', size: "21x20"
+              %li.number-cards-img
+                = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg', size: "32x20"
+              %li.number-cards-img
+                = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/discover.svg', size: "32x20"
+
+          .card-container-box-bottom-center__expire
+            %label.number-text 有効期限
+            %span.number-require 必須
+            .expire
+              .expire-months
+                %select.expire-months-select
+                  %option{value: "01"} 01
+                  %option{value: "02"} 02
+                  %option{value: "03"} 03
+                  %option{value: "04"} 04
+                  %option{value: "05"} 05
+                  %option{value: "06"} 06
+                  %option{value: "07"} 07
+                  %option{value: "08"} 08
+                  %option{value: "09"} 09
+                  %option{value: "10"} 10
+                  %option{value: "11"} 11
+                  %option{value: "12"} 12
+
+                %span.expire-months-select 月
+              .expire-years
+                %select.expire-years-select
+                  %option{value: "19"} 19
+                  %option{value: "20"} 20
+                  %option{value: "21"} 21
+                  %option{value: "22"} 22
+                  %option{value: "23"} 23
+                  %option{value: "24"} 24
+                  %option{value: "25"} 25
+                  %option{value: "26"} 26
+                  %option{value: "27"} 27
+                  %option{value: "28"} 28
+                  %option{value: "29"} 29
+                -# %i.icon-arrow-bottom
+                -#   = fa 'chevron-down', class:'arrow'
+                %span.expire-years-select 年
+
+          .card-container-box-bottom-center__secure
+            %label.number-text セキュリティコード
+            %span.number-require 必須
+            = form_with  local: true do |f|
+              = f.text_field :name, class: "number-input", placeholder: "カードの背面4桁または3桁の番号"
+            .card-container-box-bottom-center__secure__text 
+              = fa_icon 'question-circle', class: 'qiestion'
+              カード裏面の番号とは？
+
+          .card-container-box-bottom-center__add
+            %button.btn-red{type: "button"} 追加する
+= render 'items/shared/footer'
+

@@ -1,17 +1,27 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  -# .actions
-  -#   = f.submit "Log in"
-= render "devise/shared/links"
+.registration-index
+  = render "devise/registrations/header"
+  .login-contents
+    = form_with  class:"login-panel",local: true do |f|
+      .login-no-account
+        %p アカウントをお持ちでない方はこちら
+        = link_to users_index_path, class: "regist-btn" do  
+          新規会員登録
+      .login-form-contents
+        %button.sign_up_Facebook
+          = fa_icon 'facebook-square', class: 'facebook_icon'
+          Facebookでログイン
+        %button.sign_up_Google
+          Googleでログイン   
+      .login-form-contents
+        .login-form
+          = f.text_field :email, class:"input-user-info", placeholder: "メールアドレス"
+        .login-form
+          = f.text_field :password, class:"input-user-info", placeholder: "パスワード"
+        .login-form
+          .g-recaptcha.login-captcha
+            %iframe{frameborder: "0",width:304, name: "a-szm6fog1g9xi", role: "presentation", sandbox: "allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox", scrolling: "no", src: "https://www.google.com/recaptcha/api2/anchor?ar=1&k=6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc&co=aHR0cHM6Ly93d3cubWVyY2FyaS5jb206NDQz&hl=ja&v=66WEle60vY1w2WveBS-1ZMFs&size=normal&cb=hp1fnvxwxuiu"}              
+        = f.submit "ログイン", class: "login-default-btn" 
+        .pass-confirmation
+          = link_to users_index_path, class:"pass-confirmation" do
+            パスワードをお忘れの方
+  = render "devise/registrations/footer"

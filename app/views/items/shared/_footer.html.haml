@@ -1,0 +1,100 @@
+.bottom-banner
+  .bottom-banner-background
+  .bottom-banner-box
+    .bottom-banner-box-set
+      .bottom-banner-box-set-left
+        .bottom-banner-box-set-left-top スマホでかんたんフリマアプリ
+        .bottom-banner-box-set-left-middle 今すぐ簡単無料ダウンロード！
+        .bottom-banner-box-set-left-bottom
+          .bottom-banner-box-set-left-bottom-links
+            = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/mercari_icon-f75780e32e41e052c8aaa8b446331cd8.png", class: "bottom-banner-box-set-left-bottom__mercari"
+
+            = link_to "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8" do
+              = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg", class: "bottom-banner-box-set-left-bottom__link__app"
+
+            = link_to "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja" do
+              = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg", class: "bottom-banner-box-set-left-bottom__link__google"
+
+      .bottom-banner-box-set-right
+        .bottom-banner-box-set-right__phone
+          = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/download_app_pc-a4418175e8be071827ac88d073f40e4a.png", class: "bottom-banner-box-set-right__phone__img"
+
+.footer
+  .footer-nav
+    .footer-about
+      %h2.footer-about__title メルカリについて
+      %ul.footer-about__list
+        %li.footer-about__list__contents
+          .footer-about__list__contents__name 会社概要（運営会社）
+        %li.footer-about__list__contents
+          .footer-about__list__contents__name 採用情報
+        %li.footer-about__list__contents
+          .footer-about__list__contents__name プレスリリース
+        %li.footer-about__list__contents
+          .footer-about__list__contents__name 公式ブログ
+        %li.footer-about__list__contents
+          %a.footer-about__list__contents__name メルカリロゴ利用ガイドライン
+
+        .footer-about__list__contents-twitter
+          = link_to "https://twitter.com/mercari_jp", class: "contents__btn" do
+            = fa_icon 'twitter', class: 'twitter'
+
+      
+        .footer-about__list__contents-facebook
+          =link_to "https://www.facebook.com/mercarijp", class: "contents__btn" do
+            = fa_icon 'facebook-square', class: 'facebook'
+
+    .footer-help
+      %h2.footer-about__title ヘルプ＆ガイド
+      %ul.footer-about__list
+        %li.footer-about__list__contents
+          .footer-about__list__contents__name メルカリガイド
+        %li.footer-about__list__contents
+          .footer-about__list__contents__name らくらくメルカリ便
+        %li.footer-about__list__contents
+          .footer-about__list__contents__name ゆうゆうメルカリ便
+        %li.footer-about__list__contents
+          .footer-about__list__contents__name 大型メルカリ便
+        %li.footer-about__list__contents
+          .footer-about__list__contents__name 車体取引ガイド
+        %li.footer-about__list__contents
+          .footer-about__list__contents__name メルカリあんしん・あんぜん宣言！
+        %li.footer-about__list__contents
+          .footer-about__list__contents__name 偽ブランド品撲滅への取り組み
+        %li.footer-about__list__contents
+          .footer-about__list__contents__name メルカリボックス
+    .footer-privacy
+      %h2.footer-about__title プライバシーと利用規約
+      .footer-privacy__left
+        %ul.footer-about__list
+          %li.footer-about__list__contents
+            .footer-about__list__contents__name プライバシーポリシー
+          %li.footer-about__list__contents
+            .footer-about__list__contents__name メルカリ利用規約
+          %li.footer-about__list__contents
+            .footer-about__list__contents__name あんしんスマホサポート制度に関する利用特約
+          %li.footer-about__list__contents
+            .footer-about__list__contents__name コンプライアンスポリシー
+      .footer-privacy__right
+        %ul.footer-about__list
+          %li.footer-about__list__contents
+            .footer-about__list__contents__name 個人データの安全管理に係る基本方針
+          %li.footer-about__list__contents
+            .footer-about__list__contents__name 特定商取引に関する表記
+          %li.footer-about__list__contents
+            .footer-about__list__contents__name 資金決済法に基づく表示
+          %li.footer-about__list__contents
+            .footer-about__list__contents__name 法令順守と犯罪抑止のために
+    .footer-country
+      %h2.footer-about__title 国
+      %ul.footer-about__list
+        %li.footer-about__list__contents
+          .footer-about__list__contents__name 日本
+        %li.footer-about__list__contents
+          .footer-about__list__contents__name United States
+
+  .bottom
+    .bottom__icon
+      = link_to root_path do
+        = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/logo-white-1a0696cf557ee1ed6f3c3444661d21ad.svg", class: "bottom__icon__img"
+    %span.bottom__icon__copywrites © 2019 Mercari

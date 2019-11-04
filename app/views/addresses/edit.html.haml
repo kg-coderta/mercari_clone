@@ -1,0 +1,48 @@
+= render 'items/shared/header'
+.my-contents.clearfix
+  = render '/mypages/sidebar'
+  .id-content
+    .id-head.bold 本人情報の登録
+    = form_with model: @address, class:"id-inner",local: true do |f|
+      お客さまの本人情報をご登録ください。
+      %br>/
+      登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+      .id-text-right
+        = link_to mypages_path, class:"id-text-right",:target => "_blank" do
+          本人確認書類のアップロードについて
+          = fa_icon 'chevron-right', class: 'icon'
+      .address-form
+        .form-label.bold お名前
+        %p 中野  五月
+      .address-form
+        .form-label.bold お名前カナ
+        %p ナカノ  イツキ
+      .address-form
+        .form-label.bold 生年月日
+        %p 2002/05/05
+      .address-form
+        .form-label.bold 郵便番号
+        %span.form-arbitrary 任意     
+      = f.text_field :postal_code, class:"input-address", placeholder: "例）5420076"
+      .address-form
+        .form-label.bold 都道府県
+        %span.form-arbitrary 任意
+      = f.collection_select :prefecture_id, Prefecture.where.not(id: 48), :id, :name  
+      .address-form
+        .form-label.bold 市区町村
+        %span.form-arbitrary 任意
+      = f.text_field :postal_code, class:"input-address", placeholder: "例）大阪市中央区"
+      .address-form
+        .form-label.bold 番地
+        %span.form-arbitrary 任意
+      = f.text_field :postal_code, class:"input-address", placeholder: "例）難波５丁目１−６０"
+      .address-form
+        .form-label.bold 建物名
+        %span.form-arbitrary 任意
+      = f.text_field :postal_code, class:"input-address", placeholder: "例）なんばスカイオ 15階"
+      = f.submit "登録する", class: "btn-default btn-red" 
+      .address-form.id-text-right
+        = link_to mypages_path, class:"id-text-right",:target => "_blank" do
+          本人情報の登録について
+          = fa_icon 'chevron-right', class: 'icon'
+= render 'items/shared/footer'
