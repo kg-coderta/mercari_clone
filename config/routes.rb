@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :show]
   resources :mypages, only: [:index, :destroy, :edit]
   resources :addresses, only:[:new, :edit]
+  get "addresses" => "addresses#phone"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
