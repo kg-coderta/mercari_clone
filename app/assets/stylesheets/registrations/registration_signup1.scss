@@ -1,0 +1,132 @@
+.registration_container{
+  &__main{
+    &__contents{
+      width: 700px;
+      margin: 0 auto;
+      background:#fff;
+      &__head{
+    h2{
+      text-align: center;
+      font-size: 22px;
+      padding: 32px;
+    }
+  }
+  .new_user{
+    padding: 24px 16px 40px;
+    border-top: 1px solid #f5f5f5;
+    .fields{
+      max-width: 343px;
+      margin: 0 auto;
+        .field:first-child{
+          margin: 0;
+        }
+        .field{
+          margin: 24px 0 0;
+          .one_text{
+            line-height: 1.5;
+            margin: 8px 0 0;
+            padding: 0;
+            font-size: 14px;
+            box-sizing: border-box;
+          }
+          select{
+            position: relative;
+            z-index: 2;
+            height: 48px;
+            width: 76px;
+            padding: 0 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: 0;
+            font-size: 16px;
+            line-height: 1.5;
+            cursor: pointer;
+          }
+          label{
+            font-weight: 600;
+            font-size: 14px;
+          }
+          span{
+            background: #ea352d;
+                margin: 0 0 0 8px;
+                padding: 2px 4px;
+                border-radius: 2px;
+                color: #fff;
+                font-size: 12px;
+          }
+          .input-default{
+            width: 100%;
+            margin: 8px 0 0;
+            height: 48px;
+            padding: 10px 16px 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: #fff;
+            line-height: 1.5;
+            font-size: 16px;
+            box-sizing: border-box;
+          }
+          .input-default-half{
+            width: 100%;
+            margin: 8px 0 0;
+            height: 48px;
+            padding: 10px 16px 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: #fff;
+            line-height: 1.5;
+            font-size: 16px;
+            box-sizing: border-box;
+            width: calc(50% - 7px);
+          }
+          .input-default-half:first-of-type{
+            margin-right: 8px;
+          }
+          .rule-box{
+            font-size: 14px;
+            .rule{
+              text-decoration: none;
+              color: #0099e8;
+            }
+          }
+        }
+        .next-btn{
+          display: block;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+          border: 1px solid transparent;
+          -webkit-transition: all ease-out .3s;
+          transition: all ease-out .3s;
+          cursor: pointer;
+          text-align: center;
+          background: #ea352d;
+          border: 1px solid #ea352d;
+          color: #fff;
+          margin-top: 24px;
+        }
+        .captcha_field{
+          margin: 40px 0 0;
+        }
+        .text_info{
+          margin: 8px 0 0;
+          line-height: 1.5;
+          font-size: 14px;
+          color: #888;
+        }
+        .text-right{
+          text-align: right;
+          .check{
+            text-decoration: none;
+            color:#0099e8;
+            font-size: 14px;
+          }
+          .right-icon{
+            color:#0099e8;
+          }
+        }
+    }
+  }
+  }
+  }
+}
