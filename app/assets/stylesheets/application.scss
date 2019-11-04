@@ -15,11 +15,12 @@
  */
  @import "reset";
  @import "format";
- @import "font-awesome";
  @import "mypages/logout";
  @import "mixins/clearfix";
  @import "mixins/tag-list";
  @import "mypages/profile";
+ @import "font-awesome";
+ @import "registrations/progress_header";
  @import "registrations/index";
  @import "sessions/new";
  @import "addresses/phone"
