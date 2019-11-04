@@ -19,7 +19,7 @@
           = f.text_field :password, class:"input-user-info", placeholder: "パスワード"
         .login-form
           .g-recaptcha.login-captcha
-            %iframe{frameborder: "0", name: "a-szm6fog1g9xi", role: "presentation", sandbox: "allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox", scrolling: "no", src: "https://www.google.com/recaptcha/api2/anchor?ar=1&k=6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc&co=aHR0cHM6Ly93d3cubWVyY2FyaS5jb206NDQz&hl=ja&v=66WEle60vY1w2WveBS-1ZMFs&size=normal&cb=hp1fnvxwxuiu"}              
+            %iframe{frameborder: "0",width:304, name: "a-szm6fog1g9xi", role: "presentation", sandbox: "allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox", scrolling: "no", src: "https://www.google.com/recaptcha/api2/anchor?ar=1&k=6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc&co=aHR0cHM6Ly93d3cubWVyY2FyaS5jb206NDQz&hl=ja&v=66WEle60vY1w2WveBS-1ZMFs&size=normal&cb=hp1fnvxwxuiu"}              
         = f.submit "ログイン", class: "login-default-btn" 
         .pass-confirmation
           = link_to users_index_path, class:"pass-confirmation" do
