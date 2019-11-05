@@ -1,0 +1,43 @@
+.registration_container
+  = render 'devise/registrations/progress_header'
+  .registration_container__main
+    .registration_container__main__contents
+      .registration_container__main__contents__head
+        .registration-finish-text.bold 会員登録完了
+        -# form_withテーブル作成後に値を要変更
+      .registration-finish-content
+        ありがとうございます。
+        %br/
+        会員登録が完了しました。
+        .btn-finish
+        = link_to root_path, class: "btn-default btn-red" do  
+          メルカリをはじめる
+      .bottom-banner
+        .bottom-banner-background
+        .bottom-banner-box
+          .bottom-banner-box-set
+            .bottom-banner-box-set-left
+              .bottom-banner-box-set-left-top スマホでかんたんフリマアプリ
+              .bottom-banner-box-set-left-middle.bold 今すぐ無料ダウンロード！
+              .bottom-banner-box-set-left-bottom
+                .bottom-banner-box-set-left-bottom-links
+                  = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/mercari_icon-f75780e32e41e052c8aaa8b446331cd8.png", class: "bottom-banner-box-set-left-bottom__mercari"
+                  = link_to "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8" do
+                    = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg", class: "bottom-banner-box-set-left-bottom__link__app"
+                  = link_to "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja" do
+                    = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg", class: "bottom-banner-box-set-left-bottom__link__google"
+            .bottom-banner-box-set-right
+              .bottom-banner-box-set-right__phone
+                = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/download_app_pc-a4418175e8be071827ac88d073f40e4a.png", class: "bottom-banner-box-set-right__phone__img"
+  = render 'devise/registrations/footer'
+
+:css
+  li.five{
+    color: #ea352d !important;
+    font-weight: 600 !important;
+  }
+  .progress_status.first,.second,.third,.forth,.last,::before,::after{
+    background: #ea352d !important;
+  }
+  
+  
