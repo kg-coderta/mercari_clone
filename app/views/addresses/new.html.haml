@@ -8,18 +8,6 @@
       = form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f|
         .fields
           .field
-            = f.label :nickname, 'お名前'
-            %span.must 必須
-            %br/
-            = f.text_field :nickname, autofocus: true, autocomplete: "nickname", placeholder: '例) 山田', class: 'input-default'
-            = f.text_field :nickname, autofocus: true, autocomplete: "nickname", placeholder: '例) 彩', class: 'input-default'
-          .field
-            = f.label :email, 'お名前カナ'
-            %span.must 必須
-            %br/
-            = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "ヤマダ", class: 'input-default'
-            = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "アヤ", class: 'input-default'
-          .field
             = f.label :password, '郵便番号'
             %span.must 必須
             %br/
