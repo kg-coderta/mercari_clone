@@ -7,6 +7,9 @@ class MypagesController < ApplicationController
 
   def edit
   end
+
+  def show
+  end
   
   def show
   end

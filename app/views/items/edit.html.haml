@@ -1,0 +1,50 @@
+.registration-index
+  = render 'devise/registrations/header'
+  %section.buy-container
+    %h2.buy-container__head 購入内容の確認
+    %section.buy-container__item
+      .buy-container__item__inner
+        %h3.buy-container__item__inner__pic
+          = image_tag "https://static.mercdn.net/thumb/photos/m87056738576_1.jpg?1572929248", size: "64x64"
+        %p.buy-container__item__inner__name コインホルダー　携帯用
+
+        %form.buy-container__item__inner__form{action: "https://www.mercari.com/jp/transaction/buy/done/m87056738576/", method: "POST", novalidate: "novalidate"}
+          %p.buy-container__item__inner__form__price
+            ¥850
+            %span.buy-container__item__inner__form__price__shipping-fee 送料込み
+          %ul.buy-container__item__inner__form__point 
+            %li.buy-container__item__inner__form__point__box
+              .buy-container__item__inner__form__point__box__text
+                ポイントはありません
+          %ul.buy-container__item__inner__form__price
+            %li.buy-container__item__inner__form__price__box
+              .buy-container__item__inner__form__price__box__left 支払い金額
+              .buy-container__item__inner__form__price__box__right
+                %span{"data-buy-pay" => "850"} ¥850
+            .buy-container__item__inner__form__price__submit
+              = form_with local: true do |f|
+                = f.submit "購入する", class:'buy-btntext'
+    %section.buy-container__user
+      .buy-container__user__address
+        %h3.buy-container__user__address-text 配送先
+        %address.buy-container__user__address__detail
+          〒443-0141
+          %br/
+          大阪府テックエキスパート市
+          15F
+          
+          %br/
+          量産型原田
+        %p.buy-container__user__address__text
+        .buy-container__user__address__fix
+          = link_to "変更する > ", "https://www.mercari.com/jp/transaction/address/m87056738576/", class: "change"
+          
+    %section.buy-container__pay
+      .buy-container__pay__box
+        %h3.buy-container__pay__box__how-to-pay 支払い方法
+        %p.buy-container__pay__box__card-info /
+        
+        .buy-container__user__address__fix
+          = link_to "変更する > ", "", class: "change"
+      
+  = render 'devise/registrations/footer'
