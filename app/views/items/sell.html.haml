@@ -1,0 +1,141 @@
+.registration-index
+  = render 'devise/registrations/regist_header'
+  .a-container
+    .a-container__main
+      .a-container__main__header
+        .a-container__main__header__text 商品の情報を入力
+      .a-container__main__picturebox
+        %label.label 出品画像
+        %span.required 必須
+        .text 最大10枚までアップロードできます
+        .a-container__main__picturebox__drop
+          ドラッグアンドドロップ
+          %br
+          またはクリックしてファイルをアップロード
+        
+      .a-container__main__name
+        %label.label 商品名
+        %span.required 必須
+        = form_with  local: true do |f|
+          = f.text_field :name, class: "name-input", placeholder: "商品名(必須：40文字まで)"
+        .a-container__main__name__details
+          %label.label 商品の説明
+          %span.required 必須
+          = form_with  local: true do |f|
+            = f.text_area :name, class: "details-input", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+          
+
+      .a-container__main__details
+        %h3.a-container__main__details__text 商品の詳細
+        .a-container__main__details__box
+          .a-container__main__details__box__upper
+            %label.label カテゴリー
+            %span.required 必須
+            %select.a-container__main__details__box__upper__category
+              %option{value: ""} ---
+              %option{value: "1"} レディース
+              %option{value: "2"} メンズ
+              %option{value: "3"} ベビー・キッズ
+              %option{value: "4"} インテリア・住まい・小物
+              %option{value: "5"} 本・音楽・ゲーム
+              %option{value: "1328"} おもちゃ・ホビー・グッズ
+              %option{value: "6"} コスメ・香水・美容
+              %option{value: "7"} 家電・スマホ・カメラ
+              %option{value: "8"} スポーツ・レジャー
+              %option{value: "9"} ハンドメイド
+              %option{value: "1027"} チケット
+              %option{value: "1318"} 自動車・オートバイ
+              %option{value: "10"} その他
+          .a-container__main__details__box__bottom
+            %label.label 商品の状態
+            %span.required 必須
+            %select.a-container__main__details__box__bottom__status
+              %option{value: ""} ---
+              %option{value: "1"} 新品、未使用
+              %option{value: "2"} 未使用に近い
+              %option{value: "3"} 目立った傷や汚れなし
+              %option{value: "4"} やや傷や汚れあり
+              %option{value: "5"} 傷や汚れあり
+              %option{value: "6"} 全体的に状態が悪い
+
+      .a-container__main__delivery
+        .a-container__main__delivery__text
+          配送について
+          =link_to root_path do
+            = fa_icon 'question-circle', class: 'question'
+        .a-container__main__delivery__box
+          .a-container__main__delivery__box__upper
+            %label.label 配送料の負担
+            %span.required 必須
+            %select.a-container__main__delivery__box__upper__select
+              %option{value: ""} ---
+              %option{value: "2"} 送料込み(出品者負担)
+              %option{value: "1"} 着払い(購入者負担)
+              
+          .a-container__main__delivery__box__middle
+            %label.label 発送元の地域
+            %span.required 必須
+            = form_with class:'a-container__main__delivery__box__middle__select',local: true do |f|
+              = f.collection_select :prefecture_id, Prefecture.all, :id, :name
+          
+          .a-container__main__delivery__box__bottom
+            %label.label 発送元までの日数
+            %span.required 必須
+            %select.a-container__main__delivery__box__bottom__select
+              %option{value: ""} ---
+              %option{value: "1"} 1~2日で発送
+              %option{value: "2"} 2~3日で発送
+              %option{value: "3"} 4~7日で発送
+
+      .a-container__main__price
+        .a-container__main__price__text
+          販売価格(¥300~9,999,999)
+          =link_to root_path do
+            = fa_icon 'question-circle', class: 'question'
+
+        .a-container__main__price__box
+          %ul.a-container__main__price__box__upper
+            %li.a-container__main__price__box__upper__list
+              .a-container__main__price__box__upper__list__left
+                %label.label 価格
+                %span.required 必須
+              .a-container__main__price__box__upper__list__right 
+                ¥
+                = form_with  local: true do |f|
+                  = f.text_field :name, class: "price-input", placeholder: "例）300"
+            %li.a-container__main__price__box__upper__list
+              .a-container__main__price__box__upper__list__text
+                販売手数料(10%)
+              .a-container__main__price__box__upper__list__hyphen
+                ー
+            .a-container__main__price__box__upper__list__last
+              .a-container__main__price__box__upper__list__last__benefit
+                販売利益
+              .a-container__main__price__box__upper__list__last__hyphen
+                ー
+                
+      .a-container__main__submit
+        = link_to "禁止されている出品", "", class: "link-color"
+        、
+        = link_to "行為", "", class: "link-color"
+        を必ずご確認ください。
+        %br
+        またブランド品でシリアルナンバー等がある場合はご記載ください。
+        = link_to "偽ブランドの販売","", class: "link-color"
+        は犯罪で
+        %br
+        あり処罰される可能性があります。
+        %br
+        また、出品をもちまして
+        = link_to "加盟店規約","", class: "link-color"
+        に同意したことになります。
+      
+        .a-container__main__submit__next
+          = form_with class:"sell-btn", local: true do |f|
+            = f.submit "出品する", class:'sell-btntext'
+        .a-container__main__submit__back
+          = form_with class:"back-btn", local: true do |f|
+            = f.submit "もどる", class:'back-btntext'
+      
+  = render 'devise/registrations/regist_footer'
+
