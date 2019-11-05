@@ -1,5 +1,5 @@
 .registration-index
-  = render 'devise/registrations/regist_header'
+  = render 'devise/registrations/header'
   .a-container
     .a-container__main
       .a-container__main__header
@@ -113,7 +113,7 @@
                 販売利益
               .a-container__main__price__box__upper__list__last__hyphen
                 ー
-                
+
       .a-container__main__submit
         = link_to "禁止されている出品", "", class: "link-color"
         、
@@ -137,5 +137,5 @@
           = form_with class:"back-btn", local: true do |f|
             = f.submit "もどる", class:'back-btntext'
       
-  = render 'devise/registrations/regist_footer'
+  = render 'devise/registrations/footer'
 
