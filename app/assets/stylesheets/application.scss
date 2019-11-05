@@ -13,12 +13,14 @@
  *= require_tree .
  *= require_self
  */
- @import "format";
  @import "reset";
- @import "font-awesome";
+ @import "format";
  @import "mypages/logout";
  @import "mixins/clearfix";
  @import "mixins/tag-list";
  @import "mypages/profile";
- @import "registrations/registration_index";
-
+ @import "font-awesome";
+ @import "registrations/progress_header";
+ @import "registrations/index";
+ @import "sessions/new";
+ @import "addresses/phone"

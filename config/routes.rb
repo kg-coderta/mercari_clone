@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  root 'items#sell'
-  resources :mypages, only: [:index, :destroy, :edit] 
-  resources :addresses, only:[:new, :edit]
+  root 'items#index'
+  resources :items, only: [:index, :show]
+  resources :mypages, only: [:index, :destroy, :edit]
+  resources :addresses, only:[:new, :edit,:show]
+  get "addresses" => "addresses#phone"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   

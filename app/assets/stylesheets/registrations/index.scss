@@ -1,0 +1,91 @@
+.registration-container{
+  height: 384px;
+    &__main{
+      width: 700px;
+      height: 384px;
+      margin: 0 auto;
+      background-color: #fff;
+        &__header{
+          width: 700px;
+          height: 97px;
+          text-align: center;
+          border-bottom: 1px solid #f5f5f5;
+          &__text{
+            padding: 32px;
+            margin: 0;
+            font-size: 22px;
+          }
+        }
+        &__content{
+          width: 700px;
+          height: 247px;
+          padding: 40px 40px 64px;
+          box-sizing: border-box;
+          &__btn-box{
+            max-width: 343px;
+            margin: 0 auto;
+            box-sizing: border-box;
+          .sign_up_mail-adress{
+            display: block;
+            text-decoration: none;
+            background-color: #ea352d;
+            color: #fff;
+            line-height: 48px;
+            border-radius: 4px;
+            font-size: 14px;
+            text-align: center;
+            border: 1px solid transparent;
+            position: relative;
+            .mail_icon{
+              position: absolute;
+              top: 50%;
+              left: 16px;
+              font-size: 20px;
+              font-weight: 400px;
+              display: inline-block;
+              transform: translate(0, -50%);
+            }
+          }
+          .sign_up_Facebook{
+            display: block;
+            width: 100%;
+            color: #fff;
+            background-color: #385185;
+            line-height: 48px;
+            border-radius: 4px;
+            font-size: 14px;
+            border: 1px solid transparent;
+            margin: 16px 0 0;
+            padding: 0;
+            position: relative;
+            cursor: pointer;
+            .facebook_icon{
+              position: absolute;
+              top: 50%;
+              left: 16px;
+              font-weight: 400px;
+              font-size: 31px;
+              display: inline-block;
+              transform: translate(0, -50%);
+              color: #fff;
+            }
+            }
+            .sign_up_Google{
+              background: #fff
+              url('google_img')
+              no-repeat 3px top;
+              display: block;
+              width: 100%;
+              line-height: 48px;
+              background-color: #fff;
+              border-radius: 4px;
+              font-size: 14px;
+              border: #979797 solid 1px;
+              margin: 16px 0 0;
+              padding: 0;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }

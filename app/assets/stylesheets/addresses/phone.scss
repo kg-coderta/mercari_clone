@@ -1,0 +1,46 @@
+.confirm-phone-contents{
+  width: 700px;
+  margin: 0 auto;
+  background: #fff;
+  .confirm-phone-upper{
+    font-size: 22px;
+    padding: 32px; 
+    text-align: center;
+    border-bottom: 1px solid #f5f5f5; 
+  }
+  .confirm-phone-lower{
+    padding: 40px 40px 64px;
+    .confirm-phone-main{
+      max-width: 343px;
+      margin: 0 auto;
+      .phone-label{
+        display: inline;
+      }
+      .phone-form{
+        width: 100%;
+        margin: 8px 0 0;
+        height: 48px;
+        padding: 10px 16px 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: #fff;
+        line-height: 1.5;
+        font-size: 16px;
+      }
+      .confirm-text{
+        margin-top: 8px;
+        line-height: 1.5;
+      }
+      .btn-red{
+        background: #ea352d;
+        border: 1px solid #ea352d;
+        color: #fff;
+        margin-top: 24px;
+      }
+      .confirm-text-right{
+        margin-top: 32px;
+        text-align: right;
+      }
+    }
+  }
+}
