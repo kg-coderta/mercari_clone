@@ -1,29 +1,25 @@
-
 %section.show-item-box
   %h1.show-item-box-name.bold.text-center
-    ［正規品］coach ミッキーマウスコラボ ショルダーバック タグ付き
+    = @item.name
   .show-item-content.clearfix
     .item-photo
-      = image_tag 'https://www.pokemoncenter-online.com/sp/static/product_image/4521329255392/4521329255392.jpg', size: 300, class: 'item-photo__main'
+      = image_tag (@photos.first.image), size: 300, class: 'item-photo__main'
 
       .item-photo-box
-        = image_tag 'https://www.pokemoncenter-online.com/sp/static/product_image/4521329255392/4521329255392.jpg', size: 60, class: 'item-photo-box__sub'
-        = image_tag 'https://www.pokemoncenter-online.com/sp/static/product_image/4521329255392/4521329255392.jpg', size: 60, class: 'item-photo-box__sub'
-        = image_tag 'https://www.pokemoncenter-online.com/sp/static/product_image/4521329255392/4521329255392.jpg', size: 60, class: 'item-photo-box__sub'
-        = image_tag 'https://www.pokemoncenter-online.com/sp/static/product_image/4521329255392/4521329255392.jpg', size: 60, class: 'item-photo-box__sub'
-        = image_tag 'https://www.pokemoncenter-online.com/sp/static/product_image/4521329255392/4521329255392.jpg', size: 60, class: 'item-photo-box__sub' 
-        = image_tag 'https://www.pokemoncenter-online.com/sp/static/product_image/4521329255392/4521329255392.jpg', size: 60, class: 'item-photo-box__sub'
+        - @photos.each do |photo|
+          = image_tag (photo.image), size: 60, class: 'item-photo-box__sub'
+
     %table.item-detail-table
       %tbody
         %tr
           %th 出品者
           %td
             = link_to "https://www.mercari.com/jp/u/445135287/" do
-              はる
+              = @saler.nickname
             %div
               .item-user-ratings
                 %i.icon-good
-                %span 47
+                %span 0
               .item-user-ratings
                 %i.icon-normal
                 %span 0
@@ -53,25 +49,30 @@
                 コーチ
         %tr
           %th 商品の状態
-          %td 新品、未使用
+          %td 
+            = @item.state
         %tr
           %th 配送料の負担
-          %td 送料込み(出品者負担)
+          %td 
+            = @item.carriage
         %tr
           %th 配送の方法
-          %td らくらくメルカリ便
+          %td
+            = @item.method
         %tr
           %th 配送元地域
           %td
             = link_to "https://www.mercari.com/jp/area/23/" do
-              愛知県
+              = @item.region
         %tr
           %th 発送日の目安
-          %td 1~2日で発送
+          %td 
+            = @item.date
 
   .item-price-box.text-center
     %span.item-price.bold
-      ¥16,200
+      ¥
+      = @item.price
     %span.item-tax
       (税込)
     %span.item-fee
@@ -79,13 +80,8 @@
   = link_to '', class: 'item-buy-btn' do
     購入画面に進む
   .item-description
-    %p.item-description__inner 
-      ご覧いただきありがとうございます。<br>
-      こちらはコーチのショルダーバッグです。<br><br>
-      私には可愛い過ぎて使用出来ませんでした。<br>
-      使って頂ける方よろしくお願い致します。<br><br>
-      レッド系    タグ付き<br><br><br>
-      ご不明点があればコメントお待ちしております。
+    %p.item-description__inner
+      = @item.description 
   .item-btn-box.clearfix
     .item-btn-left
       %button.item-btn.item-btn-like
@@ -109,44 +105,58 @@
 .item-comment-box
   .item-comment-contents
     %ul.item-comment-content
-      %li.clearfix
-        .comment-user
-          %figure
-            .comment-user-icon
-              = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/common/common/user-icon.svg?465897195', size: 32
-            %figcaption.bold
-        .comment-body
-          .comment-body__text
-            出品者がコメントを削除しました
-          .comment-icons.clearfix
-            %time.comment-icon-left
-              %i.icon-time
-                = fa_icon "clock-o"
-              %span
-                50日前
-            .comment-icon-right
-      %li.first.clearfix
-        .comment-user
-          %figure
-            .comment-user-icon
-              = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/common/common/user-icon.svg?465897195', size: 32
-            %figcaption.bold
-        .comment-body
-          .comment-body__text
-            出品者がコメントを削除しました
-          .comment-icons.clearfix
-            %time.comment-icon-left
-              %i.icon-time
-                = fa_icon "clock-o"
-              %span
-                50日前
-            .comment-icon-right
+      - @comments.each_with_index do |comment, i|
+        - if i == 0
+          %li.clearfix
+            .comment-user
+              %figure
+                .comment-user-icon
+                  = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/common/common/user-icon.svg?465897195', size: 32
+                %figcaption.bold
+                  = comment.user.nickname
+            .comment-body
+              .comment-body__text
+                = comment.text
+              .comment-icons.clearfix
+                %time.comment-icon-left
+                  %i.icon-time
+                    = fa_icon "clock-o"
+                  %span
+                    50日前
+                .comment-icon-right
+                  - if comment.user_id == current_user.id
+                    = link_to  item_comment_path(item_id: @item.id, id: comment.id), method: :delete do
+                      %i.icon-trash
+                        = fa_icon "trash"
+        - else
+          %li.first.clearfix
+            .comment-user
+              %figure
+                .comment-user-icon
+                  = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/common/common/user-icon.svg?465897195', size: 32
+                %figcaption.bold
+                  = comment.user.nickname
+            .comment-body
+              .comment-body__text
+                = comment.text
+              .comment-icons.clearfix
+                %time.comment-icon-left
+                  %i.icon-time
+                    = fa_icon "clock-o"
+                .comment-icon-right
+                  - if comment.user_id == current_user.id 
+                    = link_to  item_comment_path(item_id: @item.id, id: comment.id), method: :delete do
+                      %i.icon-trash
+                        = fa_icon "trash"
+                %span
+                  50日前
+
   .item-comment-contents
-    .comment-description
+    .comment-description.id
       %p
         相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-    = form_with class: "comment-form", local: true do |f|
-      = f.text_field :name, class: "textarea-default"
+    = form_with model: [@item, @comment], class: "comment-form" do |f|
+      = f.text_field :text, class: "textarea-default"
       = f.submit "コメントする", class: "comment-submit btn-default btn-gray"       
 %ul.nav-item-link.clearfix
   %li.nav-item-link-prev
@@ -177,50 +187,26 @@
   %section.items-box-container.clearfix
     %h2.items-box-head.item-box-users
       = link_to "https://www.mercari.com/jp/u/445135287/" do
-        はるさんのその他の出品
+        = @saler.nickname
+        さんのその他の出品
     .items-box-content.clearfix
-      %section.items-box
-        = link_to "https://item.mercari.com/jp/m93072137118/" do
-          %figure.items-box-photo
-            = image_tag 'https://static.mercdn.net/thumb/photos/m93072137118_1.jpg?1565166661', size: 220, class: "lazyloaded"
-          .items-box-body
-            %h3.items-box-name.font-2
-              ［未使用品］ COACH ショルダーバッグ
-            .items-box-num
-              .items-box-price.font-5 
-                ¥11,300
-              .font-2
-                %i.icon-like-border
-                  = fa_icon "heart-o"
-                %span 19
-      %section.items-box
-        = link_to "https://item.mercari.com/jp/m93072137118/" do
-          %figure.items-box-photo
-            = image_tag 'https://static.mercdn.net/thumb/photos/m93072137118_1.jpg?1565166661', size: 220, class: "lazyloaded"
-          .items-box-body
-            %h3.items-box-name.font-2
-              ［未使用品］ COACH ショルダーバッグ
-            .items-box-num
-              .items-box-price.font-5 
-                ¥11,300
-              .font-2
-                %i.icon-like-border
-                  = fa_icon "heart-o"
-                %span 19
-      %section.items-box
-        = link_to "https://item.mercari.com/jp/m93072137118/" do
-          %figure.items-box-photo
-            = image_tag 'https://static.mercdn.net/thumb/photos/m93072137118_1.jpg?1565166661', size: 220, class: "lazyloaded"
-          .items-box-body
-            %h3.items-box-name.font-2
-              ［未使用品］ COACH ショルダーバッグ
-            .items-box-num
-              .items-box-price.font-5 
-                ¥11,300
-              .font-2
-                %i.icon-like-border
-                  = fa_icon "heart-o"
-                %span 19
+      - @saler_items.each do |item|
+        %section.items-box
+          = link_to item_path(item.id) do
+            %figure.items-box-photo
+              = image_tag (Photo.where(item_id: item.id).first.image), size: 220, class: "lazyloaded"
+            .items-box-body
+              %h3.items-box-name.font-2
+                = item.name
+              .items-box-num
+                .items-box-price.font-5 
+                  ¥
+                  = item.price
+                .font-2
+                  %i.icon-like-border
+                    = fa_icon "heart-o"
+                  %span 0
+
 .items-container
   %section.items-box-container.clearfix
     %h2.items-box-head.item-box-likes

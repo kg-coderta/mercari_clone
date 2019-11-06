@@ -30,6 +30,6 @@
             
       .header-lower-right
         .header-lower-right-new
-          = link_to "新規会員登録", "/jp/signup/", class: "header-lower-right-new__icon"
+          = link_to "新規会員登録", new_user_registration_path, class: "header-lower-right-new__icon"
         .header-lower-right-login
-          = link_to "ログイン", "/jp/login/?login_callback=%2Fjp%2F", class: "header-lower-right-login__icon"
+          = link_to "ログイン", new_user_session_path, class: "header-lower-right-login__icon"
