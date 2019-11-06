@@ -1,16 +1,25 @@
 class ItemsController < ApplicationController
-  # before_action :set
 
   def index
-    @item = Item.all
+    @items = Item.all
   end
 
   def new
   end
 
+def create
+  @item = Item.new(item_params)
+  @item.saler_id = current_user.id
+  if @post.save
+    redirect_back(fallback_location: root_path)
+  else
+    redirect_back(fallback_location: root_path)
+  end
+end
+
   def show
     @item = Item.includes(:photos).find(params[:id])
-    @photos = Photo.where(item_id: @item.id)
+    # @photos = Photo.where(item_id: @item.id)
     @saler = User.find(@item.saler_id)
     @saler_items = Item.where(saler_id: @saler.id).limit(6).order('id DESC')
 

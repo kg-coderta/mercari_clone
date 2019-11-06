@@ -1,8 +1,8 @@
 class Item < ApplicationRecord
   belongs_to :saler, class_name: "User"
   belongs_to :buyer, class_name: "User"
-  has_many :photos
-  has_many :comments
+  has_many :photos, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   validates :name, presence: true
   validates :description, presence: true
