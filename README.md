@@ -82,6 +82,8 @@ Things you may want to cover:
 |region|string|null: false|
 |date|string|null: false|
 |price|integer|null: false|
+|saler_id|integer|null: false|
+|buyer_id|integer|
 
 ### Association
 - belongs_to :saler, class_name: "User"
