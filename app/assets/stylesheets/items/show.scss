@@ -151,17 +151,16 @@
         
               border-radius: 50%;
             }
-          }
-          figcaption {
-      
-            position: absolute;
-            top: 0;
-            left: 56px;
-            max-width: 100%;
-            min-width: 214px;
-            height: 1.2em;
-            white-space: nowrap;
-            text-overflow: ellipsis;
+            figcaption {
+              position: absolute;
+              top: 0;
+              left: 90px;
+              max-width: 100%;
+              min-width: 214px;
+              height: 1.2em;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+            }
           }
         }
         .comment-body {
@@ -189,8 +188,8 @@
           }
           .comment-icons {
             margin-top: 8px;
+            color: #aaa;
             .comment-icon-left {
-              color: #aaa;
               .icon-time {
               }
               span {
@@ -198,10 +197,10 @@
               }
             }
             .comment-icon-right {
-              position: absolute;
-              top: 8px;
-              left: -9px;
-              color: #eef0f4; 
+              float: right;
+              i {
+                color: #aaa;
+              }
             }
           }
         }
@@ -217,7 +216,7 @@
   .comment-form {
     margin-top: 8px;
     .comment-submit {
-      margin: 8px 0 0
+      margin: 8px 0 0;
     }
   }
 }
