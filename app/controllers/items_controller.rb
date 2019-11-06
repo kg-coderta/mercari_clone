@@ -19,7 +19,6 @@ end
 
   def show
     @item = Item.includes(:photos).find(params[:id])
-    # @photos = Photo.where(item_id: @item.id)
     @saler = User.find(@item.saler_id)
     @saler_items = Item.where(saler_id: @saler.id).limit(6).order('id DESC')
 
