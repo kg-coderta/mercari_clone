@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'items#index'
-  resources :items, only: [:index, :show]
+  resources :items, only: [:index, :show] do
+    resources :comments, only: [:create, :destroy]
+  end
   resources :mypages, only: [:index, :destroy, :edit]
   resources :addresses, only:[:new, :edit]
 
