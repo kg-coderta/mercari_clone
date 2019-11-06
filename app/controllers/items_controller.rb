@@ -5,6 +5,9 @@ class ItemsController < ApplicationController
     @item = Item.all
   end
 
+  def new
+  end
+
   def show
     @item = Item.includes(:photos).find(params[:id])
     @photos = Photo.where(item_id: @item.id)
@@ -15,10 +18,14 @@ class ItemsController < ApplicationController
     @comment = Comment.new
   end
 
+  def edit
+  end
 
   private
 
   def item_params
     params.require(:item).permit(:name, :description, :state, :size, :method, :carriage, :region, :date, :price).merge(saler_id: current_user.id)
+
   end
+
 end

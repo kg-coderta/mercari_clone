@@ -1,0 +1,125 @@
+.login-panel {
+  max-width: 456px;
+  margin: 0 auto;
+  background: #fff;
+  .login-no-account {
+    padding: 40px 64px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    .regist-btn{
+      display: block;
+      width:328px;
+      margin: 8px 0 0;
+      border: 1px solid #0099e8;
+      background: #0099e8;
+      color: #fff;
+      line-height: 40px;
+    }
+  }
+  .login-form-contents {
+    padding: 32px 64px 28px;
+    .login-form-btn{
+      margin: 0 auto;
+      width: 100%;
+      line-height: 48px;
+      font-size: 14px;
+      border: 1px solid transparent;
+      text-align: center;
+      background: #385185;
+      color: #fff;
+    }
+    .sign_up_mail-adress{
+      text-decoration: none;
+      background-color: #ea352d;
+      color: #fff;
+      line-height: 48px;
+      border-radius: 4px;
+      font-size: 14px;
+      text-align: center;
+      border: 1px solid transparent;
+      position: relative;
+      .mail_icon{
+        position: absolute;
+        top: 50%;
+        left: 16px;
+        font-size: 20px;
+        font-weight: 400px;
+        display: inline-block;
+        transform: translate(0, -50%);
+      }
+    }
+    .sign_up_Facebook{
+      display: block;
+      width: 328px;
+      color: #fff;
+      background-color: #385185;
+      line-height: 48px;
+      font-size: 14px;
+      border: 1px solid transparent;
+      margin: 16px 0 0;
+      padding: 0;
+      position: relative;
+      cursor: pointer;
+      &:first-child{
+        margin-top: 0;
+      }
+      .facebook_icon{
+        position: absolute;
+        top: 50%;
+        left: 16px;
+        font-weight: 400px;
+        font-size: 31px;
+        display: inline-block;
+        transform: translate(0, -50%);
+        color: #fff;
+      }
+    }
+    .sign_up_Google{
+      width:328px;
+      background: #fff
+      url('google_img')
+      no-repeat 3px top;
+      line-height: 48px;
+      background-color: #fff;
+      font-size: 14px;
+      border: #979797 solid 1px;
+      margin: 16px 0 0;
+      padding: 0;
+      cursor: pointer;
+    }
+    .login-form{
+      margin-top: 24px;
+      &:first-child{
+        margin-top: 0;
+      }
+      .input-user-info{
+        width: 100%;
+        height: 48px;
+        padding: 10px 16px 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: #fff;
+        line-height: 1.5;
+        font-size: 16px;
+        color: black      
+      }
+      .g-recaptcha.login-captcha{
+        width: 304px; 
+        height: 78px;
+      }
+    }  
+    .login-default-btn{
+      margin-top: 24px;
+      background: #ea352d;
+      color: #fff;
+      width: 100%;
+      line-height: 48px;
+      border: 1px solid transparent;
+    } 
+    .pass-confirmation{
+      margin-top: 24px;
+      color: #0099e8;
+      text-decoration: none;
+    }
+  }
+}

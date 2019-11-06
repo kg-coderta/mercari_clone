@@ -83,3 +83,5 @@ gem 'pry-rails'
 gem 'faker'
 gem 'seed-fu'
 gem 'carrierwave'
+gem 'payjp'
+

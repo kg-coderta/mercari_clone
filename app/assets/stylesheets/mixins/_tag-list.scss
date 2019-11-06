@@ -7,6 +7,7 @@ body{
   overflow: auto;
   box-sizing: border-box;
 }
+
 h3 {
   font-size: 16px; 
 }
@@ -60,6 +61,11 @@ body {
 .btn-gray {
   background: #aaa;
   border: 1px solid #aaa;
+  color: #fff;
+}
+.btn-red{
+  background: #ea352d;
+  border: 1px solid #ea352d;
   color: #fff;
 }
 

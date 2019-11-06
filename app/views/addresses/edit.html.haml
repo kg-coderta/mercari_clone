@@ -1,3 +1,4 @@
+= render 'items/shared/header'
 .my-contents.clearfix
   = render '/mypages/sidebar'
   .id-content
@@ -26,7 +27,7 @@
       .address-form
         .form-label.bold 都道府県
         %span.form-arbitrary 任意
-      = f.collection_select :prefecture_id, Prefecture.all, :id, :name  
+      = f.collection_select :prefecture_id, Prefecture.where.not(id: 48), :id, :name  
       .address-form
         .form-label.bold 市区町村
         %span.form-arbitrary 任意
@@ -44,3 +45,4 @@
         = link_to mypages_path, class:"id-text-right",:target => "_blank" do
           本人情報の登録について
           = fa_icon 'chevron-right', class: 'icon'
+= render 'items/shared/footer'
