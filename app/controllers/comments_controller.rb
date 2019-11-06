@@ -1,9 +1,10 @@
 class CommentsController < ApplicationController
   before_action :set
+  before_action :callback_to_show, except: [:create, :destroy]
 
   def create
     @comment = @item.comments.create(comment_params)
-    redirect_to item_path(@item.id)
+    redirect_to item_path(@item)
   end
 
   def destroy
@@ -13,7 +14,6 @@ class CommentsController < ApplicationController
     else
       redirect_to root_path
     end
-    redirect_to item_path(@item.id)
   end
 
 
@@ -25,5 +25,9 @@ class CommentsController < ApplicationController
 
   def set
     @item = Item.find(params[:item_id])
+  end
+
+  def callback_to_show
+    redirect_to item_path(@item)
   end
 end
