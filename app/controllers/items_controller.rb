@@ -33,7 +33,5 @@ end
 
   def item_params
     params.require(:item).permit(:name, :description, :state, :size, :method, :carriage, :region, :date, :price).merge(saler_id: current_user.id)
-
   end
-
 end

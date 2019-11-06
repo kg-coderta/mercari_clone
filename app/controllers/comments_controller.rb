@@ -2,12 +2,8 @@ class CommentsController < ApplicationController
   before_action :set
 
   def create
-    @comment = @item.comments.new(comment_params)
-    if @comment.save
-      redirect_to item_path(params[:item_id])
-    else
-      redirect_to item_path(params[:item_id])
-    end
+    @comment = @item.comments.create(comment_params)
+    redirect_to item_path(@item.id)
   end
 
   def destroy
@@ -17,8 +13,9 @@ class CommentsController < ApplicationController
     else
       redirect_to root_path
     end
-    redirect_to item_path(params[:item_id])
+    redirect_to item_path(@item.id)
   end
+
 
   private
 
