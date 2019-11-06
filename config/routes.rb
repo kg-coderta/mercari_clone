@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'items#index'
+  root 'items#loginheader'
   resources :items
   resources :mypages, only: [:index, :destroy, :edit, :show]
   resources :addresses, only:[:new, :edit, :show]

@@ -1,0 +1,336 @@
+    .header{
+      height: 100px;
+      width: 100vw;
+      background-color: white;
+      box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+      position: relative;
+      z-index: 3;
+
+        .header-box{
+          margin: 0px auto;
+          padding-top: 8px;
+          width: 1020px;
+        }
+
+          .header-upper{
+            height: 40px;
+            background-color:white;
+            display: flex;
+              .header-upper-left{
+                -webkit-box-align: center;
+                align-items: center;
+                display: flex;
+                height: 40px;
+                margin-right: 45px;
+                width: 134px;
+              
+                  .header-upper-left__link{
+                    display:inline;
+                  }
+                  .head-upper-left__img{
+                    height: 40px;
+                  }
+              }
+              .header-upper-right{
+                height: 40px;
+                width: calc(100% - 174px);
+                position: relative;
+
+                  .header-upper-right-search{
+                    height: 40px;
+                    // width: calc(100% - 174px);
+                    width:100%;
+                    background-color: rgb(245, 245, 245);
+                    font-size: 16px;
+                    line-height: 1.4em;
+                    position: relative;
+                    -webkit-appearance: none;
+                    border-width: 1px;
+                    border-style: solid;
+                    border-color: rgb(204, 204, 204);
+                    border-image: initial;
+                    border-radius: 4px;
+                    outline: none;
+                    padding: 0px 50px 0px 10px;
+                    transition: all 0.3s ease-out 0s; 
+                  }
+
+                  .soul{
+                    position:absolute;
+                    right: 1px;
+                    top: 2px;
+                    width: 40px;
+                    padding: 3px;
+                    font-size: 14px;
+                    border-radius: 4px;
+                    background-color: rgb(245, 245, 245);
+                    border: none;
+                  }
+                  .fa-search{
+                    position: absolute;
+                    right: 0px;
+                    top: 0px;
+                    width: 40px;
+                    padding: 12px;
+                    font-size: 14px;
+                    cursor: pointer;
+                    color: rgb(34,34,34)             
+                  }
+              }
+          }
+          .header-lower{
+            height: 44px;
+            margin-top: 8px;
+            background-color: white;
+            display: flex;
+            -webkit-box-pack: justify;
+            justify-content: space-between;
+              .header-lower-left{
+                height: 44px;
+                display: flex;
+                margin-left: -3px;
+                vertical-align: baseline;
+                margin: 0px;
+                padding: 0px;
+                border-width: 0px;
+                border-style: initial;
+                border-color: initial;
+                border-image: initial;
+                font: inherit;
+                width:400px;
+                
+                  .header-lower-left-category-search{
+                    background-color: white;
+                    height: 44px;
+                    width:300px;
+                    font-family: Arial;
+                    display: flex;
+                    position:relative;
+                    justify-content: space-between;
+
+                      &__category-icon{
+                        color:black;
+                        margin: 6px 5px 0 0;
+                        height: 22px;
+                        font-weight: 600;
+                        font-size: 14px;
+
+                        .upper-list{
+                          color: red;
+                        }
+                      }
+                      &__category-guide{
+
+                        display: block;
+                        position: absolute;
+                        top: -2px;
+                        left: 150px;
+                        height: 100%;
+
+                        color:black;
+                        display: block;
+                        font-size: 14px;
+                        font-weight: 600;
+                        line-height: 36px;
+                        white-space: nowrap;
+
+                        .upper-tag{
+                          color: red;
+                        }
+                      }
+                  }
+                  .header-lower-left-brand-search{
+                    background-color: white;
+                    height: 44px;
+                    
+                    padding-left:10px;
+                    font-family: Arial;
+                    display: flex;
+                      &__brand-icon{
+                        color: red;
+                        margin: 5px 5px 0 0;
+                        height: 26px;
+                        width: 18px;
+                      }
+                      &__brand-guide{
+                        color:black;
+                        display: block;
+                        font-size: 14px;
+                        font-weight: 600;
+                        line-height: 36px;
+                        white-space: nowrap;
+                      }
+                  }
+              }
+              &__rightlogin{
+                display: flex;
+                position: relative;
+                
+                  &__left{
+                    padding-right: 14px;
+                    height: 44px;
+                    width: 127px;
+                    align-items: center;
+                    display: flex;
+                    font-size: 14px;
+                    height: 32px;
+                    position: relative;
+
+                    &__link{
+                      height: 32px;
+                      width: 127px;
+                      position: relative;
+                      color: #333333;
+                    
+                          .heart-icon{
+                            max-width: 100%;
+                            height: auto;
+                            max-height: 100%;
+                            color: rgb(204, 204, 204);
+                            margin-right: 10px;
+                            width: 19px;
+                            font-size: 1.2rem;
+                            position: absolute;
+                            top: 11px;
+                            left: 9px;
+                          }
+                          .text{
+                            position: absolute;
+                            top: 8px;
+                            right: 5px;
+                          }
+                    }
+                  }
+              
+                  &__l-center{
+                    padding: 0 14px;
+                    height: 44px;
+                    width: 111px;
+                    align-items: center;
+                    display: flex;
+                    font-size: 14px;
+                    height: 32px;
+                    position: relative;
+
+                      &__link{
+                        height: 32px;
+                        width: 127px;
+                        position: relative;
+                        color: #333333;
+                          .bell-icon{
+                            max-width: 100%;
+                            height: auto;
+                            max-height: 100%;
+                            color: rgb(204, 204, 204);
+                            margin-right: 10px;
+                            width: 19px;
+                            font-size: 1.2rem;
+                            position: absolute;
+                            top: 8px;
+                            left: -4px;
+                          }
+                          .text{
+                            position: absolute;
+                            top: 8px;
+                            right: 3px;
+                          }
+                          .notice{
+                            background-color: rgb(234,53,45);
+                            color: white;
+                            font-size: 12px;
+                            height: 20px;
+                            line-height: 20px;
+                            text-align: center;
+                            width: 20px;
+                            border-radius: 50%;
+                            position: absolute;
+                            top: 2px;
+                            left: 5px;
+                          }
+                      }
+                  }
+
+                  &__r-center{
+                    padding: 0 10px;
+                    height: 44px;
+                    width: 127px;
+                    align-items: center;
+                    display: flex;
+                    font-size: 14px;
+                    height: 32px;
+                    color: black;
+                    position: relative;
+
+                      &__link{
+                        height: 32px;
+                        width: 127px;
+                        position: relative;
+                        color: #333333;
+
+                          .check-icon{
+                            max-width: 100%;
+                            height: auto;
+                            max-height: 100%;
+                            color: rgb(204, 204, 204);
+                            margin-right: 10px;
+                            width: 19px;
+                            font-size: 1.2rem;
+                            position: absolute;
+                            top: 8px;
+                            left: -7px;
+                          }
+                          .text{
+                            position: absolute;
+                            top: 8px;
+                            right: -10px;
+                          }
+                          .notice{
+                            background-color: rgb(234,53,45);
+                            color: white;
+                            font-size: 12px;
+                            height: 20px;
+                            line-height: 20px;
+                            text-align: center;
+                            width: 20px;
+                            border-radius: 50%;
+                            position: absolute;
+                            top: 2px;
+                            left: 4px;
+                          }
+                      }
+                  }
+
+                  &__right{
+                    height: 44px;
+                    width: 127px;
+                    background-color:white;
+                    align-items: center;
+                    display: flex;
+                    font-size: 14px;
+                    color: black;
+                    position: relative;
+
+                      &__link{
+                        padding-left: 14px;
+                        height: 32px;
+                        width: 127px;
+                        position: relative;
+                        color: #333333;
+                        position: absolute;
+                        top: 0px;
+                        .user-img{
+                          border-radius: 50%;
+                          margin-right: 10px;
+                          position: absolute;
+                          top: 2px;
+                        }
+                        .text{
+                          position: absolute;
+                          top: 8px;
+                          right: 2px;
+                        }
+                      }
+                  }
+              }
+          }
+    }
