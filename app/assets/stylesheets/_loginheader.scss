@@ -24,10 +24,10 @@
                 margin-right: 45px;
                 width: 134px;
               
-                  .header-upper-left__link{
+                  &__link{
                     display:inline;
                   }
-                  .head-upper-left__img{
+                  &__img{
                     height: 40px;
                   }
               }
@@ -36,9 +36,8 @@
                 width: calc(100% - 174px);
                 position: relative;
 
-                  .header-upper-right-search{
+                  &__search{
                     height: 40px;
-                    // width: calc(100% - 174px);
                     width:100%;
                     background-color: rgb(245, 245, 245);
                     font-size: 16px;
@@ -165,7 +164,7 @@
               &__rightlogin{
                 display: flex;
                 position: relative;
-                
+
                   &__left{
                     padding-right: 14px;
                     height: 44px;
