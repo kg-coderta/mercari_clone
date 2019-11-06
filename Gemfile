@@ -84,4 +84,4 @@ gem 'faker'
 gem 'seed-fu'
 gem 'carrierwave'
 gem 'payjp'
-
+gem 'rails-i18n'
