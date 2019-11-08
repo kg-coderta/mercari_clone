@@ -86,3 +86,5 @@ gem 'carrierwave'
 gem 'payjp'
 gem 'rails-i18n'
 gem "gretel"
+gem 'fog-aws'
+gem 'mechanize'
