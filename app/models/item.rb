@@ -11,4 +11,6 @@ class Item < ApplicationRecord
   validates :region, presence: true
   validates :date, presence: true
   validates :price, presence: true
+
+  mount_uploader :image, ImageUploader
 end
