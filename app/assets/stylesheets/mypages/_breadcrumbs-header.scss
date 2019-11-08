@@ -1,0 +1,34 @@
+.bread_li{
+  width: 100%;
+  height: 49px;
+  background: #fff;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  border-top: 1px solid #eee;
+  .fa-chevron-right:before {
+    color: #888;
+    font-family: FontAwesome;
+    content: "\f054";
+    font-size: 9px;
+    margin: 0 8px;
+    font-style: normal;
+    line-height: 1;
+  }
+  .breadcrumbs{
+    position: relative;
+    border-top: 1px solid #eee;
+    background: #fff;
+    height: 48px;
+    font-size: 14px;
+    padding: 16px;
+    display: flex;
+    width: 1050px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    li.current{
+      font-weight: 600;
+    }
+    a{
+      color: #333;
+    }
+  }
+}

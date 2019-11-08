@@ -1,4 +1,6 @@
-= render 'items/shared/header'
+= render 'items/shared/loginheader'
+- breadcrumb :mypage
+= render "mypages/breadcrumbs-header"
 .my-contents.clearfix
   = render 'sidebar'
   .mypage-content
@@ -33,3 +35,8 @@
         %ul#mypage-tab-content
           %li.mypage-content-not-found.bold 取引中の商品がありません
 = render 'items/shared/footer'
+
+:css
+  .header{
+    box-shadow: none;
+  }

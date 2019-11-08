@@ -29,6 +29,7 @@
 #   i.user_id = 201
 # end
 
+
 # 2.times do |n|
 #   Item.create!(name: "布団",
 #                description: "あったかいよ、ともマン",
@@ -55,3 +56,4 @@
               )
 
 end
+
