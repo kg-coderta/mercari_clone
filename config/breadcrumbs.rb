@@ -1,5 +1,30 @@
 crumb :root do
-  link "Home", root_path
+  link "メルカリ", root_path
+end
+
+crumb :mypage do
+  link "マイページ", mypages_path
+  parent :root
+end
+
+crumb :mypage_edit do
+  link "プロフィール", edit_mypage_path
+  parent :mypage
+end
+
+crumb :mypage_show do
+  link "支払い方法", mypage_path
+  parent :mypage
+end
+
+# crumb :mypage_destroy do
+#   link "ログアウト", 
+#   parent :mypage
+# end
+
+crumb :items_show do |item|
+  link "#{item.name}", item_path
+  parent :root
 end
 
 # crumb :projects do
