@@ -7,18 +7,15 @@ class ItemsController < ApplicationController
   def new
   end
 
-  def new
+  def create
+    @item = Item.new(item_params)
+    @item.saler_id = current_user.id
+    if @post.save
+      redirect_back(fallback_location: root_path)
+    else
+      redirect_back(fallback_location: root_path)
+    end
   end
-
-def create
-  @item = Item.new(item_params)
-  @item.saler_id = current_user.id
-  if @post.save
-    redirect_back(fallback_location: root_path)
-  else
-    redirect_back(fallback_location: root_path)
-  end
-end
 
   def show
     @item = Item.includes(:photos).find(params[:id])
