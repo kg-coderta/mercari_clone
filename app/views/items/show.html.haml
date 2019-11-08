@@ -126,10 +126,11 @@
                   %span
                     50日前
                 .comment-icon-right
-                  - if comment.user_id == current_user.id
-                    = link_to  item_comment_path(item_id: @item, id: comment), method: :delete do
-                      %i.icon-trash
-                        = fa_icon "trash"
+                  - if user_signed_in?
+                    - if comment.user_id == current_user.id
+                      = link_to  item_comment_path(item_id: @item, id: comment), method: :delete do
+                        %i.icon-trash
+                          = fa_icon "trash"
         - else
           %li.first.clearfix
             .comment-user
@@ -146,10 +147,11 @@
                   %i.icon-time
                     = fa_icon "clock-o"
                 .comment-icon-right
-                  - if comment.user_id == current_user.id 
-                    = link_to  item_comment_path(item_id: @item.id, id: comment.id), method: :delete do
-                      %i.icon-trash
-                        = fa_icon "trash"
+                  - if user_signed_in?
+                    - if comment.user_id == current_user.id 
+                      = link_to  item_comment_path(item_id: @item.id, id: comment.id), method: :delete do
+                        %i.icon-trash
+                          = fa_icon "trash"
                 %span
                   50日前
 
