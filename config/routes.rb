@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
 
-  root 'items#index'
+  resources :items do
+    resources :comments, only: [:create, :destroy]
+  end
+
   resources :cards, only: [:new, :show]
-  resources :items
   resources :mypages, only: [:index, :destroy, :edit, :show]
   resources :addresses, only:[:new, :edit, :show]
   get "addresses" => "addresses#phone"
-
-
+  root 'items#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
   devise_for :users, controllers: {
