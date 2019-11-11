@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :items do
     resources :comments, only: [:create, :destroy]
   end
-
+  resources :categories, only: [:index, :show]
   resources :cards, only: [:new, :show]
   resources :mypages, only: [:index, :destroy, :edit, :show]
   resources :addresses, only:[:new, :edit, :show]
@@ -21,5 +21,4 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'
     get '/users/index' => 'devise/registrations#index'
   end
-
 end
