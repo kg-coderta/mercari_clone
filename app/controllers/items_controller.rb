@@ -1,24 +1,23 @@
 class ItemsController < ApplicationController
 
   def index
-    @items = Item.all.limit(10).order('id DESC')
+
+    @roots = Category.roots.limit(4)
+    @items = Item.all.limit(10).order('created_at DESC')
   end
 
   def new
   end
 
-  def new
+  def create
+    @item = Item.new(item_params)
+    @item.saler_id = current_user.id
+    if @post.save
+      redirect_back(fallback_location: root_path)
+    else
+      redirect_back(fallback_location: root_path)
+    end
   end
-
-def create
-  @item = Item.new(item_params)
-  @item.saler_id = current_user.id
-  if @post.save
-    redirect_back(fallback_location: root_path)
-  else
-    redirect_back(fallback_location: root_path)
-  end
-end
 
   def show
     @item = Item.includes(:photos).find(params[:id])
@@ -29,12 +28,12 @@ end
     @comment = Comment.new
   end
 
-  def edit
+  def buy
   end
 
   private
 
   def item_params
-    params.require(:item).permit(:name, :description, :state, :size, :method, :carriage, :region, :date, :price).merge(saler_id: current_user.id)
+    params.require(:item).permit(:name, :description, :state, :size, :method, :carriage, :region, :date, :price, :category_id).merge(saler_id: current_user.id)
   end
 end
