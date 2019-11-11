@@ -1,4 +1,6 @@
-= render 'items/shared/header'
+= render 'items/shared/loginheader'
+- breadcrumb :mypage_show
+= render "mypages/breadcrumbs-header"
 .my-contents.clearfix
   = render 'sidebar'
 
@@ -78,4 +80,9 @@
           .card-container-box-bottom-center__add
             %button.btn-red{type: "button"} 追加する
 = render 'items/shared/footer'
+
+:css
+  .header{
+    box-shadow: none;
+  }
 
