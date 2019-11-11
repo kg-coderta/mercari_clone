@@ -3,8 +3,6 @@ Rails.application.routes.draw do
   resources :items do
     resources :comments, only: [:create, :destroy]
   end
-  get 'category/index'
-  get 'category/show'
   resources :categories, only: [:index, :show]
   resources :cards, only: [:new, :show]
   resources :mypages, only: [:index, :destroy, :edit, :show]
