@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_07_060634) do
+ActiveRecord::Schema.define(version: 2019_11_10_043541) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "postal_code", null: false
@@ -63,7 +63,9 @@ ActiveRecord::Schema.define(version: 2019_11_07_060634) do
     t.bigint "saler_id", null: false
     t.bigint "buyer_id"
     t.string "carriage"
+    t.bigint "category_id", null: false
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
+    t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["saler_id"], name: "index_items_on_saler_id"
   end
 
@@ -91,6 +93,7 @@ ActiveRecord::Schema.define(version: 2019_11_07_060634) do
 
   add_foreign_key "comments", "items"
   add_foreign_key "comments", "users"
+  add_foreign_key "items", "categories"
   add_foreign_key "items", "users", column: "buyer_id"
   add_foreign_key "items", "users", column: "saler_id"
 end

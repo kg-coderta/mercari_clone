@@ -1,7 +1,9 @@
 class ItemsController < ApplicationController
 
   def index
-    @items = Item.all.limit(10).order('id DESC')
+
+    @roots = Category.roots.limit(4)
+    @items = Item.all.limit(10).order('created_at DESC')
   end
 
   def new
@@ -32,6 +34,6 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :description, :state, :size, :method, :carriage, :region, :date, :price).merge(saler_id: current_user.id)
+    params.require(:item).permit(:name, :description, :state, :size, :method, :carriage, :region, :date, :price, :category_id).merge(saler_id: current_user.id)
   end
 end
