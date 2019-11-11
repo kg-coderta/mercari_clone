@@ -28,7 +28,7 @@ class ItemsController < ApplicationController
     @comment = Comment.new
   end
 
-  def edit
+  def buy
   end
 
   private

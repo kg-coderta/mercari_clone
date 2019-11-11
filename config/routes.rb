@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
   resources :items do
+    member do
+      get :buy
+    end
     resources :comments, only: [:create, :destroy]
   end
   resources :categories, only: [:index, :show]
