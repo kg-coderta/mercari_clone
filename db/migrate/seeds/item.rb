@@ -1,5 +1,5 @@
 # Item.seed do |i|
-#   i.id = 11
+#   i.id = 1
 #   i.name = "パーカー"
 #   i.description = "あったかいよ、ともマン"
 #   i.state = "未使用"
@@ -14,9 +14,9 @@
 # end
 
 # Photo.seed do |i|
-#   i.id = 11
+#   i.id = 1
 #   i.image = "http://img5.zozo.jp/goodsimages/997/15439997/15439997B_18_D_500.jpg"
-#   i.item_id = 11
+#   i.item_id = 1
 # end
 
 
@@ -40,6 +40,4 @@
 #                 item_id: 2,
 #                )
 # end
-#                buyer_id: 2,
-#               )
-# end
+
