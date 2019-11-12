@@ -1,0 +1,54 @@
+.main-content{
+  margin: 80px 0 40px 320px;
+  .items_btn-box{
+    width: 700px;
+    margin: 8px auto;
+    margin-top: 16px;
+    margin-bottom: 25px;
+    padding: 8px 16px 8px 16px;
+    background: #fff;
+    .or{
+      font-size: 16px;
+      text-align: center;
+    }
+    .edit_btn{
+      display: block;
+      background:#ea352d;
+      width: 100%;
+      border: 1px solid #ea352d;
+      margin: 16px 0 16px 0;
+      cursor: pointer;
+      text-align: center;
+      color: #fff;
+      line-height: 48px;
+      font-size: 14px;
+      }
+
+    .hide_item{
+      display:block;
+      // background:#ea352d;
+      border: 1px solid #ea352d;
+      background: #aaa;
+      border: 1px solid #aaa;
+      color: #fff;
+      line-height: 48px;
+      cursor: pointer;
+      font-size: 14px;
+      width: 100%;
+      margin: 16px 0 16px 0;
+
+    }
+    .destroy_item{
+      display: block;
+      text-align: center;
+      background: #aaa;
+      border: 1px solid #aaa;
+      color: #fff;
+      line-height: 48px;
+      cursor: pointer;
+      font-size: 14px;
+      width: 100%;
+      margin: 0 0 16px 0;
+    }
+  }
+}
