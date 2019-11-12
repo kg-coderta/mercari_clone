@@ -27,6 +27,8 @@ class CardsController < ApplicationController
     end
   end
 
+
+
   def delete #PayjpとCardデータベースを削除します
     card = Card.where(user_id: current_user.id).first
     if card.blank?
