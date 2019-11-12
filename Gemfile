@@ -87,3 +87,4 @@ gem 'payjp'
 gem 'rails-i18n'
 gem 'fog-aws'
 gem 'mechanize'
+gem "dropzonejs-rails"
