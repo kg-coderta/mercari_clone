@@ -31,6 +31,25 @@ class ItemsController < ApplicationController
   def buy
   end
 
+  def detail
+    @item = Item.includes(:photos).find(params[:id])
+    @saler = User.find(@item.saler_id)
+    @saler_items = Item.where(saler_id: @saler.id).limit(6).order('id DESC')
+
+    @comments = @item.comments.includes(:user)
+    @comment = Comment.new
+  end
+
+  def destroy
+    @item = Item.find(params[:id])
+    if @item.saler_id == current_user.id
+      @item.destroy
+      redirect_to root_path
+    else 
+      redirect_to items_path(@item)
+    end
+  end
+
   private
 
   def item_params
