@@ -27,6 +27,15 @@ crumb :items_show do |item|
   parent :root
 end
 
+crumb :items_status do
+  link "出品した商品 - 出品中", new_item_path
+  parent :mypage
+end
+
+crumb :items_detail do
+  link '出品商品画面', detail_item_path
+  parent :items_status
+end
 # crumb :projects do
 #   link "Projects", projects_path
 # end
