@@ -5,8 +5,11 @@ class ItemsController < ApplicationController
 
   def index
 
-    @roots = Category.roots.limit(4)
-    @items = Item.all.limit(10).order('created_at DESC')
+    @populer_categories = Category.find(1,219,985,751)
+    @ladies_items = Item.where(category_id: 1..218).limit(10).order('created_at DESC')
+    @mens_items = Item.where(category_id: 219..377).limit(10).order('created_at DESC')
+    @electronics_items = Item.where(category_id: 985..1080).limit(10).order('created_at DESC')
+    @hobby_items = Item.where(category_id: 378..531).limit(10).order('created_at DESC')
   end
 
   def new

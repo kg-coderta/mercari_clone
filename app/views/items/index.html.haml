@@ -7,33 +7,97 @@
     %h3.center-category-upper 人気のカテゴリー
 
     %ul.center-category__lower
-      - @roots.each do |root|
+      - @populer_categories.each do |category|
         %li.center-category__lower__details
           .center-category__lower__details__topic
-            = link_to root.name, root_path, class: "link"
-  - @roots.each do |root|
-    .center-mid
-      .center-mid-new
-        %h3.center-mid-new__item 
-          = root.name
-          新着アイテム
-        = link_to "もっと見る ＞ ","",class: 'more'
+            = link_to category.name, category_path(category), class: "link"
+  
+  .center-mid
+    .center-mid-new
+      %h3.center-mid-new__item 
+        レディース新着アイテム
+      = link_to "もっと見る ＞ ",category_path(1),class: 'more'
 
-      .center-mid__contents-box
-        %div
-          %ul.center-mid__contents-box__list
-            - root.indirects.each do |indirect|
-              - indirect.items.each do |item|
-                %li.center-mid__contents-box__list__items
-                  %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                    .center-mid__contents-box__list__items__box
-                      .center-mid__contents-box__list__items__box__picture
-                        = image_tag (item.photos.first.image), size:  188
-                      .center-mid__contents-box__list__items__box__text
-                        = item.description
-                      .center-mid__contents-box__list__items__box__price
-                        ¥
-                        = item.price
+    .center-mid__contents-box
+      %div
+        %ul.center-mid__contents-box__list
+          - @ladies_items.each do |item|
+            %li.center-mid__contents-box__list__items
+              = link_to item_path(item) do
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  .center-mid__contents-box__list__items__box
+                    .center-mid__contents-box__list__items__box__picture
+                      = image_tag (item.photos.first.image), size:  188
+                    .center-mid__contents-box__list__items__box__text
+                      = item.description
+                    .center-mid__contents-box__list__items__box__price
+                      ¥
+                      = item.price
+  .center-mid
+    .center-mid-new
+      %h3.center-mid-new__item 
+        メンズ新着アイテム
+      = link_to "もっと見る ＞ ",category_path(219),class: 'more'
+
+    .center-mid__contents-box
+      %div
+        %ul.center-mid__contents-box__list
+          - @mens_items.each do |item|
+            %li.center-mid__contents-box__list__items
+              = link_to item_path(item) do
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  .center-mid__contents-box__list__items__box
+                    .center-mid__contents-box__list__items__box__picture
+                      = image_tag (item.photos.first.image), size:  188
+                    .center-mid__contents-box__list__items__box__text
+                      = item.description
+                    .center-mid__contents-box__list__items__box__price
+                      ¥
+                      = item.price
+
+  .center-mid
+    .center-mid-new
+      %h3.center-mid-new__item 
+        家電・スマホ・カメラ新着アイテム
+      = link_to "もっと見る ＞ ",category_path(985),class: 'more'
+
+    .center-mid__contents-box
+      %div
+        %ul.center-mid__contents-box__list
+          - @electronics_items.each do |item|
+            %li.center-mid__contents-box__list__items
+              = link_to item_path(item) do
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  .center-mid__contents-box__list__items__box
+                    .center-mid__contents-box__list__items__box__picture
+                      = image_tag (item.photos.first.image), size:  188
+                    .center-mid__contents-box__list__items__box__text
+                      = item.description
+                    .center-mid__contents-box__list__items__box__price
+                      ¥
+                      = item.price
+
+  .center-mid
+    .center-mid-new
+      %h3.center-mid-new__item 
+        おもちゃ・ホビー・グッズ新着アイテム
+      = link_to "もっと見る ＞ ",category_path(378),class: 'more'
+
+    .center-mid__contents-box
+      %div
+        %ul.center-mid__contents-box__list
+          - @hobby_items.each do |item|
+            %li.center-mid__contents-box__list__items
+              = link_to item_path(item) do
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  .center-mid__contents-box__list__items__box
+                    .center-mid__contents-box__list__items__box__picture
+                      = image_tag (item.photos.first.image), size:  188
+                    .center-mid__contents-box__list__items__box__text
+                      = item.description
+                    .center-mid__contents-box__list__items__box__price
+                      ¥
+                      = item.price
 
   .center-category
     %h3.center-category-upper 人気のブランド
