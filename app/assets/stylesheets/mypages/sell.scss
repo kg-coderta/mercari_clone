@@ -1,6 +1,6 @@
 
 .a-container{
-  height: 2000px;
+  height: 2100px;
     &__main{
       width: 700px;
       height: 384px;
@@ -27,6 +27,7 @@
               font-size: 14px;
               vertical-align: bottom;
               margin-bottom: 3px;
+              position: relative;
             }
             .required{
               margin: 0 0 0 8px;
@@ -175,7 +176,7 @@
           }
         }
         &__delivery{
-          height: 371px;
+          height: 470px;
           width:100%;
           background-color: #fff;
           border-top: 1px solid #eee;
@@ -214,6 +215,23 @@
                 height: 48px;
                 padding:0 16px;
                 background-color: #fff;
+              }
+            }
+            &__add-for-fix{
+              margin-top: 40px;
+              .label{
+                font-weight: 600;
+                font-size: 14px;
+                vertical-align: bottom;
+              }
+              .required{
+                margin: 0 0 0 8px;
+                padding: 2px 4px;
+                border-radius: 2px;
+                color: #fff;
+                font-size: 12px;
+                vertical-align: top;
+                background: #ea352d;
               }
             }
             &__middle{
@@ -296,7 +314,7 @@
                   position: relative;
                     &__left{
                       display:inline;
-                      width:220px;
+                      width: 220px;
                         .label{
                           font-weight: 600;
                           font-size: 14px;
@@ -380,29 +398,31 @@
           }
 
           &__next{
-            .sell-btn{
-                .sell-btntext{
-                color: white;
-                margin: 40px 0 0;
-                width: 100%;
-                line-height: 48px;
-                font-size: 14px;
-                border: 1px solid transparent;
-                -webkit-transition: all ease-out .3s;
-                transition: all ease-out .3s;
-                cursor: pointer;
-                text-align: center;
-                background: #ea352d;
-                border: 1px solid #ea352d;
-              }
-            }
+            color: white;
+              margin: 40px 0 0;
+              height:50px;
+              width: 100%;
+              line-height: 48px;
+              font-size: 14px;
+              text-align: center;
+              background: #ea352d;
+              border: 1px solid #ea352d;
           }
           &__back{
+            color: white;
+            width: 45%;
+            height:50px;
+            margin: 24px auto 0;
+            background: #aaa;
+            border: 1px solid #aaa;
+            text-align: center;
+            display: block;
+            line-height: 48px;
             .back-btn{
               .back-btntext{
+                line-height: 48px;
                 color: white;
                 width: 45%;
-                height:50px;
                 margin: 24px auto 0;
                 background: #aaa;
                 border: 1px solid #aaa;
