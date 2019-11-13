@@ -1,1 +1,31 @@
+= render 'items/shared/header'
+.center
+  .center-category
+    %ul.center-category__lower
+      - @children.limit(9).each do |child|
+        %li.center-category__lower__details
+          .center-category__lower__details__topic
+            = link_to child.name, root_path, class: "link"
 
+  .center-mid
+    .center-mid-new
+      %h3.center-mid-new__item 
+        = @category.name
+        の商品一覧
+    
+    .center-mid__contents-box
+      %div
+        %ul.center-mid__contents-box__list
+          - @category.indirects.each do |indirect| 
+            - indirect.items.each do |item|
+              %li.center-mid__contents-box__list__items
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  .center-mid__contents-box__list__items__box
+                    .center-mid__contents-box__list__items__box__picture
+                      = image_tag (item.photos.first.image), size:  188
+                    .center-mid__contents-box__list__items__box__text
+                      = item.description
+                    .center-mid__contents-box__list__items__box__price
+                      ¥
+                      = item.price
+= render 'items/shared/footer'
