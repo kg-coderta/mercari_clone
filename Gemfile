@@ -90,7 +90,6 @@ gem "gretel"
 gem 'fog-aws'
 gem 'mechanize'
 gem "dropzonejs-rails"
-gem 'payjp'
 gem 'jquery-rails'
 gem 'kaminari'
 
