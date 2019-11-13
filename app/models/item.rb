@@ -2,6 +2,8 @@ class Item < ApplicationRecord
 
   belongs_to :saler, class_name: "User"
   belongs_to :buyer, class_name: "User", optional: true
+  belongs_to :category
+
   has_many :photos, dependent: :destroy
   has_many :comments, dependent: :destroy
 
@@ -14,5 +16,5 @@ class Item < ApplicationRecord
   validates :region, presence: true
   validates :date, presence: true
   validates :price, presence: true
-  
+
 end

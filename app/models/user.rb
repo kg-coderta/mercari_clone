@@ -20,6 +20,7 @@ class User < ApplicationRecord
   has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: "saler_id", class_name: "Item"
   has_one :adress, dependent: :destroy
   has_one :profile, dependent: :destroy
+  has_one :card, dependent: :destroy
   has_many :comments, dependent: :destroy
 
   validates :nickname, presence: true

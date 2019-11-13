@@ -85,6 +85,10 @@ gem 'seed-fu'
 gem 'carrierwave'
 gem 'payjp'
 gem 'rails-i18n'
+gem 'ancestry'
+gem "gretel"
 gem 'fog-aws'
 gem 'mechanize'
 gem "dropzonejs-rails"
+gem 'payjp'
+gem 'jquery-rails'

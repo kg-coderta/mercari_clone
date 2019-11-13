@@ -1,4 +1,6 @@
-= render 'items/shared/header'
+= render 'items/shared/loginheader'
+- breadcrumb :mypage_edit
+= render "mypages/breadcrumbs-header"
 .my-contents
   =render 'sidebar'
 
@@ -18,3 +20,7 @@
           = f.submit "変更する", class:'change-btn'
 = render 'items/shared/footer'
 
+:css
+  .header{
+    box-shadow: none;
+  }
