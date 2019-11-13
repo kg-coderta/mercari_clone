@@ -1,19 +1,18 @@
 class ItemsController < ApplicationController
   before_action :set_item_find, only:[:destroy]
-
+  before_action :saling_items, only: [:index, :show]
   before_action :set_item, only: [:show, :buy, :pay, :done]
   before_action :set_card, only: [:buy, :pay]
 
   def index
 
     @roots = Category.roots.limit(4)
-    @items = Item.limit(10).order('created_at DESC')
 
     @populer_categories = Category.find(1,219,985,751)
-    @ladies_items = Item.where(category_id: 1..218).limit(10).order('created_at DESC')
-    @mens_items = Item.where(category_id: 219..377).limit(10).order('created_at DESC')
-    @electronics_items = Item.where(category_id: 985..1080).limit(10).order('created_at DESC')
-    @hobby_items = Item.where(category_id: 378..531).limit(10).order('created_at DESC')
+    @ladies_items = @seling_items.where(category_id: 1..218).limit(10).order('created_at DESC')
+    @mens_items = @seling_items.where(category_id: 219..377).limit(10).order('created_at DESC')
+    @electronics_items = @seling_items.where(category_id: 985..1080).limit(10).order('created_at DESC')
+    @hobby_items = @seling_items.where(category_id: 378..531).limit(10).order('created_at DESC')
 
   end
 
@@ -32,7 +31,7 @@ class ItemsController < ApplicationController
 
   def show
     @saler = User.find(@item.saler_id)
-    @saler_items = Item.where(saler_id: @saler.id).limit(6).order('created_at DESC')
+    @saler_items = @seling_items.where(saler_id: @saler.id).limit(6).order('created_at DESC')
 
     @category = Category.find(@item.category_id)
     @category_items = @category.items.limit(6).order('created_at DESC')
@@ -91,6 +90,7 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.includes(:photos).find(params[:id])
   end
+
 
   def item_params
     params.require(:item).permit(:name, :description, :state, :size, :method, :carriage, :region, :date, :price, :category_id).merge(saler_id: current_user.id)
