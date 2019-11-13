@@ -4,11 +4,15 @@ Rails.application.routes.draw do
 
   resources :items do
     member do
+
+      get :buy
+      get :detail
+
       get 'buy', to: 'items#buy'
       post 'pay', to: 'items#pay'
       patch 'pay', to: 'items#pay'
       get 'done', to: 'items#done'
-    end
+
     resources :comments, only: [:create, :destroy]
   end
 
