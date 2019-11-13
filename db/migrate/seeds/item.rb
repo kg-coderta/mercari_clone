@@ -20,6 +20,7 @@
 # end
 
 
+
 # 1.times do |n|
 #   Item.create!(name: "布団",
 #                description: "あったかいよ、ともマン",
