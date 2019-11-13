@@ -1,11 +1,21 @@
 class ItemsController < ApplicationController
+  before_action :set_item_find, only:[:destroy]
 
   before_action :set_item, only: [:show, :buy, :pay, :done]
   before_action :set_card, only: [:buy, :pay]
 
   def index
+
     @roots = Category.roots.limit(4)
     @items = Item.all.limit(10).order('created_at DESC')
+    @roots = Category.roots.limit(4)
+    @items = Item.limit(10).order('created_at DESC')
+    @populer_categories = Category.find(1,219,985,751)
+    @ladies_items = Item.where(category_id: 1..218).limit(10).order('created_at DESC')
+    @mens_items = Item.where(category_id: 219..377).limit(10).order('created_at DESC')
+    @electronics_items = Item.where(category_id: 985..1080).limit(10).order('created_at DESC')
+    @hobby_items = Item.where(category_id: 378..531).limit(10).order('created_at DESC')
+
   end
 
   def new
@@ -28,7 +38,10 @@ end
 
   def show
     @saler = User.find(@item.saler_id)
-    @saler_items = Item.where(saler_id: @saler.id).limit(6).order('id DESC')
+    @saler_items = Item.where(saler_id: @saler.id).limit(6).order('created_at DESC')
+
+    @category = Category.find(@item.category_id)
+    @category_items = @category.items.limit(6).order('created_at DESC')
 
     @comments = @item.comments.includes(:user)
     @comment = Comment.new
@@ -63,6 +76,22 @@ end
   def done
   end
 
+  def detail
+    @item = Item.includes(:photos).find(params[:id])
+    @saler = User.find(@item.saler_id)
+
+    @comments = @item.comments.includes(:user)
+    @comment = Comment.new
+  end
+
+  def destroy
+    if @item.saler_id == current_user.id && @item.destroy
+      redirect_to root_path
+    else 
+      redirect_to items_path(@item)
+    end
+  end
+
   private
 
   def set_item
@@ -71,6 +100,10 @@ end
 
   def item_params
     params.require(:item).permit(:name, :description, :state, :size, :method, :carriage, :region, :date, :price).merge(saler_id: current_user.id)
+  end
+
+  def set_item_find
+    @item = Item.find(params[:id])
   end
 
   def item_update
