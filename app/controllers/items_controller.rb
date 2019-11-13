@@ -16,7 +16,7 @@ def create
     redirect_back(fallback_location: root_path)
   else
     redirect_back(fallback_location: "/items/new")
-    binding.pry
+
   end
   
 end

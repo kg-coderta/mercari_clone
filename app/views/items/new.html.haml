@@ -26,7 +26,6 @@
       .a-container__main__details
         %h3.a-container__main__details__text 商品の詳細
         .a-container__main__details__box
-        
           .a-container__main__details__box__upper
             %label.label カテゴリー
             %span.required 必須
@@ -118,7 +117,7 @@
         また、出品をもちまして
         = link_to "加盟店規約","", class: "link-color"
         に同意したことになります。
-        = f.submit "出品する", id:'btn', class:'a-container__main__submit__next'
+        = f.submit "出品する", class:'a-container__main__submit__next'
 
         = link_to "もどる", "", class:'a-container__main__submit__back'
       
