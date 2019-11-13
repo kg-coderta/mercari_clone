@@ -6,7 +6,7 @@
   .category-nav.clearfix
     - @roots.each do |root|
       .category-link-name
-        = link_to root.name, root_path
+        = link_to root.name, category_path(root)
         
   - @roots.each do |root|
     .category-list-box
@@ -24,5 +24,5 @@
             - child.children.each do |grandchild|
               .category-list-box-body-grandchild-box__name
                 %p 
-                  = link_to grandchild.name, root_path
+                  = link_to grandchild.name, category_path(grandchild)
 = render 'items/shared/footer'
