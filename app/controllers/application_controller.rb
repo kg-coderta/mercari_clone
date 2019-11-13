@@ -16,8 +16,8 @@ class ApplicationController < ActionController::Base
     Rails.env.production?
   end
 
-  def set_saling
-    @seling_items = Item.where(buyer_id: nil)
+  def set_selling
+    @selling_items = Item.where(buyer_id: nil)
   end
 
   def basic_auth
