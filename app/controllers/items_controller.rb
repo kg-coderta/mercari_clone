@@ -5,9 +5,6 @@ class ItemsController < ApplicationController
   before_action :set_card, only: [:buy, :pay]
 
   def index
-
-    @roots = Category.roots.limit(4)
-    @items = Item.all.limit(10).order('created_at DESC')
     @roots = Category.roots.limit(4)
     @items = Item.limit(10).order('created_at DESC')
     @populer_categories = Category.find(1,219,985,751)
@@ -15,21 +12,24 @@ class ItemsController < ApplicationController
     @mens_items = Item.where(category_id: 219..377).limit(10).order('created_at DESC')
     @electronics_items = Item.where(category_id: 985..1080).limit(10).order('created_at DESC')
     @hobby_items = Item.where(category_id: 378..531).limit(10).order('created_at DESC')
-
   end
 
   def new
     @items = Item.new
     10.times { @items.photos.build }
-
   end
 
 
 def create
   @item = Item.new(item_params)
+  binding.pry
+  @item.save!
+  # binding.pry
   if @item.save
+
     redirect_back(fallback_location: root_path)
   else
+
     redirect_back(fallback_location: "/items/new")
 
   end
