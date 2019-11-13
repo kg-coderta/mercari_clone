@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
+  before_action :set_item, only:[:destroy]
 
   def index
-
     @roots = Category.roots.limit(4)
     @items = Item.all.limit(10).order('created_at DESC')
   end
@@ -34,16 +34,13 @@ class ItemsController < ApplicationController
   def detail
     @item = Item.includes(:photos).find(params[:id])
     @saler = User.find(@item.saler_id)
-    @saler_items = Item.where(saler_id: @saler.id).limit(6).order('id DESC')
 
     @comments = @item.comments.includes(:user)
     @comment = Comment.new
   end
 
   def destroy
-    @item = Item.find(params[:id])
-    if @item.saler_id == current_user.id
-      @item.destroy
+    if @item.saler_id == current_user.id && @item.destroy
       redirect_to root_path
     else 
       redirect_to items_path(@item)
@@ -54,5 +51,9 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name, :description, :state, :size, :method, :carriage, :region, :date, :price, :category_id).merge(saler_id: current_user.id)
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 end
