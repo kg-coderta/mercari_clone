@@ -1,7 +1,6 @@
 .registration-index
   = render 'devise/registrations/header'
-  
-  = form_with model: @items, class: "a-container" ,local: true do |f|
+  .a-container
     .a-container__main
       .a-container__main__header
         .a-container__main__header__text 商品の情報を入力
@@ -9,20 +8,23 @@
         %label.label 出品画像
         %span.required 必須
         .text 最大10枚までアップロードできます
-        .a-container__main__picuturebox__drop
-        = f.fields_for :photos do |i|
-          = i.file_field :image, class:".a-container__main__picturebox__drop__input"
-        -# .preview
+        .a-container__main__picturebox__drop
+          ドラッグアンドドロップ
+          %br
+          またはクリックしてファイルをアップロード
         
       .a-container__main__name
         %label.label 商品名
         %span.required 必須
-        = f.text_field :name, class: "name-input", placeholder: "商品名(必須：40文字まで)"
+        = form_with  local: true do |f|
+          = f.text_field :name, class: "name-input", placeholder: "商品名(必須：40文字まで)"
         .a-container__main__name__details
           %label.label 商品の説明
           %span.required 必須
-          = f.text_area :description, class: "details-input", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+          = form_with  local: true do |f|
+            = f.text_area :name, class: "details-input", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
           
+
       .a-container__main__details
         %h3.a-container__main__details__text 商品の詳細
         .a-container__main__details__box
@@ -47,7 +49,14 @@
           .a-container__main__details__box__bottom
             %label.label 商品の状態
             %span.required 必須
-            = f.select :state, [['新品未使用'], ['未使用に近い'],['目立った傷や汚れなし'],['やや傷や汚れあり'],['傷や汚れあり'],['全体的に状態が悪い']], {include_blank: true }, class: "a-container__main__details__box__bottom__status"
+            %select.a-container__main__details__box__bottom__status
+              %option{value: ""} ---
+              %option{value: "1"} 新品、未使用
+              %option{value: "2"} 未使用に近い
+              %option{value: "3"} 目立った傷や汚れなし
+              %option{value: "4"} やや傷や汚れあり
+              %option{value: "5"} 傷や汚れあり
+              %option{value: "6"} 全体的に状態が悪い
 
       .a-container__main__delivery
         .a-container__main__delivery__text
@@ -58,23 +67,25 @@
           .a-container__main__delivery__box__upper
             %label.label 配送料の負担
             %span.required 必須
-          = f.select :carriage, [['送料込み(出品者負担)'], ['着払い(購入者負担)']], {include_blank: true }, class: "a-container__main__delivery__box__upper__select"
-
-          .a-container__main__delivery__box__add-for-fix
-            %label.label 配送の方法
-            %span.required 必須
-          = f.select :method, [['未定'], ['らくらくメルカリ便'],['ゆうメール'],['レターパック'],['普通郵便（定形、定形外）'],['クロネコヤマト'],['ゆうパック'],['クリックポスト'],['ゆうパケット']], {include_blank: true }, class: "a-container__main__delivery__box__upper__select"
+            %select.a-container__main__delivery__box__upper__select
+              %option{value: ""} ---
+              %option{value: "2"} 送料込み(出品者負担)
+              %option{value: "1"} 着払い(購入者負担)
               
           .a-container__main__delivery__box__middle
             %label.label 発送元の地域
             %span.required 必須
-
-            = f.collection_select :region, Prefecture.all, :name, :name, {include_blank: true }, class: "a-container__main__delivery__box__middle__select"
+            = form_with class:'a-container__main__delivery__box__middle__select',local: true do |f|
+              = f.collection_select :prefecture_id, Prefecture.all, :id, :name
           
           .a-container__main__delivery__box__bottom
             %label.label 発送元までの日数
             %span.required 必須
-          =f.select :date, [['1~2日で発送'], ['2~3日で発送'], ['4~7日で発送']], {include_blank: true }, class: "a-container__main__delivery__box__bottom__select"
+            %select.a-container__main__delivery__box__bottom__select
+              %option{value: ""} ---
+              %option{value: "1"} 1~2日で発送
+              %option{value: "2"} 2~3日で発送
+              %option{value: "3"} 4~7日で発送
 
       .a-container__main__price
         .a-container__main__price__text
@@ -90,17 +101,18 @@
                 %span.required 必須
               .a-container__main__price__box__upper__list__right 
                 ¥
-              = f.number_field :price, class: 'price-input', placeholder: '例) 300'
-
+                = form_with  local: true do |f|
+                  = f.text_field :name, class: "price-input", placeholder: "例）300"
             %li.a-container__main__price__box__upper__list
               .a-container__main__price__box__upper__list__text
                 販売手数料(10%)
               .a-container__main__price__box__upper__list__hyphen
-              
+                ー
             .a-container__main__price__box__upper__list__last
               .a-container__main__price__box__upper__list__last__benefit
                 販売利益
               .a-container__main__price__box__upper__list__last__hyphen
+                ー
 
       .a-container__main__submit
         = link_to "禁止されている出品", "", class: "link-color"

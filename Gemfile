@@ -92,3 +92,4 @@ gem 'mechanize'
 gem "dropzonejs-rails"
 gem 'payjp'
 gem 'jquery-rails'
+
