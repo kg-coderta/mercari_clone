@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item_find, only:[:destroy]
-  before_action :saling_items, only: [:index, :show]
+  before_action :set_saling, only: [:index, :show]
   before_action :set_item, only: [:show, :buy, :pay, :done]
   before_action :set_card, only: [:buy, :pay]
 
