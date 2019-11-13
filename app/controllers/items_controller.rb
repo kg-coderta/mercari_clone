@@ -4,15 +4,16 @@ class ItemsController < ApplicationController
   before_action :set_card, only: [:buy, :pay]
 
   def index
-
-  def new
-    @item = Item.new
-    10.times { @items.photos.build }
     @roots = Category.roots.limit(4)
     @items = Item.all.limit(10).order('created_at DESC')
   end
 
+  def new
+    @items = Item.new
+    10.times { @items.photos.build }
+
   end
+
 
 def create
   @item = Item.new(item_params)
