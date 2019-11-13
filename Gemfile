@@ -89,6 +89,5 @@ gem 'ancestry'
 gem "gretel"
 gem 'fog-aws'
 gem 'mechanize'
-gem 'payjp'
 gem 'jquery-rails'
 gem 'kaminari'
