@@ -22,9 +22,6 @@ class ItemsController < ApplicationController
 
 def create
   @item = Item.new(item_params)
-  binding.pry
-  @item.save!
-  # binding.pry
   if @item.save
 
     redirect_back(fallback_location: root_path)

@@ -28,7 +28,7 @@
           .a-container__main__details__box__upper
             %label.label カテゴリー
             %span.required 必須
-            = f.select :category_id, [['レディース', 1]], {include_blank: true }, class: "a-container__main__details__box__upper__category"
+            = f.collection_select :category_id, Category.all,:id , :name, {include_blank: true }, class: "a-container__main__details__box__upper__category"
             -# %select.a-container__main__details__box__upper__category
             -#   %option{value: ""} ---
             -#   %option{value: "1"} レディース
