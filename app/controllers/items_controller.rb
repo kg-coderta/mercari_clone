@@ -19,21 +19,21 @@ class ItemsController < ApplicationController
   end
 
   def new
-  end
+    @items = Item.new
+    10.times { @items.photos.build }
 
-  def new
   end
 
 
 def create
   @item = Item.new(item_params)
-  @item.saler_id = current_user.id
-  if @post.save
+  if @item.save
     redirect_back(fallback_location: root_path)
   else
     redirect_back(fallback_location: "/items/new")
 
   end
+  
 end
 
   def show
@@ -99,7 +99,18 @@ end
   end
 
   def item_params
-    params.require(:item).permit(:name, :description, :state, :size, :method, :carriage, :region, :date, :price).merge(saler_id: current_user.id)
+    params.require(:item).permit(
+      :name, 
+      :description, 
+      :state, 
+      :size, 
+      :method, 
+      :carriage, 
+      :region, 
+      :date, 
+      :price,
+      photos_attributes: [:image]
+    ).merge(saler_id: current_user.id)
   end
 
   def set_item_find

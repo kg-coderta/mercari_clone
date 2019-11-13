@@ -1,6 +1,6 @@
 .registration-index
   = render 'devise/registrations/header'
-
+  
   = form_with model: @items, class: "a-container" ,local: true do |f|
     .a-container__main
       .a-container__main__header
@@ -22,7 +22,6 @@
           %label.label 商品の説明
           %span.required 必須
           = f.text_area :description, class: "details-input", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
-
       .a-container__main__details
         %h3.a-container__main__details__text 商品の詳細
         .a-container__main__details__box
@@ -94,12 +93,11 @@
               .a-container__main__price__box__upper__list__text
                 販売手数料(10%)
               .a-container__main__price__box__upper__list__hyphen
-
+              
             .a-container__main__price__box__upper__list__last
               .a-container__main__price__box__upper__list__last__benefit
                 販売利益
               .a-container__main__price__box__upper__list__last__hyphen
-
 
       .a-container__main__submit
         = link_to "禁止されている出品", "", class: "link-color"
