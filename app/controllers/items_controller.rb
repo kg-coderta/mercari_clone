@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
   def index
 
     @roots = Category.roots.limit(4)
-    @items = Item.all.limit(10).order('created_at DESC')
+    @items = Item.limit(10).order('created_at DESC')
 
     @populer_categories = Category.find(1,219,985,751)
     @ladies_items = Item.where(category_id: 1..218).limit(10).order('created_at DESC')
@@ -96,7 +96,7 @@ class ItemsController < ApplicationController
   def set_item_find
     @item = Item.find(params[:id])
   end
-  
+
   def item_update
     @item.update(name: @item.name, description: @item.description, state: @item.state, size: @item.state, method: @item.method, carriage: @item.carriage, region: @item.region, date: @item.date, price: @item.price, category_id: @item.category_id, saler_id: @item.saler_id, buyer_id: current_user.id)
   end
