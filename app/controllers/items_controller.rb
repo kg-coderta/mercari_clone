@@ -8,6 +8,9 @@ class ItemsController < ApplicationController
 
     @roots = Category.roots.limit(4)
 
+    @items = Item.all.limit(10).order('created_at DESC')
+    @roots = Category.roots.limit(4)
+    @items = Item.limit(10).order('created_at DESC')
     @populer_categories = Category.find(1,219,985,751)
     @ladies_items = @seling_items.where(category_id: 1..218).limit(10).order('created_at DESC')
     @mens_items = @seling_items.where(category_id: 219..377).limit(10).order('created_at DESC')
@@ -17,17 +20,23 @@ class ItemsController < ApplicationController
   end
 
   def new
+    @items = Item.new
+    10.times { @items.photos.build }
   end
 
-  def create
-    @item = Item.new(item_params)
-    @item.saler_id = current_user.id
-    if @post.save
-      redirect_back(fallback_location: root_path)
-    else
-      redirect_back(fallback_location: root_path)
-    end
+
+def create
+  @item = Item.new(item_params)
+  if @item.save
+
+    redirect_back(fallback_location: root_path)
+  else
+
+    redirect_back(fallback_location: "/items/new")
+
   end
+  
+end
 
   def show
     @saler = User.find(@item.saler_id)
@@ -93,7 +102,18 @@ class ItemsController < ApplicationController
 
 
   def item_params
-    params.require(:item).permit(:name, :description, :state, :size, :method, :carriage, :region, :date, :price, :category_id).merge(saler_id: current_user.id)
+    params.require(:item).permit(
+      :name, 
+      :description, 
+      :state, 
+      :size, 
+      :method, 
+      :carriage, 
+      :region, 
+      :date, 
+      :price,
+      photos_attributes: [:image]
+    ).merge(saler_id: current_user.id)
   end
 
   def set_item_find
@@ -106,5 +126,6 @@ class ItemsController < ApplicationController
 
   def set_card
     @card = current_user.card
+
   end
 end

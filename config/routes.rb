@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :items do
     member do
+
       get 'detail'
       get 'buy', to: 'items#buy'
       post 'pay', to: 'items#pay'
@@ -26,6 +27,9 @@ Rails.application.routes.draw do
   resources :mypages, only: [:index, :destroy, :edit, :show]
 
   resources :addresses, only:[:new, :edit, :show]
+
+  resources :photos, only: [:index, :create]
+
   get "addresses" => "addresses#phone"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -39,4 +43,6 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'
     get '/users/index' => 'devise/registrations#index'
   end
+
 end
+
