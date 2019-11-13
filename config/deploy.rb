@@ -5,7 +5,7 @@ lock "~> 3.11.2"
 
 set :default_env, {
   rbenv_root: "/usr/local/bin/rbenv",
-  path: "/usr/local/bin/rbenv/shims:/usr/local/rbenv/bin:$PATH",
+  path: "/usr/local/bin/rbenv/shims:/usr/local/bin:$PATH",
   AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"],
   AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"]
 }
