@@ -27,7 +27,10 @@ class ItemsController < ApplicationController
 
   def show
     @saler = User.find(@item.saler_id)
-    @saler_items = Item.where(saler_id: @saler.id).limit(6).order('id DESC')
+    @saler_items = Item.where(saler_id: @saler.id).limit(6).order('created_at DESC')
+
+    @category = Category.find(@item.category_id)
+    @category_items = @category.items.limit(6).order('created_at DESC')
 
     @comments = @item.comments.includes(:user)
     @comment = Comment.new
