@@ -1,0 +1,17 @@
+.mypage-content-item {
+  display: block;
+  padding: 16px;
+  margin: 0.05rem;
+  font-size: 14px;
+  list-style: none;
+  position: relative;
+  background-color: #fff;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+  .icon-arrow-right {
+    position: absolute;
+    top: 30%;
+    right: 16px;
+    color: #ccc;
+  }
+}
