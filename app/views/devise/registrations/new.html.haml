@@ -49,7 +49,12 @@
             = f.label :name, value: "生年月日"
             %span.must 必須
             %br
-            != sprintf(f.date_select(:nickname, prompt: "--", with_css_class: 'select-default', use_month_numbers: true, start_year: Time.now.year, end_year: 1900,date_separator: '%s', datetime_separator: '%s'), '年', '月')+'日'
+            = f.collection_select :birth_year, Birth_year.all, :id, :name
+            年
+            = f.collection_select :birth_month, Birth_month.all, :id, :name
+            月
+            = f.collection_select :birth_day, Birth_day.all, :id, :name
+            日
           %p.text_info
             ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
         .fields
