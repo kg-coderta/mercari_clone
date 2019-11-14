@@ -32,4 +32,5 @@ class User < ApplicationRecord
   validates :nickname, length: { maximum: 20 }
   validates :password, length: { minimum: 7 }
   validates :password_confirmation, presence: true, length: { minimum: 7 }
+
 end

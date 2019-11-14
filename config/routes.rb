@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       post 'pay', to: 'items#pay'
       patch 'pay', to: 'items#pay'
       get 'done', to: 'items#done'
+      
     end
     resources :comments, only: [:create, :destroy]
   end
