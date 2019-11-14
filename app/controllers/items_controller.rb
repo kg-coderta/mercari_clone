@@ -34,7 +34,8 @@ end
 
   def show
     @saler = User.find(@item.saler_id)
-    @saler_items = @selling_items.where(saler_id: @saler.id).limit(6).order('created_at DESC')
+    if 
+      @saler_items = @selling_items.where(saler_id: @saler.id).limit(6).order('created_at DESC')
 
     @category = Category.find(@item.category_id)
     @category_items = @category.items.limit(6).order('created_at DESC')
@@ -50,7 +51,6 @@ end
     else
       Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
       #保管した顧客IDでpayjpから情報取得
-      customer = Payjp::Customer.retrieve(@card.customer_id)
       #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
       @default_card_information = customer.cards.retrieve(@card.card_id)
     end
