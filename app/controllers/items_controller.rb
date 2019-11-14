@@ -22,24 +22,18 @@ class ItemsController < ApplicationController
 def create
   @item = Item.new(item_params)
   if @item.save
-
     redirect_back(fallback_location: root_path)
   else
-
     redirect_back(fallback_location: "/items/new")
-
   end
   
 end
 
   def show
     @saler = User.find(@item.saler_id)
-    if 
-      @saler_items = @selling_items.where(saler_id: @saler.id).limit(6).order('created_at DESC')
-
+    @saler_items = @selling_items.where(saler_id: @saler.id).limit(6).order('created_at DESC')
     @category = Category.find(@item.category_id)
     @category_items = @category.items.limit(6).order('created_at DESC')
-
     @comments = @item.comments.includes(:user)
     @comment = Comment.new
   end
@@ -64,7 +58,6 @@ end
     customer: @card.customer_id, #顧客ID
     currency: 'jpy', #日本円
   )
-
     item_update
     redirect_to action: 'done' #完了画面に移動
   end
@@ -75,7 +68,6 @@ end
   def detail
     @item = Item.includes(:photos).find(params[:id])
     @saler = User.find(@item.saler_id)
-
     @comments = @item.comments.includes(:user)
     @comment = Comment.new
   end
@@ -121,6 +113,5 @@ end
 
   def set_card
     @card = current_user.card
-
   end
 end
