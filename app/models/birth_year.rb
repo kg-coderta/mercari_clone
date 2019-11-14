@@ -1,4 +1,4 @@
-class Birth_year < ActiveHash::Base
+class BirthYear < ActiveHash::Base
   self.data = [
       {id: 0, name: "--"},
       {id: 1, name: "2019"}, {id: 2, name: "2018"}, {id: 3, name: "2017"},

@@ -49,11 +49,11 @@
             = f.label :name, value: "生年月日"
             %span.must 必須
             %br
-            = f.collection_select :birth_year, Birth_year.all, :id, :name
+            = f.collection_select :birth_year_id, BirthYear.all, :id, :name
             年
-            = f.collection_select :birth_month, Birth_month.all, :id, :name
+            = f.collection_select :birth_month_id, BirthMonth.all, :id, :name
             月
-            = f.collection_select :birth_day, Birth_day.all, :id, :name
+            = f.collection_select :birth_day_id, BirthDay.all, :id, :name
             日
           %p.text_info
             ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
