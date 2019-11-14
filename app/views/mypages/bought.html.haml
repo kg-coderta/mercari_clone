@@ -1,0 +1,32 @@
+= render 'items/shared/loginheader'
+- breadcrumb :mypage
+= render "mypages/breadcrumbs-header"
+
+.my-contents.clearfix
+  = render 'sidebar'
+  .mypage-content
+    %section.mypage-below-tab-contents
+      %h2.bold.mypage-below-tab-head 購入した商品
+      %ul.bold.mypage-tabs
+        %li.mypage-tabs__left
+          取引中
+        %li.mypage-tabs__right
+          過去の取引
+      .tab-content
+        - if @bought_items 
+          %ul#mypage-tab-content
+            - @bought_items.each do |item|
+              = link_to item_path(item) do
+                %li.mypage-content-item
+                  = item.name
+                  %i.icon-arrow-right
+                    = fa_icon 'chevron-right'
+        - else
+          .mypage-content-not-found.bold 過去に取引した商品がありません
+
+= render 'items/shared/footer'
+
+:css
+  .header{
+    box-shadow: none;
+  }

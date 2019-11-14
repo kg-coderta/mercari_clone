@@ -24,7 +24,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :mypages, only: [:index, :destroy, :edit, :show]
+  resources :mypages, only: [:index, :destroy, :edit, :show] do
+    collection do
+      get 'selling'
+      get 'bought'
+    end
+  end
 
   resources :addresses, only:[:new, :edit, :show]
 
