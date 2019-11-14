@@ -11,6 +11,11 @@ class ItemsController < ApplicationController
     @electronics_items = @selling_items.where(category_id: 985..1080).limit(10).order('created_at DESC')
     @hobby_items = @selling_items.where(category_id: 378..531).limit(10).order('created_at DESC')
 
+    @populer_brands = Brand.find(2441,6143,2461,3803)
+    @chanel_items = @selling_items.where(brand_id: 2441).limit(10).order('created_at DESC')
+    @vuitton_items = @selling_items.where(brand_id: 6143).limit(10).order('created_at DESC')
+    @supreme_items = @selling_items.where(brand_id: 2461).limit(10).order('created_at DESC')
+    @naiki_items = @selling_items.where(brand_id: 3803).limit(10).order('created_at DESC')
   end
 
   def new
