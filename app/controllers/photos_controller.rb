@@ -10,5 +10,5 @@ class PhotosController < ApplicationController
   def create
   @photo = Photo.new(photo_params)
   end
-  
+
 end

@@ -1,22 +1,21 @@
 class ItemsController < ApplicationController
   before_action :set_item_find, only:[:destroy]
-  before_action :set_saling, only: [:index, :show]
+  before_action :set_selling, only: [:index, :show]
   before_action :set_item, only: [:show, :buy, :pay, :done]
   before_action :set_card, only: [:buy, :pay]
 
   def index
-
-    @roots = Category.roots.limit(4)
-
-    @items = Item.all.limit(10).order('created_at DESC')
-    @roots = Category.roots.limit(4)
-    @items = Item.limit(10).order('created_at DESC')
     @populer_categories = Category.find(1,219,985,751)
-    @ladies_items = @seling_items.where(category_id: 1..218).limit(10).order('created_at DESC')
-    @mens_items = @seling_items.where(category_id: 219..377).limit(10).order('created_at DESC')
-    @electronics_items = @seling_items.where(category_id: 985..1080).limit(10).order('created_at DESC')
-    @hobby_items = @seling_items.where(category_id: 378..531).limit(10).order('created_at DESC')
+    @ladies_items = @selling_items.where(category_id: 1..218).limit(10).order('created_at DESC')
+    @mens_items = @selling_items.where(category_id: 219..377).limit(10).order('created_at DESC')
+    @electronics_items = @selling_items.where(category_id: 985..1080).limit(10).order('created_at DESC')
+    @hobby_items = @selling_items.where(category_id: 378..531).limit(10).order('created_at DESC')
 
+    @populer_brands = Brand.find(2441,6143,2461,3803)
+    @chanel_items = @selling_items.where(brand_id: 2441).limit(10).order('created_at DESC')
+    @vuitton_items = @selling_items.where(brand_id: 6143).limit(10).order('created_at DESC')
+    @supreme_items = @selling_items.where(brand_id: 2461).limit(10).order('created_at DESC')
+    @naiki_items = @selling_items.where(brand_id: 3803).limit(10).order('created_at DESC')
   end
 
   def new
@@ -28,23 +27,18 @@ class ItemsController < ApplicationController
 def create
   @item = Item.new(item_params)
   if @item.save
-
     redirect_back(fallback_location: root_path)
   else
-
     redirect_back(fallback_location: "/items/new")
-
   end
   
 end
 
   def show
     @saler = User.find(@item.saler_id)
-    @saler_items = @seling_items.where(saler_id: @saler.id).limit(6).order('created_at DESC')
-
+    @saler_items = @selling_items.where(saler_id: @saler.id).limit(6).order('created_at DESC')
     @category = Category.find(@item.category_id)
     @category_items = @category.items.limit(6).order('created_at DESC')
-
     @comments = @item.comments.includes(:user)
     @comment = Comment.new
   end
@@ -56,7 +50,6 @@ end
     else
       Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
       #保管した顧客IDでpayjpから情報取得
-      customer = Payjp::Customer.retrieve(@card.customer_id)
       #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
       @default_card_information = customer.cards.retrieve(@card.card_id)
     end
@@ -70,7 +63,6 @@ end
     customer: @card.customer_id, #顧客ID
     currency: 'jpy', #日本円
   )
-
     item_update
     redirect_to action: 'done' #完了画面に移動
   end
@@ -81,7 +73,6 @@ end
   def detail
     @item = Item.includes(:photos).find(params[:id])
     @saler = User.find(@item.saler_id)
-
     @comments = @item.comments.includes(:user)
     @comment = Comment.new
   end
@@ -127,6 +118,5 @@ end
 
   def set_card
     @card = current_user.card
-
   end
 end
