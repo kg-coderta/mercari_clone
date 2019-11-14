@@ -27,8 +27,10 @@ class ItemsController < ApplicationController
 def create
   @item = Item.new(item_params)
   if @item.save
+    binding.pry
     redirect_back(fallback_location: root_path)
   else
+    binding.pry
     redirect_back(fallback_location: "/items/new")
   end
   
@@ -104,6 +106,7 @@ end
       :date, 
       :price,
       :category_id,
+      :brand_id,
       photos_attributes: [:image]
     ).merge(saler_id: current_user.id)
   end
