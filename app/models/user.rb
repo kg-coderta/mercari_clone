@@ -4,6 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[facebook google_oauth2]
+  
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :birth_year
+  belongs_to_active_hash :birth_month
+  belongs_to_active_hash :birth_day
 
   # omniauthのコールバック時に呼ばれるメソッド
   def self.from_omniauth(auth)
