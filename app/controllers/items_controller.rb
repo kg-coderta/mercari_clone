@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item_find, only:[:destroy]
-  before_action :set_selling, only: [:index, :show]
-  before_action :set_item, only: [:show, :buy, :pay, :done]
+  before_action :set_selling, only: [:index, :show, :update]
+  before_action :set_item, only: [:show, :buy, :pay, :done, :edit, :update]
   before_action :set_card, only: [:buy, :pay]
 
   def index
@@ -27,13 +27,23 @@ class ItemsController < ApplicationController
 def create
   @item = Item.new(item_params)
   if @item.save
-    binding.pry
-    redirect_back(fallback_location: root_path)
+    redirect_to root_path
   else
-    binding.pry
     redirect_back(fallback_location: "/items/new")
   end
   
+end
+
+def edit
+  10.times { @item.photos.build }
+end
+
+def update
+  if @item.saler_id == current_user.id && @item.update(update_params)
+    redirect_to item_path(@item)
+  else 
+    redirect_back(fallback_location: "/items/new")
+  end
 end
 
   def show
@@ -113,6 +123,23 @@ end
     ).merge(saler_id: current_user.id)
   end
 
+  def update_params
+    params.require(:item).permit(
+      :name, 
+      :description, 
+      :state, 
+      :size, 
+      :method, 
+      :carriage, 
+      :region, 
+      :date, 
+      :price,
+      :category_id,
+      :brand_id,
+      photos_attributes: [:image, :_destroy, :id]
+    ).merge(saler_id: current_user.id)
+  end
+
   def set_item_find
     @item = Item.find(params[:id])
   end
@@ -120,6 +147,7 @@ end
   def item_update
     @item.update(name: @item.name, description: @item.description, state: @item.state, size: @item.state, method: @item.method, carriage: @item.carriage, region: @item.region, date: @item.date, price: @item.price, category_id: @item.category_id, saler_id: @item.saler_id, buyer_id: current_user.id)
   end
+
 
   def set_card
     @card = current_user.card
