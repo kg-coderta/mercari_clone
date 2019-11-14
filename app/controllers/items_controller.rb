@@ -39,8 +39,8 @@ def edit
 end
 
 def update
-  if @item.saler_id == current_user.id
-    @item.update(update_params)
+  if @item.saler_id == current_user.id && @item.update(update_params)
+    # @item.update(update_params)
     redirect_to item_path(@item)
   else 
     redirect_back(fallback_location: "/items/new")
@@ -149,9 +149,6 @@ end
     @item.update(name: @item.name, description: @item.description, state: @item.state, size: @item.state, method: @item.method, carriage: @item.carriage, region: @item.region, date: @item.date, price: @item.price, category_id: @item.category_id, saler_id: @item.saler_id, buyer_id: current_user.id)
   end
 
-  def item_edit
-    @item.update(item_params)
-  end
 
   def set_card
     @card = current_user.card
