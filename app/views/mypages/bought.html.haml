@@ -13,7 +13,7 @@
         %li.mypage-tabs__right
           過去の取引
       .tab-content
-        - if @bought_items 
+        - if @bought_items.length != 0
           %ul#mypage-tab-content
             - @bought_items.each do |item|
               = link_to item_path(item) do
