@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       post 'pay', to: 'items#pay'
       patch 'pay', to: 'items#pay'
       get 'done', to: 'items#done'
+      
     end
     resources :comments, only: [:create, :destroy]
   end
@@ -31,8 +32,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :addresses, only:[:new, :edit, :show]
-  get "addresses" => "addresses#phone"
   resources :signup do
     collection do
       get 'step1'
@@ -43,9 +42,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :photos, only: [:index, :create]
+  resources :addresses, only:[:new, :edit, :show]
 
-  get "addresses" => "addresses#phone"
+  resources :photos, only: [:index, :create]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   devise_for :users, controllers: {
