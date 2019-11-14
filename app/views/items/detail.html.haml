@@ -8,11 +8,11 @@
       = @item.name
     .show-item-content.clearfix
       .item-photo
-        = image_tag (@item.photos.first.image), size: 300, class: 'item-photo__main'
+        = image_tag (@item.photos.first.image.to_s), size: 300, class: 'item-photo__main'
 
         .item-photo-box
           - @item.photos.each do |photo|
-            = image_tag (photo.image), size: 60, class: 'item-photo-box__sub'
+            = image_tag (photo.image.to_s), size: 60, class: 'item-photo-box__sub'
 
       %table.item-detail-table
         %tbody
