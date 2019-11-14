@@ -109,7 +109,6 @@
                     width:300px;
                     font-family: Arial;
                     display: flex;
-               
                     position:relative;
                     justify-content: space-between;
 
@@ -152,7 +151,7 @@
                     padding-left:10px;
                     font-family: Arial;
                     display: flex;
-                     &__brand-icon{
+                      &__brand-icon{
                         color: red;
                         margin: 5px 5px 0 0;
                         height: 26px;
@@ -211,16 +210,13 @@
       }
 
 
-    
-     
-
     .bottom-banner{
       display: block;
       color: rgb(255, 255, 255);
       background: url(https://web-jp-assets.mercdn.net/_next/static/images/download_app_bg-b57d6f1a32f2aebd89cf6f43bc2e4b39.jpg) center center / cover;
       background-position: center center;
       height: 260px;
-       }
+      }
 
         .bottom-banner-background{
           color:white;

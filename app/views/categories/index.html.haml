@@ -1,0 +1,28 @@
+= render 'items/shared/header'
+.main-box
+  .category-header
+    %h2.title
+      カテゴリー一覧
+  .category-nav.clearfix
+    - @roots.each do |root|
+      .category-link-name
+        = link_to root.name, category_path(root)
+        
+  - @roots.each do |root|
+    .category-list-box
+      .category-list-box__name
+        %h3 
+          = root.name
+      .category-list-box-body 
+        %p 
+          = link_to "すべて", root_path
+        - root.children.each do |child|
+          .category-list-box-body__child
+            %h4 
+              = child.name
+          .category-list-box-body-grandchild-box.clearfix
+            - child.children.each do |grandchild|
+              .category-list-box-body-grandchild-box__name
+                %p 
+                  = link_to grandchild.name, category_path(grandchild)
+= render 'items/shared/footer'

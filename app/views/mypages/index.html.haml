@@ -1,11 +1,14 @@
-= render 'items/shared/header'
+= render 'items/shared/loginheader'
+- breadcrumb :mypage
+= render "mypages/breadcrumbs-header"
 .my-contents.clearfix
   = render 'sidebar'
   .mypage-content
     %section.mypage-user
       .mypage-user-icon-box        
         = image_tag "yotuba.jpeg", height: "60", width: "60", class:"mypage-user-icon"
-        %h2.bold 四葉
+        %h2.bold 
+          = current_user.nickname
         .mypage-number
           .mypage-rate
             評価
@@ -33,3 +36,8 @@
         %ul#mypage-tab-content
           %li.mypage-content-not-found.bold 取引中の商品がありません
 = render 'items/shared/footer'
+
+:css
+  .header{
+    box-shadow: none;
+  }

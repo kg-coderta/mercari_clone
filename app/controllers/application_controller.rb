@@ -16,6 +16,10 @@ class ApplicationController < ActionController::Base
     Rails.env.production?
   end
 
+  def set_selling
+    @selling_items = Item.where(buyer_id: nil)
+  end
+
   def basic_auth
     authenticate_or_request_with_http_basic do |username, password|
       username == ENV["BASIC_AUTH_USER"] && password == ENV["BASIC_AUTH_PASSWORD"]

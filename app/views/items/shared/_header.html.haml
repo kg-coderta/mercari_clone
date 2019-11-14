@@ -1,35 +1,87 @@
-.header
-  .header-box
-    .header-upper
-      .header-upper-left
-        .header-upper-left__link
-          = link_to root_path do
-            = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/logo-acdd90ac4f472d5a6f7a330d33ab1225.svg", class: "head-upper-left__img"
-        .header-upper-left-space
-      .header-upper-right
-        = form_with method: :get, local: true do |f|
-          = f.text_field :search, class:'header-upper-right-search' , placeholder: "何かお探しですか？"
-          %button{type: "submit", class: 'soul'}
-            =fa_icon "search", class:'fa-search'
+- if user_signed_in?
+  .header
+    .header-box
+      .header-upper
+        .header-upper-left
+          .header-upper-left__link
+            = link_to root_path do
+              = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/logo-acdd90ac4f472d5a6f7a330d33ab1225.svg", class: "head-upper-left__img"
+          .header-upper-left-space
+        .header-upper-right
+          = form_with method: :get, local: true do |f|
+            = f.text_field :search, class:'header-upper-right-search' , placeholder: "何かお探しですか？"
+            %button{type: "submit", class: 'soul'}
+              =fa_icon "search", class:'fa-search'
 
-
-    .header-lower
-      .header-lower-left
-      
-
-        .header-lower-left-category-search
-          =link_to root_path do
-            .header-lower-left-category-search__category-icon
-              = fa_icon 'list-ul', class: 'upper-list'
-              カテゴリで探す
-          
-          = link_to root_path do
-            .header-lower-left-category-search__category-guide
-              = fa_icon 'tag' ,class: 'upper-tag'
-              ブランドから探す
+      .header-lower
+        .header-lower-left
+          .header-lower-left-category-search
+            =link_to root_path do
+              .header-lower-left-category-search__category-icon
+                = fa_icon 'list-ul', class: 'upper-list'
+                カテゴリで探す
             
-      .header-lower-right
-        .header-lower-right-new
-          = link_to "新規会員登録", "/users/index/", class: "header-lower-right-new__icon"
-        .header-lower-right-login
-          = link_to "ログイン", "/users/sign_in", class: "header-lower-right-login__icon"
+            = link_to root_path do
+              .header-lower-left-category-search__category-guide
+                = fa_icon 'tag' ,class: 'upper-tag'
+                ブランドから探す
+              
+        %ul.header-lower__rightlogin
+          %li.header-lower__rightlogin__left
+            = link_to "", class: "header-lower__rightlogin__left__link" do
+              = fa_icon 'heart-o', class: 'heart-icon'
+              %p.text いいね一覧
+
+          %li.header-lower__rightlogin__l-center
+            = link_to "", class: "header-lower__rightlogin__l-center__link" do
+              = fa_icon 'bell-o', class: 'bell-icon'
+              %p.text お知らせ
+              %span.notice 1
+
+          %li.header-lower__rightlogin__r-center
+            = link_to "", class: "header-lower__rightlogin__r-center__link" do
+              = fa_icon 'check', class: 'check-icon'
+              %p.text やることリスト
+              %span.notice 1
+
+          %li.header-lower__rightlogin__right
+            = link_to "mypages",class: "header-lower__rightlogin__right__link" do
+              = image_tag "user_none_img.png", size: "32x32", class: "user-img"
+              %p.text マイページ
+
+- else
+  .header
+    .header-box
+      .header-upper
+        .header-upper-left
+          .header-upper-left__link
+            = link_to root_path do
+              = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/logo-acdd90ac4f472d5a6f7a330d33ab1225.svg", class: "head-upper-left__img"
+          .header-upper-left-space
+        .header-upper-right
+          = form_with method: :get, local: true do |f|
+            = f.text_field :search, class:'header-upper-right-search' , placeholder: "何かお探しですか？"
+            %button{type: "submit", class: 'soul'}
+              =fa_icon "search", class:'fa-search'
+
+
+      .header-lower
+        .header-lower-left
+        
+
+          .header-lower-left-category-search
+            =link_to categories_path do
+              .header-lower-left-category-search__category-icon
+                = fa_icon 'list-ul', class: 'upper-list'
+                カテゴリで探す
+            
+            = link_to root_path do
+              .header-lower-left-category-search__category-guide
+                = fa_icon 'tag' ,class: 'upper-tag'
+                ブランドから探す
+              
+        .header-lower-right
+          .header-lower-right-new
+            = link_to "新規会員登録", new_user_registration_path, class: "header-lower-right-new__icon"
+          .header-lower-right-login
+            = link_to "ログイン", new_user_session_path, class: "header-lower-right-login__icon"

@@ -88,12 +88,12 @@
   
       &__contents-box{
         width: 1040px;
-        height:544px;
+        // height:544px;
         background-color :rgb(245, 245, 245);
 
           &__list{
             width: 1040px;
-            height: 544px;
+            // height: 544px;
             display: flex;
             flex-wrap: wrap;
  
@@ -136,6 +136,7 @@
                 &__price{
                   align-items: center;
                   background: rgba(0,0,0,.4);
+                  color:#fff;
                   border-radius: 0 14px 14px 0;
                   bottom: 72px;
                   z-index:1;
@@ -144,7 +145,8 @@
                 }
               }
             }
-          }
+
+        }
       }
   }
 
