@@ -40,7 +40,6 @@ end
 
 def update
   if @item.saler_id == current_user.id && @item.update(update_params)
-    # @item.update(update_params)
     redirect_to item_path(@item)
   else 
     redirect_back(fallback_location: "/items/new")
