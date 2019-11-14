@@ -30,6 +30,13 @@
             %span.required 必須
             = f.collection_select :category_id, Category.all,:id , :name, {include_blank: true }, class: "a-container__main__details__box__upper__category"
             
+
+          .a-container__main__details__box__center
+            %label.label ブランド
+            %span.required 任意
+            = f.collection_select :brand_id, Brand.all,:id , :name, {include_blank: true }, class: "a-container__main__details__box__center__brand"
+
+
           .a-container__main__details__box__bottom
             %label.label 商品の状態
             %span.required 必須

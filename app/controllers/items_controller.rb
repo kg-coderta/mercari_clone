@@ -112,6 +112,7 @@ end
       :region, 
       :date, 
       :price,
+      :category_id,
       photos_attributes: [:image]
     ).merge(saler_id: current_user.id)
   end

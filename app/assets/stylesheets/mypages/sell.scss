@@ -1,6 +1,6 @@
 
 .a-container{
-  height: 2100px;
+  height: 2200px;
     &__main{
       width: 700px;
       height: 384px;
@@ -111,7 +111,7 @@
             }
         }
         &__details{
-          height: 261px;
+          height: 361px;
           width: 700px;
           background-color:white;
           border-top: 1px solid #eee;
@@ -149,6 +149,31 @@
                 border-color: 166, 166, 166;
               }
             }
+            &__center{
+              margin-top: 40px;
+              .label{
+                font-weight: 600;
+                font-size: 14px;
+                vertical-align: bottom;
+              }
+              .required{
+                margin: 0 0 0 8px;
+                padding: 2px 4px;
+                border-radius: 2px;
+                color: white;
+                font-size: 12px;
+                vertical-align: top;
+                background: lightgray;
+              }
+              &__brand{
+                height: 48px;
+                width: 400px;
+                padding: 0 16px;
+                background-color: #fff;
+                border-color: 166, 166, 166;
+              }
+            }
+            
               &__bottom{
                 margin-top: 40px;
                 .label{

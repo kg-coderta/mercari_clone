@@ -27,9 +27,9 @@
                 %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
                   .center-mid__contents-box__list__items__box
                     .center-mid__contents-box__list__items__box__picture
-                      = image_tag (item.photos.first.image), size:  188
+                      = image_tag (item.photos.first.image.to_s), size:  188
                     .center-mid__contents-box__list__items__box__text
-                      = item.description
+                      = item.name
                     .center-mid__contents-box__list__items__box__price
                       ¥
                       = item.price
@@ -48,9 +48,9 @@
                 %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
                   .center-mid__contents-box__list__items__box
                     .center-mid__contents-box__list__items__box__picture
-                      = image_tag (item.photos.first.image), size:  188
+                      = image_tag (item.photos.first.image.to_s), size:  188
                     .center-mid__contents-box__list__items__box__text
-                      = item.description
+                      = item.name
                     .center-mid__contents-box__list__items__box__price
                       ¥
                       = item.price
@@ -70,9 +70,9 @@
                 %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
                   .center-mid__contents-box__list__items__box
                     .center-mid__contents-box__list__items__box__picture
-                      = image_tag (item.photos.first.image), size:  188
+                      = image_tag (item.photos.first.image.to_s), size:  188
                     .center-mid__contents-box__list__items__box__text
-                      = item.description
+                      = item.name
                     .center-mid__contents-box__list__items__box__price
                       ¥
                       = item.price
@@ -92,9 +92,9 @@
                 %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
                   .center-mid__contents-box__list__items__box
                     .center-mid__contents-box__list__items__box__picture
-                      = image_tag (item.photos.first.image), size:  188
+                      = image_tag (item.photos.first.image.to_s), size:  188
                     .center-mid__contents-box__list__items__box__text
-                      = item.description
+                      = item.name
                     .center-mid__contents-box__list__items__box__price
                       ¥
                       = item.price
