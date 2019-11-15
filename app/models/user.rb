@@ -21,9 +21,10 @@ class User < ApplicationRecord
   has_one :adress, dependent: :destroy
   has_one :card, dependent: :destroy
   has_many :comments, dependent: :destroy 
+  
   validates :nickname, presence: true, length: { maximum: 20 }
-  validates :email, uniqueness: true, format: { with: /\A[a-zA-Z]+\z/,
-  message: "英文字のみが使用できます" }
+  # validates :email, uniqueness: true, format: { with: /\A[a-zA-Z]+\z/,
+  # message: "英文字のみが使用できます" }
   validates :password, length: { minimum: 7 }
   validates :password_confirmation, presence: true, length: { minimum: 7 } 
 end

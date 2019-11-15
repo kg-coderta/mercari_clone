@@ -29,7 +29,7 @@ class SignupController < ApplicationController
     session[:house_number]            = address_params[:house_number]
     session[:building_name]           = address_params[:building_name]
     session[:phone_number]            = address_params[:phone_number]
-    binding.pry
+ 
     # @card = Card.new
 
   end
