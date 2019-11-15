@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: :new
 
   def index
-    @populer_categories = Category.find(1,219,985,751)
+    @populer_categories = Category.find(1,219,985,378)
     @ladies_items = @selling_items.where(category_id: 1..218).limit(10).order('created_at DESC')
     @mens_items = @selling_items.where(category_id: 219..377).limit(10).order('created_at DESC')
     @electronics_items = @selling_items.where(category_id: 985..1080).limit(10).order('created_at DESC')
@@ -30,6 +30,7 @@ def create
   if @item.save
     redirect_to root_path
   else
+    binding.pry
     redirect_back(fallback_location: "/items/new")
   end
   
