@@ -19,7 +19,7 @@
           %tr
             %th 出品者
             %td
-              = link_to "https://www.mercari.com/jp/u/445135287/" do
+              = link_to '' do
                 = @saler.nickname
               %div
                 .item-user-ratings
@@ -51,7 +51,7 @@
           %tr
             %th ブランド
             %td
-              = link_to "https://www.mercari.com/jp/brand/539/" do
+              = link_to "" do
                 %div
                   コーチ
           %tr
@@ -88,11 +88,11 @@
       %p.item-description__inner
         = @item.description
   .items_btn-box.clearfix
-    = link_to '商品の編集', root_path, class: 'edit_btn'
+    = link_to '商品の編集', edit_item_path, class: 'edit_btn'
     %p.or
       or
     %button.hide_item 出品を一旦停止する
-    = link_to 'この商品を削除する', "/items/#{@item.saler_id}", method: :delete, class:"destroy_item" 
+    = link_to 'この商品を削除する', item_path(@item), method: :delete, class:"destroy_item" 
 - else
   %section.show-item-box
     %h1.show-item-box-name.bold.text-center
@@ -144,7 +144,7 @@
           %tr
             %th ブランド
             %td
-              = link_to "https://www.mercari.com/jp/brand/539/" do
+              = link_to "" do
                 %div
                   コーチ
           %tr
