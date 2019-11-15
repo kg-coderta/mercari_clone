@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_selling, only: [:index, :show, :update]
   before_action :set_item, only: [:show, :buy, :pay, :done, :edit, :update]
   before_action :set_card, only: [:buy, :pay]
+  before_action :authenticate_user!, only: :new
 
   def index
     @populer_categories = Category.find(1,219,985,751)
@@ -60,16 +61,17 @@ end
       #登録された情報がない場合にカード登録画面に移動
       redirect_to controller: "card", action: "new"
     else
-      Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+      Payjp.api_key = 'sk_test_5d0971e062081646be8df08b'
       #保管した顧客IDでpayjpから情報取得
       #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
+      customer = Payjp::Customer.retrieve(@card.customer_id)
       @default_card_information = customer.cards.retrieve(@card.card_id)
     end
   end
 
   def pay
     
-    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+    Payjp.api_key = 'sk_test_5d0971e062081646be8df08b'
     Payjp::Charge.create(
     amount: @item.price, #支払金額を入力（itemテーブル等に紐づけても良い）
     customer: @card.customer_id, #顧客ID
