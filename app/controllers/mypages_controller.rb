@@ -2,10 +2,10 @@ class MypagesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_selling
   def index
-
+    @saler_items = @selling_items.where(saler_id: current_user.id)
   end
 
-  def destroy
+  def logout
   end
 
   def edit

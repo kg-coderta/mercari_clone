@@ -29,6 +29,7 @@ def create
   if @item.save
     redirect_to root_path
   else
+    binding.pry
     redirect_back(fallback_location: "/items/new")
   end
   
