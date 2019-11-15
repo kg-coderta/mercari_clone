@@ -100,9 +100,9 @@ ActiveRecord::Schema.define(version: 2019_11_14_051310) do
     t.string "last_name"
     t.string "first_name_kana"
     t.string "last_name_kana"
-    t.string "birth_year_id"
-    t.string "birth_month_id"
-    t.string "birth_day_id"
+    t.integer "birth_year"
+    t.integer "birth_month"
+    t.integer "birth_day"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
