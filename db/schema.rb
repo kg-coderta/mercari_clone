@@ -79,10 +79,10 @@ ActiveRecord::Schema.define(version: 2019_11_14_051310) do
   end
 
   create_table "photos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "image", null: false
     t.integer "item_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -100,9 +100,9 @@ ActiveRecord::Schema.define(version: 2019_11_14_051310) do
     t.string "last_name"
     t.string "first_name_kana"
     t.string "last_name_kana"
-    t.integer "birth_year"
-    t.integer "birth_month"
-    t.integer "birth_day"
+    t.string "birth_year_id"
+    t.string "birth_month_id"
+    t.string "birth_day_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

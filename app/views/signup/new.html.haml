@@ -1,12 +1,12 @@
 .registration_container
-  = render 'devise/registrations/progress_header'
+  = render 'progress_header'
   .registration_container__main
     %section.registration_container__main__contents
       .registration_container__main__contents__head
         %h2 会員情報入力
         -# form_withテーブル作成後に値を要変更
-      = form_with model: @user, url: step2_signup_index_path, method: :get, id: 'new_user', class: 'new_user', local: true do |f|
-        -# = render "devise/shared/error_messages", resource: resource
+      = form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f|
+        = render "devise/shared/error_messages", resource: resource
         .fields
           .field
             = f.label :nickname, 'ニックネーム'
@@ -37,21 +37,21 @@
             = f.label :name, value: "お名前(全角)"
             %span.must 必須
             %br/
-            = f.text_field :last_name, autofocus: true, autocomplete: "name", placeholder: '例) 山田', class: 'input-default-half'
-            = f.text_field :first_name, autofocus: true, autocomplete: "name", placeholder: '例) 彩',class: 'input-default-half'
+            = f.text_field :nickname, autofocus: true, autocomplete: "name", placeholder: '例) 山田', class: 'input-default-half'
+            = f.text_field :nickname, autofocus: true, autocomplete: "name", placeholder: '例) 彩',class: 'input-default-half'
           .field
             = f.label :name, value: "お名前カナ(全角)"
             %span.must 必須
             %br/
-            = f.text_field :last_name_kana, autofocus: true, autocomplete: "name", placeholder: '例) ヤマダ',class: 'input-default-half'
-            = f.text_field :first_name_kana, autofocus: true, autocomplete: "name", placeholder: '例) アヤ',class: 'input-default-half'
+            = f.text_field :nickname, autofocus: true, autocomplete: "name", placeholder: '例) ヤマダ',class: 'input-default-half'
+            = f.text_field :nickname, autofocus: true, autocomplete: "name", placeholder: '例) アヤ',class: 'input-default-half'
           .field
             = f.label :name, value: "生年月日"
             %span.must 必須
             %br
-            = f.collection_select :birth_year_id, BirthYear.all, :name, :name
+            = f.collection_select :birth_year_id, BirthYear.all, :id, :name
             年
-            = f.collection_select :birth_month_id, BirthMonth.all, :name, :name
+            = f.collection_select :birth_month_id, BirthMonth.all, :id, :name
             月
             = f.collection_select :birth_day_id, BirthDay.all, :id, :name
             日
@@ -71,7 +71,7 @@
             %p.check_text
               = link_to "本人情報の登録について", root_path,  class: 'check'
               = fa_icon 'chevron-right', class: 'right-icon'
-  = render 'devise/registrations/footer'
+  = render 'footer'
 
 :css
   li.one{

@@ -31,8 +31,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :addresses, only:[:new, :edit, :show]
-  get "addresses" => "addresses#phone"
   resources :signup do
     collection do
       get 'step1'
@@ -42,6 +40,8 @@ Rails.application.routes.draw do
       get 'done' # 登録完了後のページ
     end
   end
+
+  resources :addresses, only:[:new, :edit, :show]
 
   resources :photos, only: [:index, :create]
 

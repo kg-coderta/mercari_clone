@@ -13,10 +13,9 @@ class SignupController < ApplicationController
     session[:first_name]              = user_params[:first_name]
     session[:last_name_kana]          = user_params[:last_name_kana]
     session[:first_name_kana]         = user_params[:first_name_kana]
-    session[:birth_year]              = user_params[:birth_year]
-    session[:birth_month]             = user_params[:birth_month]
-    session[:birth_day]               = user_params[:birth_day]
-
+    session[:birth_year_id]              = user_params[:birth_year_id]
+    session[:birth_month_id]             = user_params[:birth_month_id]
+    session[:birth_day_id]               = user_params[:birth_day_id]
   end
   
   def step3
@@ -30,7 +29,7 @@ class SignupController < ApplicationController
     session[:house_number]            = address_params[:house_number]
     session[:building_name]           = address_params[:building_name]
     session[:phone_number]            = address_params[:phone_number]
-    binding.pry
+ 
     # @card = Card.new
 
   end
@@ -45,9 +44,9 @@ class SignupController < ApplicationController
     first_name:            session[:first_name], 
     last_name_kana:        session[:last_name_kana], 
     first_name_kana:       session[:first_name_kana], 
-    birth_year:            session[:birth_year],
-    birth_month:           session[:birth_month],
-    birth_day:             session[:birth_day]
+    birth_year_id:            session[:birth_year_id],
+    birth_month_id:           session[:birth_month_id],
+    birth_day_id:             session[:birth_day_id]
     )
 
     
@@ -65,11 +64,11 @@ class SignupController < ApplicationController
       session[:id] = @user.id
       redirect_to done_signup_index_path
     else
-      render "/devise/registrations/index"
+      redirect_to users_index_path  
     end
 
     def done
-      sign_in User.find(seesion[:id]) unless user_signed_in?
+      sign_in User.find(session[:id]) unless user_signed_in?
     end
   end 
   
@@ -80,7 +79,7 @@ class SignupController < ApplicationController
     params.require(:user).permit(
       :nickname,:email,:password,:password_confirmation,
       :last_name, :first_name, :last_name_kana, :first_name_kana,
-      :birth_year, :birth_month, :birth_day
+      :birth_year_id, :birth_month_id, :birth_day_id
     )
   end
   
