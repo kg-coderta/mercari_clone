@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :buy, :pay, :done, :edit, :update]
   before_action :set_card, only: [:buy, :pay]
 
+
   def index
     @populer_categories = Category.find(1,219,985,378)
     @ladies_items = @selling_items.where(category_id: 1..218).limit(10).order('created_at DESC')
@@ -64,6 +65,7 @@ end
       Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
       #保管した顧客IDでpayjpから情報取得
       #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
+      customer = Payjp::Customer.retrieve(@card.customer_id)
       @default_card_information = customer.cards.retrieve(@card.card_id)
     end
   end
@@ -81,13 +83,6 @@ end
   end
 
   def done
-  end
-
-  def detail
-    @item = Item.includes(:photos).find(params[:id])
-    @saler = User.find(@item.saler_id)
-    @comments = @item.comments.includes(:user)
-    @comment = Comment.new
   end
 
   def destroy

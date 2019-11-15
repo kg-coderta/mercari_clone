@@ -1,117 +1,212 @@
 = render 'items/shared/header'
 
-%section.show-item-box
-  %h1.show-item-box-name.bold.text-center
-    = @item.name
-  .show-item-content.clearfix
-    .item-photo
-      = image_tag (@item.photos.first.image.to_s), size: 300, class: 'item-photo__main'
-      .item-photo-box
-        - @item.photos.each do |photo|
-          = image_tag (photo.image.to_s), size: 60, class: 'item-photo-box__sub'
-    - if @item.buyer_id != nil
-      .item-sold-out-badge
-        %div
-          SOLD
-    %table.item-detail-table
-      %tbody
-        %tr
-          %th 出品者
-          %td
-            = link_to "https://www.mercari.com/jp/u/445135287/" do
-              = @saler.nickname
-            %div
-              .item-user-ratings
-                %i.icon-good
-                %span 0
-              .item-user-ratings
-                %i.icon-normal
-                %span 0
-              .item-user-ratings
-                %i.icon-bad
-                %span 0
-        %tr
-          %th カテゴリー
-          %td
-            = link_to category_path(@category.root) do
-              %div 
-              = @category.root.name
-            - if @category.parent != @category.root
-              = link_to category_path(@category.parent) do
-                .item-detail-table-sub-category
+- if user_signed_in? && @item.saler_id == current_user.id
+  %section.show-item-box
+    %h1.show-item-box-name.bold.text-center
+      = @item.name
+    .show-item-content.clearfix
+      .item-photo
+        = image_tag (@item.photos.first.image.to_s), size: 300, class: 'item-photo__main'
+        .item-photo-box
+          - @item.photos.each do |photo|
+            = image_tag (photo.image.to_s), size: 60, class: 'item-photo-box__sub'
+      - if @item.buyer_id != nil
+        .item-sold-out-badge
+          %div
+            SOLD
+      %table.item-detail-table
+        %tbody
+          %tr
+            %th 出品者
+            %td
+              = link_to "https://www.mercari.com/jp/u/445135287/" do
+                = @saler.nickname
+              %div
+                .item-user-ratings
+                  %i.icon-good
+                  %span 0
+                .item-user-ratings
+                  %i.icon-normal
+                  %span 0
+                .item-user-ratings
+                  %i.icon-bad
+                  %span 0
+          %tr
+            %th カテゴリー
+            %td
+              = link_to category_path(@category.root) do
+                %div 
+                = @category.root.name
+              - if @category.parent != @category.root
+                = link_to category_path(@category.parent) do
+                  .item-detail-table-sub-category
+                    %i.icon-arrow-right
+                    = fa_icon 'chevron-right'
+                    = @category.parent.name
+              = link_to category_path(@category) do
+                .item-detail-table-sub-sub-category
                   %i.icon-arrow-right
                   = fa_icon 'chevron-right'
-                  = @category.parent.name
-            = link_to category_path(@category) do
-              .item-detail-table-sub-sub-category
-                %i.icon-arrow-right
-                = fa_icon 'chevron-right'
-                = @category.name
-        %tr
-          %th ブランド
-          %td
-            = link_to "https://www.mercari.com/jp/brand/539/" do
-              %div
-                コーチ
-        %tr
-          %th 商品の状態
-          %td 
-            = @item.state
-        %tr
-          %th 配送料の負担
-          %td 
-            = @item.carriage
-        %tr
-          %th 配送の方法
-          %td
-            = @item.method
-        %tr
-          %th 配送元地域
-          %td
-            = link_to "" do
-              = @item.region
-        %tr
-          %th 発送日の目安
-          %td 
-            = @item.date
+                  = @category.name
+          %tr
+            %th ブランド
+            %td
+              = link_to "https://www.mercari.com/jp/brand/539/" do
+                %div
+                  コーチ
+          %tr
+            %th 商品の状態
+            %td 
+              = @item.state
+          %tr
+            %th 配送料の負担
+            %td 
+              = @item.carriage
+          %tr
+            %th 配送の方法
+            %td
+              = @item.method
+          %tr
+            %th 配送元地域
+            %td
+              = link_to "" do
+                = @item.region
+          %tr
+            %th 発送日の目安
+            %td 
+              = @item.date
 
-  .item-price-box.text-center
-    %span.item-price.bold
-      ¥
-      = @item.price
-    %span.item-tax
-      (税込)
-    %span.item-fee
-      送料込み
-  - if @item.buyer_id != nil
-    .item-bought-btn
-      売り切れました
-  - else
-    = link_to buy_item_path(@item), class: 'item-buy-btn' do
-      購入画面に進む
-  .item-description
-    %p.item-description__inner
-      = @item.description 
-  .item-btn-box.clearfix
-    .item-btn-left
-      %button.item-btn.item-btn-like
-        %i.icon-like-border
-          = fa_icon "heart-o"
-        %span
-          いいね!
-        %span
-          28
-      %button.item-btn.item-btn-report.clearfix
-        %i.icon-frag
-          = fa_icon "flag-o"
-        %span
-          不適切な商品の報告
-    .item-btn-right
-      = link_to "", target: "_blank" do
-        %i.icon-lock
-          = fa_icon "lock"
-        %span.f14
-          あんしん・あんぜんへの取り組み
+    .item-price-box.text-center
+      %span.item-price.bold
+        ¥
+        = @item.price
+      %span.item-tax
+        (税込)
+      %span.item-fee
+        送料込み
+    .item-description
+      %p.item-description__inner
+        = @item.description
+  .items_btn-box.clearfix
+    = link_to '商品の編集', root_path, class: 'edit_btn'
+    %p.or
+      or
+    %button.hide_item 出品を一旦停止する
+    = link_to 'この商品を削除する', "/items/#{@item.saler_id}", method: :delete, class:"destroy_item" 
+- else
+  %section.show-item-box
+    %h1.show-item-box-name.bold.text-center
+      = @item.name
+    .show-item-content.clearfix
+      .item-photo
+        = image_tag (@item.photos.first.image.to_s), size: 300, class: 'item-photo__main'
+        .item-photo-box
+          - @item.photos.each do |photo|
+            = image_tag (photo.image.to_s), size: 60, class: 'item-photo-box__sub'
+      - if @item.buyer_id != nil
+        .item-sold-out-badge
+          %div
+            SOLD
+      %table.item-detail-table
+        %tbody
+          %tr
+            %th 出品者
+            %td
+              = link_to "https://www.mercari.com/jp/u/445135287/" do
+                = @saler.nickname
+              %div
+                .item-user-ratings
+                  %i.icon-good
+                  %span 0
+                .item-user-ratings
+                  %i.icon-normal
+                  %span 0
+                .item-user-ratings
+                  %i.icon-bad
+                  %span 0
+          %tr
+            %th カテゴリー
+            %td
+              = link_to category_path(@category.root) do
+                %div 
+                = @category.root.name
+              - if @category.parent != @category.root
+                = link_to category_path(@category.parent) do
+                  .item-detail-table-sub-category
+                    %i.icon-arrow-right
+                    = fa_icon 'chevron-right'
+                    = @category.parent.name
+              = link_to category_path(@category) do
+                .item-detail-table-sub-sub-category
+                  %i.icon-arrow-right
+                  = fa_icon 'chevron-right'
+                  = @category.name
+          %tr
+            %th ブランド
+            %td
+              = link_to "https://www.mercari.com/jp/brand/539/" do
+                %div
+                  コーチ
+          %tr
+            %th 商品の状態
+            %td 
+              = @item.state
+          %tr
+            %th 配送料の負担
+            %td 
+              = @item.carriage
+          %tr
+            %th 配送の方法
+            %td
+              = @item.method
+          %tr
+            %th 配送元地域
+            %td
+              = link_to "" do
+                = @item.region
+          %tr
+            %th 発送日の目安
+            %td 
+              = @item.date
+
+    .item-price-box.text-center
+      %span.item-price.bold
+        ¥
+        = @item.price
+      %span.item-tax
+        (税込)
+      %span.item-fee
+        送料込み
+    - if @item.buyer_id != nil
+      .item-bought-btn
+        売り切れました
+    - else
+      = link_to buy_item_path(@item), class: 'item-buy-btn' do
+        購入画面に進む
+      .item-description
+        %p.item-description__inner
+          = @item.description
+      .item-btn-box.clearfix
+        .item-btn-left
+          %button.item-btn.item-btn-like
+            %i.icon-like-border
+              = fa_icon "heart-o"
+            %span
+              いいね!
+            %span
+              28
+          %button.item-btn.item-btn-report.clearfix
+            %i.icon-frag
+              = fa_icon "flag-o"
+            %span
+              不適切な商品の報告
+        .item-btn-right
+          = link_to "", target: "_blank" do
+            %i.icon-lock
+              = fa_icon "lock"
+            %span.f14
+              あんしん・あんぜんへの取り組み
+              
 .item-comment-box
   .item-comment-contents
     %ul.item-comment-content
@@ -223,7 +318,6 @@
   %section.items-box-container.clearfix
     %h2.items-box-head.item-box-likes
       = link_to category_path(@category) do
-        -# = @brand
         の
         = @category.name
         その他の商品

@@ -5,7 +5,7 @@
     %section.buy-container__item
       .buy-container__item__inner
         %h3.buy-container__item__inner__pic
-          = image_tag (@item.photos.first.image), size: "64x64"
+          = image_tag (@item.photos.first.image.to_s), size: "64x64"
         %p.buy-container__item__inner__name 
           = @item.name
 

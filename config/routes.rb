@@ -4,7 +4,6 @@ Rails.application.routes.draw do
 
   resources :items do
     member do
-      get 'detail'
       get 'buy', to: 'items#buy'
       post 'pay', to: 'items#pay'
       patch 'pay', to: 'items#pay'
