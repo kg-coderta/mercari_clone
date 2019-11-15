@@ -1,5 +1,5 @@
 class SignupController < ApplicationController
-  before_action :authenticate_user!, only: :step1
+  # before_action :authenticate_user!, only: :step1
 
   def step1
     @user = User.new

@@ -7,7 +7,7 @@
           新規会員登録
       .registration-container__main__content
         .registration-container__main__content__btn-box
-          = link_to '/signup/step1', class: 'sign_up_mail-adress' do
+          = link_to step1_signup_index_path, class: 'sign_up_mail-adress' do
             = fa_icon 'envelope-o', class: 'mail_icon'
             メールアドレスで登録する
           = link_to user_facebook_omniauth_authorize_path do 
@@ -18,4 +18,4 @@
             %button.sign_up_Google
               Googleで登録する
   = render "footer"
-  -# リンク先仮置きなので要変更
+  
