@@ -318,9 +318,9 @@
   %section.items-box-container.clearfix
     %h2.items-box-head.item-box-likes
       = link_to category_path(@category) do
-        の
+        -# = @brand
         = @category.name
-        その他の商品
+        のその他の商品
     .items-box-content.clearfix
       - @category_items.each do |item|
         %section.items-box

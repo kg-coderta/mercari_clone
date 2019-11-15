@@ -94,23 +94,23 @@
               .a-container__main__price__box__upper__list__last__hyphen
 
       .a-container__main__submit
-        = link_to "禁止されている出品", "", class: "link-color"
+        = link_to "禁止されている出品", new_item_path, class: "link-color"
         、
-        = link_to "行為", "", class: "link-color"
+        = link_to "行為", new_item_path, class: "link-color"
         を必ずご確認ください。
         %br
         またブランド品でシリアルナンバー等がある場合はご記載ください。
-        = link_to "偽ブランドの販売","", class: "link-color"
+        = link_to "偽ブランドの販売",new_item_path, class: "link-color"
         は犯罪で
         %br
         あり処罰される可能性があります。
         %br
         また、出品をもちまして
-        = link_to "加盟店規約","", class: "link-color"
+        = link_to "加盟店規約",new_item_path, class: "link-color"
         に同意したことになります。
         = f.submit "出品する", class:'a-container__main__submit__next'
 
-        = link_to "もどる", "", class:'a-container__main__submit__back'
+        = link_to "もどる", root_path, class:'a-container__main__submit__back'
       
   = render 'devise/registrations/footer'
 
