@@ -1,6 +1,6 @@
 $(function(){
     let maxFileSize = 10
-  $('form').on('change', 'input[type="file"]', function(e) {
+  $(document).on('change', 'input[type="file"]', function(e) {
     var file = e.target.files[0],
         reader = new FileReader(),
         $preview = $(".preview");
@@ -29,7 +29,7 @@ $(function(){
 });
 
 $(function(){
-  $('.price-input').on('input', function(){
+  $(document).on('input', function(){
     var data = $('.price-input').val();
     var fee = (data - (Math.round(data * 0.9)))
     var gain = data - fee
@@ -44,6 +44,24 @@ $(function(){
     }
   })
 })
+
+
+// $(function(){
+//   $('.price-input').on('input', function(){
+//     var data = $('.price-input').val();
+//     var fee = (data - (Math.round(data * 0.9)))
+//     var gain = data - fee
+//     $('.a-container__main__price__box__upper__list__hyphen').html('¥' + fee);
+//     $('.a-container__main__price__box__upper__list__last__hyphen').html('¥' + gain);
+//     if (data < 300) {
+//       $('.a-container__main__price__box__upper__list__hyphen').html("-");
+//       $('.a-container__main__price__box__upper__list__last__hyphen').html("-");
+//     } else if (data > 9999999) {
+//       $('.a-container__main__price__box__upper__list__hyphen').html("-");
+//       $('.a-container__main__price__box__upper__list__last__hyphen').html("-");
+//     }
+//   })
+// })
 
 
 // ！ドラッグアンドドロップは後回しなのでコメントアウト中！
