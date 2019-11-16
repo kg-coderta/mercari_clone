@@ -60,7 +60,7 @@ end
   def buy
     if @card.blank?
       #登録された情報がない場合にカード登録画面に移動
-      redirect_to controller: "card", action: "new"
+      # redirect_to controller: "card", action: "new"
     else
       Payjp.api_key = 'sk_test_5d0971e062081646be8df08b'
       #保管した顧客IDでpayjpから情報取得
@@ -71,15 +71,18 @@ end
   end
 
   def pay
-    
-    Payjp.api_key = 'sk_test_5d0971e062081646be8df08b'
-    Payjp::Charge.create(
-    amount: @item.price, #支払金額を入力（itemテーブル等に紐づけても良い）
-    customer: @card.customer_id, #顧客ID
-    currency: 'jpy', #日本円
-  )
-    item_update
-    redirect_to action: 'done' #完了画面に移動
+    if @card.blank?
+      redirect_to buy_item_path
+    else
+      Payjp.api_key = 'sk_test_5d0971e062081646be8df08b'
+      Payjp::Charge.create(
+      amount: @item.price, #支払金額を入力（itemテーブル等に紐づけても良い）
+      customer: @card.customer_id, #顧客ID
+      currency: 'jpy', #日本円
+      )
+      item_update
+      redirect_to action: 'done' #完了画面に移動
+    end
   end
 
   def done
