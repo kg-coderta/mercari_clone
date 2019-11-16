@@ -1,9 +1,9 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :buy, :pay, :done, :detail, :destroy]
   before_action :set_item_find, only:[:destroy]
   before_action :set_selling, only: [:index, :show, :update]
   before_action :set_item, only: [:show, :buy, :pay, :done, :edit, :update]
   before_action :set_card, only: [:buy, :pay]
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :buy, :pay, :done, :detail, :destroy]
 
 
   def index
