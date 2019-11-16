@@ -17,10 +17,10 @@ crumb :mypage_show do
   parent :mypage
 end
 
-# crumb :mypage_destroy do
-#   link "ログアウト", 
-#   parent :mypage
-# end
+crumb :mypage_destroy do
+  link "ログアウト", logout_mypages_path
+  parent :mypage
+end
 
 crumb :items_show do |item|
   link "#{item.name}", item_path
