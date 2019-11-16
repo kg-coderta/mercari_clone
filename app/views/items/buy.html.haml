@@ -52,12 +52,14 @@
           - else
             -#以下カード情報を表示
             = "**** **** **** " + @default_card_information.last4
+            %br
             - exp_month = @default_card_information.exp_month.to_s
             - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
             = exp_month + " / " + exp_year
           %br
 
         .buy-container__user__address__fix
-          = link_to "変更する > ", "", class: "change"
+          
+          = link_to "変更する > ", new_card_path, class: "change" unless @card
       
   = render 'devise/registrations/footer'
