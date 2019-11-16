@@ -7,11 +7,13 @@
         = link_to users_index_path, class: "regist-btn" do  
           新規会員登録
       .login-form-contents
-        %button.sign_up_Facebook
-          = fa_icon 'facebook-square', class: 'facebook_icon'
-          Facebookでログイン
-        %button.sign_up_Google
-          Googleでログイン   
+        = link_to user_facebook_omniauth_authorize_path do
+          %button.sign_up_Facebook
+            = fa_icon 'facebook-square', class: 'facebook_icon'
+            Facebookでログイン
+        = link_to user_google_oauth2_omniauth_authorize_path do
+          %button.sign_up_Google
+            Googleでログイン   
       .login-form-contents
         = form_for(resource, as: resource_name, url: user_session_path) do |f|
           .login-form
