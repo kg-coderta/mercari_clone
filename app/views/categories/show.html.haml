@@ -1,11 +1,14 @@
 = render 'items/shared/header'
+- breadcrumb :category_show, @category
+= render './mypages/breadcrumbs-header'
+
 - if Category.roots.include?(@category)
   .center
     .center-category-show
       %ul.center-category__lower.clearfix
-        - @children.limit(9).each do |child|
+        - @children.each do |child|
           %li
-            = link_to child.name, root_path, class: "link"
+            = link_to child.name, category_path(child), class: "link"
 
     .center-mid
       .center-mid-new
@@ -33,12 +36,11 @@
 
 - else
   .center
-    .center-category
-      %ul.center-category__lower
-        - @children.limit(9).each do |child|
-          %li.center-category__lower__details
-            .center-category__lower__details__topic
-              = link_to child.name, root_path, class: "link"
+    .center-category-show
+      %ul.center-category__lower.clearfix
+        - @children.each do |child|
+          %li
+            = link_to child.name, category_path(child), class: "link"
 
     .center-mid
       .center-mid-new
@@ -64,3 +66,8 @@
 
   = paginate @self_items
 = render 'items/shared/footer'
+
+:css
+  .header {
+    box-shadow: none;
+  }

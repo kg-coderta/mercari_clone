@@ -18,7 +18,6 @@ $(function(){
                   width: "124px",
                   class: "preview",
                   title: file.name
-                  
               }));
       };
     })(file);

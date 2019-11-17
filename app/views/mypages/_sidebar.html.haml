@@ -11,15 +11,15 @@
           出品する
           %i.icon-arrow-right
             = fa_icon 'chevron-right'
-      %li.mypage-list-item
-        出品した商品-出品中
-        %i.icon-arrow-right
-          = fa_icon 'chevron-right'
       = link_to selling_mypages_path do
         %li.mypage-list-item
-          出品した商品-取引中
+          出品した商品-出品中
           %i.icon-arrow-right
             = fa_icon 'chevron-right'
+      %li.mypage-list-item
+        出品した商品-取引中
+        %i.icon-arrow-right
+          = fa_icon 'chevron-right'
       %li.mypage-list-item
         出品した商品-売却済み
         %i.icon-arrow-right
@@ -49,26 +49,32 @@
     %h3.mypage-head.bold
       設定
     %ul.mypage-list
-      %li.mypage-list-item
-        プロフィール
-        %i.icon-arrow-right
-          = fa_icon 'chevron-right'
+
+      = link_to edit_mypage_path(1) do
+        %li.mypage-list-item
+          プロフィール
+          %i.icon-arrow-right
+            = fa_icon 'chevron-right'
       %li.mypage-list-item
         発送元・お届け先住所変更
         %i.icon-arrow-right
           = fa_icon 'chevron-right'
-      %li.mypage-list-item
-        支払い方法
-        %i.icon-arrow-right
-          = fa_icon 'chevron-right'
+      = link_to new_card_path do
+        %li.mypage-list-item
+          支払い方法
+          %i.icon-arrow-right
+            = fa_icon 'chevron-right'
       %li.mypage-list-item
         メール/パスワード
         %i.icon-arrow-right
           = fa_icon 'chevron-right'
-      %li.mypage-list-item
-        本人情報
-        %i.icon-arrow-right
-          = fa_icon 'chevron-right'
+
+      = link_to edit_address_path(1) do
+        %li.mypage-list-item
+          本人情報
+          %i.icon-arrow-right
+            = fa_icon 'chevron-right'
+
       %li.mypage-list-item
         電話番号の確認
         %i.icon-arrow-right

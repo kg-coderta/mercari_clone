@@ -28,20 +28,38 @@
       width: 50%;
       height: 48px;
       margin: 8px 0 0 0;
+      display: flex;
       .expire-months-select{
         height: 48px;
         width: 78%;
         background-color: #fff;
+        line-height: 48px;
+        text-align: center;
+        .month{
+          width:131px;
+          height:48px;
+          line-height: 48px;
+          text-align: center;
+        }
       }
     }
     .expire-years{
       width: 50%;
       height: 48px;
       margin: 8px 0 0 0;
+      display: flex;
       .expire-years-select{
         height: 48px;
         width: 78%;
         background-color: #fff;
+        line-height: 48px;
+        text-align: center;
+        .year{
+          width:131px;
+          height:48px;
+          line-height: 48px;
+          text-align: center;
+        }
       }
     }
   }

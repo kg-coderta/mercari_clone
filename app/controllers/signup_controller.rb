@@ -33,7 +33,6 @@ class SignupController < ApplicationController
     session[:phone_number]            = address_params[:phone_number]
 
     # @card = Card.new
-
   end
 
   def create
@@ -50,7 +49,6 @@ class SignupController < ApplicationController
     birth_month_id:        session[:birth_month_id],
     birth_day_id:          session[:birth_day_id]
     )
-    # if @user.valid? かつ @address.valid?(user_id以外）
     if @user.save
       @address = Address.create( 
         user_id:               @user.id,
@@ -60,7 +58,7 @@ class SignupController < ApplicationController
         house_number:          session[:house_number], 
         building_name:         session[:building_name], 
         phone_number:          session[:phone_number],
-        )
+      )
       session[:id] = @user.id
       if @address.save
       redirect_to done_signup_index_path
@@ -94,5 +92,8 @@ class SignupController < ApplicationController
       :house_number,:building_name,:phone_number,
     )
   end
-  
+
+  def redirect_to_top
+    redirect_to controller: 'items', action: 'index' if user_signed_in?
+  end  
 end
