@@ -50,7 +50,7 @@ class SignupController < ApplicationController
     birth_day_id:          session[:birth_day_id]
     )
     if @user.save
-      @address = Address.create(
+      @address = Address.create( 
         user_id:               @user.id,
         postal_code:           session[:postal_code],
         prefecture_id:         session[:prefecture_id],  
@@ -60,7 +60,12 @@ class SignupController < ApplicationController
         phone_number:          session[:phone_number],
       )
       session[:id] = @user.id
+      if @address.save
       redirect_to done_signup_index_path
+      else
+        @user.destroy
+        redirect_to users_index_path
+      end
     else
       redirect_to users_index_path  
     end
