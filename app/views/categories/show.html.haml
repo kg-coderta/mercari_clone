@@ -1,4 +1,7 @@
 = render 'items/shared/header'
+- breadcrumb :category_show, @category
+= render './mypages/breadcrumbs-header'
+
 - if Category.roots.include?(@category)
   .center
     .center-category-show
@@ -63,3 +66,8 @@
 
   = paginate @self_items
 = render 'items/shared/footer'
+
+:css
+  .header {
+    box-shadow: none;
+  }

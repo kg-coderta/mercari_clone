@@ -2,7 +2,6 @@ class CategoriesController < ApplicationController
   before_action :set_selling
 
   def index
-  @roots = Category.roots
   end
 
   def show

@@ -36,6 +36,16 @@ crumb :items_detail do
   link '出品商品画面', detail_item_path
   parent :items_status
 end
+
+crumb :categories do
+  link 'カテゴリー一覧', categories_path
+  parent :root
+end
+
+crumb :category_show do |category|
+  link "#{category.name}", category_path
+  parent :categories
+end
 # crumb :projects do
 #   link "Projects", projects_path
 # end
