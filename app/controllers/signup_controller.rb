@@ -13,9 +13,9 @@ class SignupController < ApplicationController
     session[:first_name]              = user_params[:first_name]
     session[:last_name_kana]          = user_params[:last_name_kana]
     session[:first_name_kana]         = user_params[:first_name_kana]
-    session[:birth_year_id]              = user_params[:birth_year_id]
-    session[:birth_month_id]             = user_params[:birth_month_id]
-    session[:birth_day_id]               = user_params[:birth_day_id]
+    session[:birth_year_id]           = user_params[:birth_year_id]
+    session[:birth_month_id]          = user_params[:birth_month_id]
+    session[:birth_day_id]            = user_params[:birth_day_id]
   end
   
   def step3
@@ -29,7 +29,7 @@ class SignupController < ApplicationController
     session[:house_number]            = address_params[:house_number]
     session[:building_name]           = address_params[:building_name]
     session[:phone_number]            = address_params[:phone_number]
- 
+
     # @card = Card.new
 
   end
@@ -44,9 +44,9 @@ class SignupController < ApplicationController
     first_name:            session[:first_name], 
     last_name_kana:        session[:last_name_kana], 
     first_name_kana:       session[:first_name_kana], 
-    birth_year_id:            session[:birth_year_id],
-    birth_month_id:           session[:birth_month_id],
-    birth_day_id:             session[:birth_day_id]
+    birth_year_id:         session[:birth_year_id],
+    birth_month_id:        session[:birth_month_id],
+    birth_day_id:          session[:birth_day_id]
     )
 
     
