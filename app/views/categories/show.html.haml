@@ -1,12 +1,11 @@
 = render 'items/shared/header'
 - if Category.roots.include?(@category)
   .center
-    .center-category
-      %ul.center-category__lower
+    .center-category-show
+      %ul.center-category__lower.clearfix
         - @children.limit(9).each do |child|
-          %li.center-category__lower__details
-            .center-category__lower__details__topic
-              = link_to child.name, root_path, class: "link"
+          %li
+            = link_to child.name, root_path, class: "link"
 
     .center-mid
       .center-mid-new
