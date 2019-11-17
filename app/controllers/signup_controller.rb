@@ -5,11 +5,6 @@ class SignupController < ApplicationController
 
   def step1
     @user = User.new
-
-    unless @user.save
-
-    
-
   end  
 
   def step2
@@ -39,7 +34,6 @@ class SignupController < ApplicationController
     session[:phone_number]            = address_params[:phone_number]
 
     # @card = Card.new
-
   end
 
   def create
@@ -68,7 +62,7 @@ class SignupController < ApplicationController
         house_number:          session[:house_number], 
         building_name:         session[:building_name], 
         phone_number:          session[:phone_number],
-        )
+      )
       session[:id] = @user.id
       redirect_to done_signup_index_path
     else
@@ -97,5 +91,4 @@ class SignupController < ApplicationController
       :house_number,:building_name,:phone_number,
     )
   end
-  
 end
