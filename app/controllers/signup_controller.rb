@@ -1,7 +1,15 @@
 class SignupController < ApplicationController
+  # before_action :authenticate_user!, except: :step1
+  before_action :set_category
+
 
   def step1
     @user = User.new
+
+    unless @user.save
+
+    
+
   end  
 
   def step2

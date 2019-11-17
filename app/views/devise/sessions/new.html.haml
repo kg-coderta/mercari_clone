@@ -1,28 +1,31 @@
 .registration-index
   = render "devise/registrations/header"
   .login-contents
-    = form_with  class:"login-panel",local: true do |f|
+    .login-panel
       .login-no-account
         %p アカウントをお持ちでない方はこちら
         = link_to users_index_path, class: "regist-btn" do  
           新規会員登録
       .login-form-contents
-        %button.sign_up_Facebook
-          = fa_icon 'facebook-square', class: 'facebook_icon'
-          Facebookでログイン
-        %button.sign_up_Google
-          Googleでログイン   
+        = link_to user_facebook_omniauth_authorize_path do
+          %button.sign_up_Facebook
+            = fa_icon 'facebook-square', class: 'facebook_icon'
+            Facebookでログイン
+        = link_to user_google_oauth2_omniauth_authorize_path do
+          %button.sign_up_Google
+            Googleでログイン   
       .login-form-contents
-        .login-form
-          = f.text_field :email, class:"input-user-info", placeholder: "メールアドレス"
-        .login-form
-          = f.text_field :password, class:"input-user-info", placeholder: "パスワード"
-        .login-form
-          .g-recaptcha.login-captcha
-            %iframe{frameborder: "0",width:304, name: "a-szm6fog1g9xi", role: "presentation", sandbox: "allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox", scrolling: "no", src: "https://www.google.com/recaptcha/api2/anchor?ar=1&k=6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc&co=aHR0cHM6Ly93d3cubWVyY2FyaS5jb206NDQz&hl=ja&v=66WEle60vY1w2WveBS-1ZMFs&size=normal&cb=hp1fnvxwxuiu"}              
-        = f.submit "ログイン", class: "login-default-btn" 
-        .pass-confirmation
-          = link_to users_index_path, class:"pass-confirmation" do
-            パスワードをお忘れの方
-
+        = form_for(resource, as: resource_name, url: user_session_path) do |f|
+          .login-form
+            = f.text_field :email, class:"input-user-info", placeholder: "メールアドレス"
+          .login-form
+            = f.text_field :password, class:"input-user-info", placeholder: "パスワード"
+          -# .login-form
+            -# .g-recaptcha.login-captcha
+            -#   %iframe{frameborder: "0",width:304, name: "a-szm6fog1g9xi", role: "presentation", sandbox: "allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox", scrolling: "no", src: "https://www.google.com/recaptcha/api2/anchor?ar=1&k=6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc&co=aHR0cHM6Ly93d3cubWVyY2FyaS5jb206NDQz&hl=ja&v=66WEle60vY1w2WveBS-1ZMFs&size=normal&cb=hp1fnvxwxuiu"}              
+          = f.submit "ログイン", class: "login-default-btn" 
+          .pass-confirmation
+            = link_to users_index_path, class:"pass-confirmation" do
+              パスワードをお忘れの方
+      -# = render 'devise/shared/links'
   = render "devise/registrations/footer"

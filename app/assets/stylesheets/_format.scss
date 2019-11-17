@@ -26,6 +26,9 @@ html {
           position: relative;
           background-color: #fff;
           cursor: pointer;
+          &:hover {
+            background-color: #fafafa;
+          }
           .icon-arrow-right {
             position: absolute;
             top: 30%;

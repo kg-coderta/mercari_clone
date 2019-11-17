@@ -1,8 +1,10 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :buy, :pay, :done, :detail, :destroy]
   before_action :set_item_find, only:[:destroy]
   before_action :set_selling, only: [:index, :show, :update]
   before_action :set_item, only: [:show, :buy, :pay, :done, :edit, :update]
   before_action :set_card, only: [:buy, :pay]
+  before_action :set_categories
 
   def index
     @populer_categories = Category.find(1,219,985,378)
@@ -29,8 +31,7 @@ def create
   if @item.save
     redirect_to root_path
   else
-    binding.pry
-    redirect_back(fallback_location: "/items/new")
+    redirect_back(fallback_location: new_item_path)
   end
   
 end
@@ -59,35 +60,35 @@ end
   def buy
     if @card.blank?
       #登録された情報がない場合にカード登録画面に移動
-      redirect_to controller: "card", action: "new"
+      # redirect_to controller: "card", action: "new"
     else
-      Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+      Payjp.api_key = 'sk_test_5d0971e062081646be8df08b'
       #保管した顧客IDでpayjpから情報取得
       #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
+      customer = Payjp::Customer.retrieve(@card.customer_id)
       @default_card_information = customer.cards.retrieve(@card.card_id)
     end
+
+    # if user_signed_in? && current_user.address
+    @address = current_user.address
   end
 
   def pay
-    
-    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
-    Payjp::Charge.create(
-    amount: @item.price, #支払金額を入力（itemテーブル等に紐づけても良い）
-    customer: @card.customer_id, #顧客ID
-    currency: 'jpy', #日本円
-  )
-    item_update
-    redirect_to action: 'done' #完了画面に移動
+    if @card.blank?
+      redirect_to buy_item_path
+    else
+      Payjp.api_key = 'sk_test_5d0971e062081646be8df08b'
+      Payjp::Charge.create(
+      amount: @item.price, #支払金額を入力（itemテーブル等に紐づけても良い）
+      customer: @card.customer_id, #顧客ID
+      currency: 'jpy', #日本円
+      )
+      item_update
+      redirect_to action: 'done' #完了画面に移動
+    end
   end
 
   def done
-  end
-
-  def detail
-    @item = Item.includes(:photos).find(params[:id])
-    @saler = User.find(@item.saler_id)
-    @comments = @item.comments.includes(:user)
-    @comment = Comment.new
   end
 
   def destroy
@@ -153,4 +154,5 @@ end
   def set_card
     @card = current_user.card
   end
+  
 end
