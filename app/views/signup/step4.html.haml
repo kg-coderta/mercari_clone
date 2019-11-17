@@ -4,7 +4,7 @@
   %section.registration_container__main__contents
     .registration_container__main__contents__head
       %h2 支払い方法
-    = form_with model: @card, url: signup_index_path, method: :post,  id: "new_user", class: "new_user", local: true do |f|
+    = form_with model: @card, url: signup_index_path, method: :post, id: "new_user", class: "new_user", local: true do |f|
       .fields
         .field
           = f.label :password, "カード番号"
