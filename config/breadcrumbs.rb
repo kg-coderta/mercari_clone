@@ -22,6 +22,11 @@ crumb :mypage_destroy do
   parent :mypage
 end
 
+crumb :address_edit do
+  link "本人情報の登録", edit_address_path
+  parent :mypage
+end
+
 crumb :items_show do |item|
   link "#{item.name}", item_path
   parent :root
