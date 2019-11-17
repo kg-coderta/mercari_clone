@@ -1,4 +1,5 @@
 class CardsController < ApplicationController
+  before_action :authenticate_user!
 
   require "payjp"
 
@@ -13,8 +14,6 @@ class CardsController < ApplicationController
       redirect_to action: "new"
     else
       customer = Payjp::Customer.create(
-      # description: '登録テスト', #なくてもOK
-      # email: current_user.email, #なくてもOK
       card: params['payjp-token'],
       
       ) #念の為metadataにuser_idを入れましたがなくてもOK

@@ -12,10 +12,11 @@
         .mypage-number
           .mypage-rate
             評価
-            %span.bold 120
+            %span.bold 0
           .mypage-exhibit
             出品数
-            %span.bold 105
+            %span.bold 
+            = @saler_items.length
     %section.mypage-tab-contents
       %ul.bold.mypage-tabs
         %li.mypage-tabs__left
@@ -33,23 +34,12 @@
         %li.mypage-tabs__right
           過去の取引
       .tab-content
-        - if @saler_items.length != 0
-          %ul#mypage-tab-content
-            - @saler_items.each do |item|
-              = link_to item_path(item) do
-                %li.mypage-content-item
-                  = item.name
-                  %i.icon-arrow-right
-                    = fa_icon 'chevron-right'
-        - else
-          .mypage-content-not-found.bold 出品中の商品がありません
+        %ul#mypage-tab-content
+          %li.mypage-content-not-found.bold 取引中の商品がありません
+= render "items/shared/sellbtn"
 = render 'items/shared/footer'
 
 :css
   .header{
     box-shadow: none;
-  }
-
-  .mypage-tabs__left {
-    background: #fff;
   }

@@ -1,4 +1,6 @@
 = render 'items/shared/loginheader'
+- breadcrumb :mypage_destroy
+= render "mypages/breadcrumbs-header"
 .my-contents.clearfix
   = render 'sidebar'
   .logout-content
@@ -6,6 +8,7 @@
       = link_to destroy_user_session_path do
         .logout-btn.btn-red
           ログアウト
+= render "items/shared/sellbtn"
 = render 'items/shared/footer'
 
 :css
