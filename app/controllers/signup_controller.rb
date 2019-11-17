@@ -1,8 +1,15 @@
 class SignupController < ApplicationController
   # before_action :authenticate_user!, except: :step1
+  before_action :set_category
+
 
   def step1
     @user = User.new
+
+    unless @user.save
+
+    
+
   end  
 
   def step2
@@ -17,6 +24,8 @@ class SignupController < ApplicationController
     session[:birth_year_id]              = user_params[:birth_year_id]
     session[:birth_month_id]             = user_params[:birth_month_id]
     session[:birth_day_id]               = user_params[:birth_day_id]
+
+
   end
   
   def step3

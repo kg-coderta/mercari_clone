@@ -13,41 +13,58 @@
             %button{type: "submit", class: 'soul'}
               =fa_icon "search", class:'fa-search'
 
-      .header-lower
-        .header-lower-left
-          .header-lower-left-category-search
-            =link_to categories_path do
-              .header-lower-left-category-search__category-icon
-                = fa_icon 'list-ul', class: 'upper-list'
+    .header__menu-box
+      .header__menu-box--left
+        %ul
+          %li.header__menu-box--left__category
+            =link_to root_path do
+              .header-lower--left--category__icon
+                = fa_icon 'list-ul', class: 'header__menu-box--left__icon'
                 カテゴリで探す
-            
+                %ul.header__menu-box--left__parents
+                  - @roots.each do |root|
+                    %li.header__menu-box--left__parents__parent
+                      = link_to category_path(root.id), class: 'a-1' do
+                        = root.name
+                      %ul.header__menu-box--left__children
+                        - root.children.each do |child|
+                          %li.header__menu-box--left__children__child 
+                            = link_to category_path(child.id) do
+                              = child.name
+                            %ul.header__menu-box--left__grand-children
+                              - child.children.each do |grandchild|
+                                %li.header__menu-box--left__grand-children__grand-child
+                                  = link_to category_path(grandchild.id) do
+                                    = grandchild.name
+
+          %li.header__menu-box--left__category
             = link_to root_path do
-              .header-lower-left-category-search__category-guide
-                = fa_icon 'tag' ,class: 'upper-tag'
+              .header-lower--left__category__icon
+                = fa_icon 'tag' ,class: 'header__menu-box--left__icon'
                 ブランドから探す
-              
-        %ul.header-lower__rightlogin
-          %li.header-lower__rightlogin__left
-            = link_to "", class: "header-lower__rightlogin__left__link" do
-              = fa_icon 'heart-o', class: 'heart-icon'
-              %p.text いいね一覧
+            
+      %ul.header-lower__rightlogin
+        %li.header-lower__rightlogin__left
+          = link_to "", class: "header-lower__rightlogin__left__link" do
+            = fa_icon 'heart-o', class: 'heart-icon'
+            %p.text いいね一覧
 
-          %li.header-lower__rightlogin__l-center
-            = link_to "", class: "header-lower__rightlogin__l-center__link" do
-              = fa_icon 'bell-o', class: 'bell-icon'
-              %p.text お知らせ
-              %span.notice 1
+        %li.header-lower__rightlogin__l-center
+          = link_to "", class: "header-lower__rightlogin__l-center__link" do
+            = fa_icon 'bell-o', class: 'bell-icon'
+            %p.text お知らせ
+            %span.notice 1
 
-          %li.header-lower__rightlogin__r-center
-            = link_to "", class: "header-lower__rightlogin__r-center__link" do
-              = fa_icon 'check', class: 'check-icon'
-              %p.text やることリスト
-              %span.notice 1
+        %li.header-lower__rightlogin__r-center
+          = link_to "", class: "header-lower__rightlogin__r-center__link" do
+            = fa_icon 'check', class: 'check-icon'
+            %p.text やることリスト
+            %span.notice 1
 
-          %li.header-lower__rightlogin__right
-            = link_to mypages_path,class: "header-lower__rightlogin__right__link" do
-              = image_tag "user_none_img.png", size: "32x32", class: "user-img"
-              %p.text マイページ
+        %li.header-lower__rightlogin__right
+          = link_to mypages_path,class: "header-lower__rightlogin__right__link" do
+            = image_tag "user_none_img.png", size: "32x32", class: "user-img"
+            %p.text マイページ
 
 - else
   .header
@@ -64,24 +81,38 @@
             %button{type: "submit", class: 'soul'}
               =fa_icon "search", class:'fa-search'
 
-
-      .header-lower
-        .header-lower-left
-        
-
-          .header-lower-left-category-search
-            =link_to categories_path do
-              .header-lower-left-category-search__category-icon
-                = fa_icon 'list-ul', class: 'upper-list'
+    .header__menu-box
+      .header__menu-box--left
+        %ul
+          %li.header__menu-box--left__category
+            =link_to root_path do
+              .header-lower--left--category__icon
+                = fa_icon 'list-ul', class: 'header__menu-box--left__icon'
                 カテゴリで探す
-            
+                %ul.header__menu-box--left__parents
+                  - @roots.each do |root|
+                    %li.header__menu-box--left__parents__parent
+                      = link_to category_path(root.id), class: 'a-1' do
+                        = root.name
+                      %ul.header__menu-box--left__children
+                        - root.children.each do |child|
+                          %li.header__menu-box--left__children__child 
+                            = link_to category_path(child.id) do
+                              = child.name
+                            %ul.header__menu-box--left__grand-children
+                              - child.children.each do |grandchild|
+                                %li.header__menu-box--left__grand-children__grand-child
+                                  = link_to category_path(grandchild.id) do
+                                    = grandchild.name
+                                    
+          %li.header__menu-box--left__category
             = link_to root_path do
-              .header-lower-left-category-search__category-guide
-                = fa_icon 'tag' ,class: 'upper-tag'
+              .header-lower--left__category__icon
+                = fa_icon 'tag' ,class: 'header__menu-box--left__icon'
                 ブランドから探す
               
-        .header-lower-right
-          .header-lower-right-new
-            = link_to "新規会員登録", users_index_path, class: "header-lower-right-new__icon"
-          .header-lower-right-login
-            = link_to "ログイン", new_user_session_path, class: "header-lower-right-login__icon"
+      .header-lower-right
+        .header-lower-right-new
+          = link_to "新規会員登録", users_index_path, class: "header-lower-right-new__icon"
+        .header-lower-right-login
+          = link_to "ログイン", new_user_session_path, class: "header-lower-right-login__icon"
