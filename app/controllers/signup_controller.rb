@@ -1,8 +1,6 @@
 class SignupController < ApplicationController
   # before_action :authenticate_user!, except: :step1
   before_action :redirect_to_top, only: :step1
-  before_action :set_category
-
 
   def step1
     @user = User.new
