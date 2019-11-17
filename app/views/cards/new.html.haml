@@ -1,5 +1,6 @@
 .registration_container
-  = render 'devise/registrations/progress_header'
+  = render 'devise/registrations/header'
+  -# = render 'devise/registrations/progress_header'
   .registration_container__main
     %section.registration_container__main__contents
       .registration_container__main__contents__head
@@ -32,7 +33,7 @@
             .expire
               .expire-months
                 .expire-months-select
-                  %select#exp_month{name: "exp_month", type: "text"}
+                  %select#exp_month{name: "exp_month", type: "text", class: "month"}
                     %option{value: ""} --
                     %option{value: "1"}01
                     %option{value: "2"}02
@@ -46,10 +47,10 @@
                     %option{value: "10"}10
                     %option{value: "11"}11
                     %option{value: "12"}12
-                  %span.expire-months-select 月
+                %span.expire-months-select 月
               .expire-years
                 .expire-years-select
-                  %select#exp_year{name: "exp_year", type: "text"}
+                  %select#exp_year{name: "exp_year", type: "text", class: "year"}
                     %option{value: ""} --
                     %option{value: "2019"}19
                     %option{value: "2020"}20
@@ -62,7 +63,7 @@
                     %option{value: "2027"}27
                     %option{value: "2028"}28
                     %option{value: "2029"}29
-                  %span.expire-years-select 年
+                %span.expire-years-select 年
 
           .card-container-box-bottom-center__secure
             %label.number-text セキュリティコード

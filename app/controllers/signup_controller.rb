@@ -1,5 +1,6 @@
 class SignupController < ApplicationController
   # before_action :authenticate_user!, except: :step1
+  before_action :redirect_to_top, only: :step1
   before_action :set_category
 
 
@@ -50,9 +51,6 @@ class SignupController < ApplicationController
     birth_month_id:        session[:birth_month_id],
     birth_day_id:          session[:birth_day_id]
     )
-
-    
-
     if @user.save
       @address = Address.create(
         user_id:               @user.id,
@@ -91,4 +89,8 @@ class SignupController < ApplicationController
       :house_number,:building_name,:phone_number,
     )
   end
+
+  def redirect_to_top
+    redirect_to controller: 'items', action: 'index' if user_signed_in?
+  end  
 end
