@@ -32,16 +32,20 @@
       .buy-container__user__address 
         %h3.buy-container__user__address-text 配送先
         %address.buy-container__user__address__detail
-          〒443-0141
-          %br/
-          大阪府テックエキスパート市
-          15F
-          
-          %br/
-          量産型原田
+          - if user_signed_in? && @address != nil
+            〒
+            = @address.postal_code
+            %br/
+            = @address.prefecture_id + @address.city + "-" + @address.house_number
+            - if @address.building_name
+              = @address.building_name
+            %br/
+            = current_user.first_name + " " + current_user.last_name
+          - else
+            %br /
         %p.buy-container__user__address__text
         .buy-container__user__address__fix
-          = link_to "変更する > ", "https://www.mercari.com/jp/transaction/address/m87056738576/", class: "change"
+          = link_to "変更する > ", "", class: "change"
           
     %section.buy-container__pay
       .buy-container__pay__box

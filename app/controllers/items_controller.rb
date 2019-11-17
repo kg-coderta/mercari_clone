@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   before_action :set_selling, only: [:index, :show, :update]
   before_action :set_item, only: [:show, :buy, :pay, :done, :edit, :update]
   before_action :set_card, only: [:buy, :pay]
-
+  before_action :set_categories
 
   def index
     @populer_categories = Category.find(1,219,985,378)
@@ -68,6 +68,9 @@ end
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @default_card_information = customer.cards.retrieve(@card.card_id)
     end
+
+    # if user_signed_in? && current_user.address
+    @address = current_user.address
   end
 
   def pay
@@ -151,4 +154,5 @@ end
   def set_card
     @card = current_user.card
   end
+  
 end
