@@ -1,15 +1,9 @@
 class SignupController < ApplicationController
   # before_action :authenticate_user!, except: :step1
-  before_action :set_category
-
+  before_action :redirect_to_top, only: :step1
 
   def step1
     @user = User.new
-
-    unless @user.save
-
-    
-
   end  
 
   def step2
@@ -56,11 +50,9 @@ class SignupController < ApplicationController
     birth_month_id:        session[:birth_month_id],
     birth_day_id:          session[:birth_day_id]
     )
-
-    
-
+    # if @user.valid? かつ @address.valid?(user_id以外）
     if @user.save
-      @address = Address.create(
+      @address = Address.create( 
         user_id:               @user.id,
         postal_code:           session[:postal_code],
         prefecture_id:         session[:prefecture_id],  
@@ -70,7 +62,12 @@ class SignupController < ApplicationController
         phone_number:          session[:phone_number],
         )
       session[:id] = @user.id
+      if @address.save
       redirect_to done_signup_index_path
+      else
+        @user.destroy
+        redirect_to users_index_path
+      end
     else
       redirect_to users_index_path  
     end
