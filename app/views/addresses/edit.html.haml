@@ -1,4 +1,6 @@
 = render 'items/shared/header'
+- breadcrumb :address_edit
+= render "mypages/breadcrumbs-header"
 .my-contents.clearfix
   = render '/mypages/sidebar'
   .id-content
@@ -47,3 +49,8 @@
           = fa_icon 'chevron-right', class: 'icon'
 = render "items/shared/sellbtn"
 = render 'items/shared/footer'
+
+:css
+  .header{
+    box-shadow: none;
+  }

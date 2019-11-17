@@ -4,6 +4,7 @@ class SignupController < ApplicationController
 
   def step1
     @user = User.new
+    
   end  
 
   def step2
@@ -23,15 +24,15 @@ class SignupController < ApplicationController
   def step3
     @address = Address.new
   end
-    
+
   def step4
+
     session[:postal_code]             = address_params[:postal_code]
     session[:prefecture_id]           = address_params[:prefecture_id]
     session[:city]                    = address_params[:city]
     session[:house_number]            = address_params[:house_number]
     session[:building_name]           = address_params[:building_name]
     session[:phone_number]            = address_params[:phone_number]
-
     # @card = Card.new
   end
 
@@ -67,7 +68,7 @@ class SignupController < ApplicationController
         redirect_to step3_signup_index_path
       end
     else
-      redirect_to users_index_path  
+      redirect_to step1_signup_index_path  
     end
 
     def done

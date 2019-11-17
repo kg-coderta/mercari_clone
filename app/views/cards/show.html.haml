@@ -1,3 +1,5 @@
+= render 'items/shared/header'
+
 %label 登録クレジットカード情報
 %br
 = "**** **** **** " + @default_card_information.last4
@@ -11,4 +13,4 @@
 
   %input{onclick: "history.back()", type: "button", value: "戻る"}/
 
-
+= render 'items/shared/footer'
