@@ -61,10 +61,10 @@ class SignupController < ApplicationController
       )
       session[:id] = @user.id
       if @address.save
-      redirect_to done_signup_index_path
+        redirect_to done_signup_index_path
       else
         @user.destroy
-        redirect_to users_index_path
+        redirect_to step3_signup_index_path
       end
     else
       redirect_to users_index_path  
@@ -74,8 +74,7 @@ class SignupController < ApplicationController
       sign_in User.find(session[:id]) unless user_signed_in?
     end
   end 
-  
-  
+
   private
 
   def user_params
