@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   before_action :set_selling, only: [:index, :show, :update]
   before_action :set_item, only: [:show, :buy, :pay, :edit, :update]
   before_action :set_card, only: [:buy, :pay]
+  before_action :redirect_back, only: :edit
 
   def index
     @populer_categories = Category.find(1,219,985,378)
@@ -38,6 +39,12 @@ end
 
 def edit
   10.times { @item.photos.build }
+end
+
+def redirect_back
+  if @item.saler_id != current_user.id
+    redirect_to root_path
+  end
 end
 
 def update
