@@ -53,7 +53,10 @@
             %td
               = link_to "" do
                 %div
-                  コーチ
+                  - if @brand != nil
+                    = @brand.name
+                  - else
+                    未指定
           %tr
             %th 商品の状態
             %td 
@@ -112,7 +115,7 @@
           %tr
             %th 出品者
             %td
-              = link_to "https://www.mercari.com/jp/u/445135287/" do
+              = link_to "" do
                 = @saler.nickname
               %div
                 .item-user-ratings
@@ -146,7 +149,10 @@
             %td
               = link_to "" do
                 %div
-                  コーチ
+                  - if @brand != nil
+                    = @brand.name
+                  - else
+                    未指定
           %tr
             %th 商品の状態
             %td 
