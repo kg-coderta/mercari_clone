@@ -4,7 +4,6 @@ class SignupController < ApplicationController
 
   def step1
     @user = User.new
-    
   end  
 
   def step2
@@ -26,7 +25,6 @@ class SignupController < ApplicationController
   end
 
   def step4
-
     session[:postal_code]             = address_params[:postal_code]
     session[:prefecture_id]           = address_params[:prefecture_id]
     session[:city]                    = address_params[:city]
