@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :buy, :pay, :done, :detail, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :buy, :pay, :detail, :destroy]
   before_action :set_item_find, only:[:destroy]
   before_action :set_selling, only: [:index, :show, :update]
-  before_action :set_item, only: [:show, :buy, :pay, :done, :edit, :update]
+  before_action :set_item, only: [:show, :buy, :pay, :edit, :update]
   before_action :set_card, only: [:buy, :pay]
   before_action :redirect_back, only: :edit
 
@@ -28,6 +28,7 @@ class ItemsController < ApplicationController
 
 def create
   @item = Item.new(item_params)
+  binding.pry
   if @item.save
     redirect_to root_path
   else
@@ -93,11 +94,8 @@ end
       currency: 'jpy', #日本円
       )
       item_update
-      redirect_to action: 'done' #完了画面に移動
+      redirect_to  selling_mypages_path #完了画面に移動
     end
-  end
-
-  def done
   end
 
   def destroy
