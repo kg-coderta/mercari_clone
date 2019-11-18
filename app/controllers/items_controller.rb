@@ -43,6 +43,9 @@ end
     @category_items = @category.items.limit(6).order('created_at DESC')
     @comments = @item.comments.includes(:user)
     @comment = Comment.new
+    if @item.brand_id  
+      @brand = Brand.find(@item.brand_id)
+    end
   end
 
   def buy
