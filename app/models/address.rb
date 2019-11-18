@@ -5,7 +5,6 @@ class Address < ApplicationRecord
 
   ValidPostalCode = /\A[0-9]+\z/
   ValidPhoneNumber = /\A[0-9]+\z/
-  validates :postal_code,    presence: true, on: :create
   validates :postal_code,    length: {is: 7}, format: { with: ValidPostalCode}
   validates :prefecture_id,  presence: true,
   inclusion: { in: %w(北海道 青森県 岩手県 宮城県 秋田県 山形県 福島県 茨城県 栃木県 群馬県 埼玉県 千葉県 東京都 神奈川 
@@ -13,5 +12,5 @@ class Address < ApplicationRecord
   島根県 岡山県 広島県 山口県 徳島県 香川県 愛媛県 高知県 福岡県 佐賀県 長崎県 熊本県 大分県 宮崎県 鹿児島 沖縄県 未定) }
   validates :city,           presence: true, on: :create
   validates :house_number,   presence: true, on: :create
-  validates :phone_number,   length:{is: 11}, format: { with: ValidPhoneNumber}
+  validates :phone_number,   length:{is: 11}, allow_blank: true, format: { with: ValidPhoneNumber}
 end

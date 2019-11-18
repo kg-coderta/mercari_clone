@@ -14,7 +14,6 @@
  *= require_self
  */
  @import "reset";
- @import "format";
  @import "mypages/logout";
  @import "mixins/clearfix";
  @import "mixins/tag-list";
@@ -26,3 +25,7 @@
  @import "mypages/breadcrumbs-header";
  @import "items/breadcrumbs-footer";
 
+ @import "shared/categories";
+ @import "shared/footer";
+ @import "shared/header";
+ @import "shared/banner";

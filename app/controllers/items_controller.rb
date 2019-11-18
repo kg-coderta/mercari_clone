@@ -4,7 +4,6 @@ class ItemsController < ApplicationController
   before_action :set_selling, only: [:index, :show, :update]
   before_action :set_item, only: [:show, :buy, :pay, :done, :edit, :update]
   before_action :set_card, only: [:buy, :pay]
-  before_action :set_categories
 
   def index
     @populer_categories = Category.find(1,219,985,378)
@@ -55,6 +54,9 @@ end
     @category_items = @category.items.limit(6).order('created_at DESC')
     @comments = @item.comments.includes(:user)
     @comment = Comment.new
+    if @item.brand_id  
+      @brand = Brand.find(@item.brand_id)
+    end
   end
 
   def buy
@@ -149,7 +151,6 @@ end
   def item_update
     @item.update(name: @item.name, description: @item.description, state: @item.state, size: @item.state, method: @item.method, carriage: @item.carriage, region: @item.region, date: @item.date, price: @item.price, category_id: @item.category_id, saler_id: @item.saler_id, buyer_id: current_user.id)
   end
-
 
   def set_card
     @card = current_user.card

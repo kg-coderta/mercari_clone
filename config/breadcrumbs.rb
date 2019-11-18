@@ -22,6 +22,11 @@ crumb :mypage_destroy do
   parent :mypage
 end
 
+crumb :address_edit do
+  link "本人情報の登録", edit_address_path
+  parent :mypage
+end
+
 crumb :items_show do |item|
   link "#{item.name}", item_path
   parent :root
@@ -35,6 +40,16 @@ end
 crumb :items_detail do
   link '出品商品画面', detail_item_path
   parent :items_status
+end
+
+crumb :categories do
+  link 'カテゴリー一覧', categories_path
+  parent :root
+end
+
+crumb :category_show do |category|
+  link "#{category.name}", category_path
+  parent :categories
 end
 # crumb :projects do
 #   link "Projects", projects_path

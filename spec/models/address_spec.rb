@@ -25,13 +25,7 @@ describe Address do
       @address.valid?
       expect(@address.errors[:prefecture_id]).to include("is not included in the list")
     end   
-
-    it "is invalid without postal_code" do
-      @address = build(:address, postal_code: "")
-      @address.valid?
-      expect(@address.errors[:postal_code]).to include("can't be blank")
-    end   
-
+    # 文字数指定のため presence true不要
     it "is invalid if postal_code is 6 or less figures" do
       @address = build(:address, postal_code: "123456")
       @address.valid?

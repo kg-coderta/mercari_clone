@@ -23,8 +23,14 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy 
   
   validates :nickname, presence: true, length: { maximum: 20 }
-  # validates :email, uniqueness: true, format: { with: /\A[a-zA-Z]+\z/,
-  # message: "英文字のみが使用できます" }
-  validates :password, length: { minimum: 7 }
-  validates :password_confirmation, presence: true, length: { minimum: 7 } 
+  validates :email, presence: true, uniqueness: true, format:{ with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i } 
+  validates :password, presence: true, length: { in: 7..128 }, confirmation:true, format:{ with: /\A[a-z\d]{7,128}+\z/i }
+  validates :password_confirmation, presence: true, length: { in: 7..128 }, format:{ with: /\A[a-z\d]{7,128}+\z/i }
+  validates :first_name, presence: true, length:{ maximum: 35 }
+  validates :last_name, presence: true, length: {maximum:35 }
+  validates :first_name_kana, presence: true, length:{ maximum: 35 }, format:{ with: /\A[\p{katakana}ー－&&[^ -~｡-ﾟ]]+\z/}
+  validates :last_name_kana, presence: true, length:{ maximum: 35 }, format:{ with: /\A[\p{katakana}ー－&&[^ -~｡-ﾟ]]+\z/}
+  validates :birth_year_id, presence: true
+  validates :birth_month_id, presence: true
+  validates :birth_day_id, presence: true
 end
