@@ -9,7 +9,7 @@
       %h2.bold.mypage-below-tab-head 購入した商品
       %ul.bold.mypage-tabs
         %li.mypage-tabs__left
-          取引中
+          出品中
         %li.mypage-tabs__right
           過去の取引
       .tab-content
@@ -23,7 +23,7 @@
                     = fa_icon 'chevron-right'
         - else
           .mypage-content-not-found.bold 出品中の商品がありません
-
+= render "items/shared/sellbtn"
 = render 'items/shared/footer'
 
 :css

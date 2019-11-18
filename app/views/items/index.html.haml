@@ -7,11 +7,12 @@
     %h3.center-category-upper 人気のカテゴリー
 
     %ul.center-category__lower
-      - @populer_categories.each do |category|
+      - @populer_categories.each do |category,i|
         %li.center-category__lower__details
           .center-category__lower__details__topic
-            = link_to category.name, category_path(category), class: "link"
-  
+            = link_to category.name, '#', class: "link"
+
+
   .center-mid
     .center-mid-new
       %h3.center-mid-new__item 
@@ -33,6 +34,7 @@
                     .center-mid__contents-box__list__items__box__price
                       ¥
                       = item.price
+                      
   .center-mid
     .center-mid-new
       %h3.center-mid-new__item 
@@ -122,7 +124,7 @@
                     .center-mid__contents-box__list__items__box__picture
                       = image_tag (item.photos.first.image.to_s), size:  188
                     .center-mid__contents-box__list__items__box__text
-                      = item.description
+                      = item.name
                     .center-mid__contents-box__list__items__box__price
                       ¥
                       = item.price
@@ -142,7 +144,7 @@
                     .center-mid__contents-box__list__items__box__picture
                       = image_tag (item.photos.first.image.to_s), size:  188
                     .center-mid__contents-box__list__items__box__text
-                      = item.description
+                      = item.name
                     .center-mid__contents-box__list__items__box__price
                       ¥
                       = item.price
@@ -162,7 +164,7 @@
                     .center-mid__contents-box__list__items__box__picture
                       = image_tag (item.photos.first.image.to_s), size:  188
                     .center-mid__contents-box__list__items__box__text
-                      = item.description
+                      = item.name
                     .center-mid__contents-box__list__items__box__price
                       ¥
                       = item.price
@@ -182,11 +184,11 @@
                     .center-mid__contents-box__list__items__box__picture
                       = image_tag (item.photos.first.image.to_s), size:  188
                     .center-mid__contents-box__list__items__box__text
-                      = item.description
+                      = item.name
                     .center-mid__contents-box__list__items__box__price
                       ¥
                       = item.price
 
   .box-for-fix
+= render "items/shared/sellbtn"
 = render 'items/shared/footer'
-        

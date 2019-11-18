@@ -5,7 +5,8 @@
       .registration_container__main__contents__head
         %h2 会員情報入力
         -# form_withテーブル作成後に値を要変更
-      = form_with model: @user, url: step2_signup_index_path, method: :get, id: 'new_user', class: 'new_user', local: true do |f| 
+      = form_with model: @user, url: step2_signup_index_path, method: :get, id: 'new_user', class: 'new_user', local: true do |f|
+        -# = render "devise/shared/error_messages", resource: resource
         .fields
           .field
             = f.label :nickname, 'ニックネーム'
@@ -32,8 +33,7 @@
               本人確認
             %p.one_text
               安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
-      
-          .field 
+          .field
             = f.label :name, value: "お名前(全角)"
             %span.must 必須
             %br/
@@ -49,7 +49,12 @@
             = f.label :name, value: "生年月日"
             %span.must 必須
             %br
-            -# != sprintf(f.date_select(:year_birth_at,:month_birth_at, prompt: "--", with_css_class: 'select-default', use_month_numbers: true, start_year: Time.now.year, end_year: 1900,date_separator: '%s', datetime_separator: '%s'), '年', '月')+'日'
+            = f.collection_select :birth_year_id, BirthYear.all, :name, :name
+            年
+            = f.collection_select :birth_month_id, BirthMonth.all, :name, :name
+            月
+            = f.collection_select :birth_day_id, BirthDay.all, :id, :name
+            日
           %p.text_info
             ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
         .fields

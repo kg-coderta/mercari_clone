@@ -4,8 +4,6 @@ Rails.application.routes.draw do
 
   resources :items do
     member do
-
-      get 'detail'
       get 'buy', to: 'items#buy'
       post 'pay', to: 'items#pay'
       patch 'pay', to: 'items#pay'
@@ -24,15 +22,14 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :mypages, only: [:index, :destroy, :edit, :show] do
+  resources :mypages, only: [:index, :edit, :show] do
     collection do
       get 'selling'
       get 'bought'
+      get 'logout'
     end
   end
 
-  resources :addresses, only:[:new, :edit, :show]
-  get "addresses" => "addresses#phone"
   resources :signup do
     collection do
       get 'step1'
@@ -43,9 +40,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :photos, only: [:index, :create]
+  resources :addresses, only:[:new, :edit, :show]
 
-  get "addresses" => "addresses#phone"
+  resources :photos, only: [:index, :create]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   devise_for :users, controllers: {

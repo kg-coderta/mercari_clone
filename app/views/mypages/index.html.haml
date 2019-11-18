@@ -6,16 +6,17 @@
   .mypage-content
     %section.mypage-user
       .mypage-user-icon-box        
-        = image_tag "yotuba.jpeg", height: "60", width: "60", class:"mypage-user-icon"
+        -# = image_tag "yotuba.jpeg", height: "60", width: "60", class:"mypage-user-icon"
         %h2.bold 
           = current_user.nickname
         .mypage-number
           .mypage-rate
             評価
-            %span.bold 120
+            %span.bold 0
           .mypage-exhibit
             出品数
-            %span.bold 105
+            %span.bold 
+            = @saler_items.length
     %section.mypage-tab-contents
       %ul.bold.mypage-tabs
         %li.mypage-tabs__left
@@ -35,6 +36,7 @@
       .tab-content
         %ul#mypage-tab-content
           %li.mypage-content-not-found.bold 取引中の商品がありません
+= render "items/shared/sellbtn"
 = render 'items/shared/footer'
 
 :css

@@ -1,0 +1,74 @@
+.bottom-banner{
+  display: block;
+  color: rgb(255, 255, 255);
+  background: url(https://web-jp-assets.mercdn.net/_next/static/images/download_app_bg-b57d6f1a32f2aebd89cf6f43bc2e4b39.jpg) center center / cover;
+  background-position: center center;
+  height: 260px;
+}
+.bottom-banner-background{
+  color:white;
+}
+.bottom-banner-box{
+  color:white;
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  width: 750px;
+  margin: 0px auto;
+  height: 100%;
+  .bottom-banner-box-set{
+    color:white;
+    vertical-align: baseline;
+    margin: 0px;
+    padding: 0px;
+    border-width: 0px;
+    border-style: initial;
+    border-color: initial;
+    border-image: initial;
+    font: inherit;
+    display:flex;
+    .bottom-banner-box-set-left{
+      color:white;
+      .bottom-banner-box-set-left-top{
+        color:white;
+        font-size: 24px;
+        font-weight: 600;
+        margin-top: 35px;
+        margin-bottom: 15px;
+      }
+      .bottom-banner-box-set-left-middle{
+        color: white;
+        font-size: 32px;
+        margin-bottom: 20px;
+      }
+      .bottom-banner-box-set-left-bottom{
+        height: 100%;
+        .bottom-banner-box-set-left-bottom-links{
+          .bottom-banner-box-set-left-bottom__mercari{
+            height: 68px;
+            margin-right: 20px;
+            width: 68px;
+          }
+          .bottom-banner-box-set-left-bottom__link__app{
+            padding-bottom: 15px;
+          }
+          .bottom-banner-box-set-left-bottom__link__google{
+            padding-bottom: 15px;
+            display: inline;
+          }
+        }
+      }
+    }
+    .bottom-banner-box-set-right{
+      height: 260px;
+      width: 300px;
+      .bottom-banner-box-set-right__phone{
+        display: inline;
+        .bottom-banner-box-set-right__phone__img{
+          height: 260px;
+          width: 300px;
+        }
+      }
+    }
+  }
+}
