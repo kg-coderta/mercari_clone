@@ -1,75 +1,83 @@
 .registration_container
-= render "devise/registrations/progress_header"
-.registration_container__main
-  %section.registration_container__main__contents
-    .registration_container__main__contents__head
-      %h2 支払い方法
-    = form_with model: @card, url: signup_index_path, method: :post, id: "new_user", class: "new_user", local: true do |f|
-      .fields
-        .field
-          = f.label :password, "カード番号"
-          %span.must 必須
-          %br/
-          = f.password_field :password, autocomplete: "new-password", placeholder: "半角数字のみ", class: "input-default" ,maxlength: 16
-          %ul.number-cards
-            %li.number-cards-img
-              = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg", size: "49x20"
-            %li.number-cards-img
-              = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/master-card.svg", size: "34x20"
-            %li.number-cards-img
-              = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg", size: "30x20"
-            %li.number-cards-img
-              = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/jcb.svg", size: "32x20"
-            %li.number-cards-img
-              = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/american_express.svg", size: "21x20"
-            %li.number-cards-img
-              = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg", size: "32x20"
-            %li.number-cards-img
-              = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/discover.svg", size: "32x20"
-        .card-container-box-bottom-center__expire
-          %label.number-text 有効期限
-          %span.number-require 必須
-          .expire
-            .expire-months
-              %select.expire-months-select
-                %option{value: "01"} 01
-                %option{value: "02"} 02
-                %option{value: "03"} 03
-                %option{value: "04"} 04
-                %option{value: "05"} 05
-                %option{value: "06"} 06
-                %option{value: "07"} 07
-                %option{value: "08"} 08
-                %option{value: "09"} 09
-                %option{value: "10"} 10
-                %option{value: "11"} 11
-                %option{value: "12"} 12
-              %span.expire-months-select 月
-            .expire-years
-              %select.expire-years-select
-                %option{value: "19"} 19
-                %option{value: "20"} 20
-                %option{value: "21"} 21
-                %option{value: "22"} 22
-                %option{value: "23"} 23
-                %option{value: "24"} 24
-                %option{value: "25"} 25
-                %option{value: "26"} 26
-                %option{value: "27"} 27
-                %option{value: "28"} 28
-                %option{value: "29"} 29
-              %span.expire-years-select 年
-        .card-container-box-bottom-center__secure
-          %label.number-text セキュリティコード
-          %span.number-require 必須
-          = form_with  local: true do |f|
-            = f.text_field :name, class: "number-input", maxlength: 4, placeholder: "カードの背面4桁または3桁の番号"
-          .card-container-box-bottom-center__secure__text
-            = fa_icon "question-circle", class: "qiestion"
-            カード裏面の番号とは？
-        .card-container-box-bottom-center__add
-          = f.submit "次へ進む", class:"btn-red"
-= render "devise/registrations/footer"
+  = render 'devise/registrations/header'
+  -# = render 'devise/registrations/progress_header'
+  .registration_container__main
+    %section.registration_container__main__contents
+      .registration_container__main__contents__head
+        %h2 支払い方法
+      = form_tag(signup_index_path, method: :post, id: 'charge-form', class: 'new_user',  name: "inputForm") do
+        .fields
+          .field
+            %label カード番号
+            %span.must 必須
+            %br/
+            = text_field_tag "number", "", class: "input-default", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
+            %ul.number-cards
+              %li.number-cards-img
+                = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg', size: "49x20"
+              %li.number-cards-img
+                = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/master-card.svg', size: "34x20"
+              %li.number-cards-img
+                = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg', size: "30x20"
+              %li.number-cards-img
+                = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/jcb.svg', size: "32x20"
+              %li.number-cards-img
+                = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/american_express.svg', size: "21x20"
+              %li.number-cards-img
+                = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg', size: "32x20"
+              %li.number-cards-img
+                = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/discover.svg', size: "32x20"
+          .card-container-box-bottom-center__expire
+            %label.number-text 有効期限
+            %span.number-require 必須
+            .expire
+              .expire-months
+                .expire-months-select
+                  %select#exp_month{name: "exp_month", type: "text", class: "month"}
+                    %option{value: ""} --
+                    %option{value: "1"}01
+                    %option{value: "2"}02
+                    %option{value: "3"}03
+                    %option{value: "4"}04
+                    %option{value: "5"}05
+                    %option{value: "6"}06
+                    %option{value: "7"}07
+                    %option{value: "8"}08
+                    %option{value: "9"}09
+                    %option{value: "10"}10
+                    %option{value: "11"}11
+                    %option{value: "12"}12
+                %span.expire-months-select 月
+              .expire-years
+                .expire-years-select
+                  %select#exp_year{name: "exp_year", type: "text", class: "year"}
+                    %option{value: ""} --
+                    %option{value: "2019"}19
+                    %option{value: "2020"}20
+                    %option{value: "2021"}21
+                    %option{value: "2022"}22
+                    %option{value: "2023"}23
+                    %option{value: "2024"}24
+                    %option{value: "2025"}25
+                    %option{value: "2026"}26
+                    %option{value: "2027"}27
+                    %option{value: "2028"}28
+                    %option{value: "2029"}29
+                %span.expire-years-select 年
+
+          .card-container-box-bottom-center__secure
+            %label.number-text セキュリティコード
+            %span.number-require 必須
+            = text_field_tag "cvc", "", class: "number-input", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc"
+            .card-container-box-bottom-center__secure__text 
+              = fa_icon 'question-circle', class: 'qiestion'
+              カード裏面の番号とは？
+          
+          .card-container-box-bottom-center__add
+            #card_token
+            = submit_tag "次へ進む", class:'btn-red', id: "token_submit"
+  = render "items/shared/sellbtn"
+  = render 'devise/registrations/footer'
 :css
   li.four{
     color: #ea352d !important;

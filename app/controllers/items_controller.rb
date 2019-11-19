@@ -28,7 +28,6 @@ class ItemsController < ApplicationController
 
 def create
   @item = Item.new(item_params)
-  binding.pry
   if @item.save
     redirect_to root_path
   else
@@ -94,7 +93,7 @@ end
       currency: 'jpy', #日本円
       )
       item_update
-      redirect_to  selling_mypages_path #完了画面に移動
+      redirect_to  bought_mypages_path #完了画面に移動
     end
   end
 
