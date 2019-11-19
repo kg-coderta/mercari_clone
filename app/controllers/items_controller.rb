@@ -93,7 +93,7 @@ end
       currency: 'jpy', #日本円
       )
       item_update
-      redirect_to  selling_mypages_path #完了画面に移動
+      redirect_to  bought_mypages_path #完了画面に移動
     end
   end
 

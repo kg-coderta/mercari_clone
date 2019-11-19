@@ -37,6 +37,11 @@ crumb :items_status do
   parent :mypage
 end
 
+crumb :mypages_bought do
+  link "購入した商品 - 取引中", bought_mypages_path
+  parent :mypage
+end
+
 crumb :items_detail do
   link '出品商品画面', detail_item_path
   parent :items_status

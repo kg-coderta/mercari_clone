@@ -7,12 +7,20 @@ class User < ApplicationRecord
 
   # omniauthのコールバック時に呼ばれるメソッド
   def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.email = auth.info.email
-      user.password = Devise.friendly_token[0,20]
+    @user = where(provider: auth.provider, uid: auth.uid).first
 
-      user.save(validate: false)
+    unless @user
+      @user = User.create(
+        uid:          auth.uid,
+        provider:     auth.provider,
+        email:        auth.info.email,
+        # password:     Devise.friendly_token[0, 20]
+      )
+      # binding.pry
     end
+    
+    @user
+      # user.save(validate: false)
   end
 
   has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item"

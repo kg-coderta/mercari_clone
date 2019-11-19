@@ -42,7 +42,8 @@
         .form-label.bold 建物名
         %span.form-arbitrary 任意
       = f.text_field :postal_code, class:"input-address", placeholder: "例）なんばスカイオ 15階"
-      = f.submit "登録する", class: "btn-default btn-red" 
+      = link_to mypages_path, class: "btn-default btn-red" do
+        登録する 
       .address-form.id-text-right
         = link_to mypages_path, class:"id-text-right",:target => "_blank" do
           本人情報の登録について
