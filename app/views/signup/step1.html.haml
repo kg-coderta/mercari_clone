@@ -18,16 +18,18 @@
             %span.must 必須
             %br/
             = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可", class: 'input-default'
-          .field
-            = f.label :password, 'パスワード'
-            %span.must 必須
-            %br/
-            = f.password_field :password, autocomplete: "new-password", placeholder: '7文字以上', class: 'input-default'
-          .field
-            = f.label :password_confirmation, 'パスワード(確認)'
-            %span.must 必須
-            %br/
-            = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: '7文字以上', class: 'input-default'
+
+          - if session[:uid] == nil
+            .field
+              = f.label :password, 'パスワード'
+              %span.must 必須
+              %br/
+              = f.password_field :password, autocomplete: "new-password", placeholder: '7文字以上', class: 'input-default'
+            .field
+              = f.label :password_confirmation, 'パスワード(確認)'
+              %span.must 必須
+              %br/
+              = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: '7文字以上', class: 'input-default'
           .field
             %h3
               本人確認
