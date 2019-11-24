@@ -7,11 +7,11 @@ class ItemsController < ApplicationController
   before_action :redirect_back, only: :edit
 
   def index
-    @populer_categories = Category.find(1,219,985,378)
+    @populer_categories = Category.find(1,219,985,751)
     @ladies_items = @selling_items.where(category_id: 1..218).limit(10).order('created_at DESC')
     @mens_items = @selling_items.where(category_id: 219..377).limit(10).order('created_at DESC')
     @electronics_items = @selling_items.where(category_id: 985..1080).limit(10).order('created_at DESC')
-    @hobby_items = @selling_items.where(category_id: 378..531).limit(10).order('created_at DESC')
+    @hobby_items = @selling_items.where(category_id: 751..873).limit(10).order('created_at DESC')
 
     @populer_brands = Brand.find(2441,6143,2461,3803)
     @chanel_items = @selling_items.where(brand_id: 2441).limit(10).order('created_at DESC')
