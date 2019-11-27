@@ -28,9 +28,12 @@
           .a-container__main__details__box__upper
             %label.label カテゴリー
             %span.required 必須
-            = f.collection_select :category_id, Category.all,:id , :name, {include_blank: true }, class: "a-container__main__details__box__upper__category"
-            
-
+            = f.collection_select :category_id, Category.roots,:id , :name, {include_blank: true }, class: "a-container__main__details__box__upper__category"
+            -# = f.fields_for :category do |category|
+            -#   = category.collection_select :root, Category.roots,:id , :name, {include_blank: true }, class: "a-container__main__details__box__upper__category" 
+                -# = root.collection_select :child, root.children,:id , :name, {include_blank: true }, class: "a-container__main__details__box__upper__category" 
+                -#   = child.collection_select :category_id, child.children,:id , :name, {include_blank: true }, class: "a-container__main__details__box__upper__category" 
+                  
           .a-container__main__details__box__center
             %label.label ブランド
             %span.required 任意
@@ -113,4 +116,3 @@
         = link_to "もどる", root_path, class:'a-container__main__submit__back'
       
   = render 'devise/registrations/footer'
-

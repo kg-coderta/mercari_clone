@@ -14,13 +14,10 @@ class User < ApplicationRecord
         uid:          auth.uid,
         provider:     auth.provider,
         email:        auth.info.email,
-        # password:     Devise.friendly_token[0, 20]
       )
-      # binding.pry
     end
     
     @user
-      # user.save(validate: false)
   end
 
   has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item"
