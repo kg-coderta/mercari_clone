@@ -15,33 +15,49 @@
           = fa_icon 'chevron-right', class: 'icon'
       .address-form
         .form-label.bold お名前
-        %p 中野  五月
+        %br
+        = current_user.last_name + current_user.first_name
       .address-form
         .form-label.bold お名前カナ
-        %p ナカノ  イツキ
+        %br
+        = current_user.last_name_kana + current_user.first_name_kana
       .address-form
         .form-label.bold 生年月日
-        %p 2002/05/05
+        %br
+        = current_user.birth_year_id + "/" + current_user.birth_month_id + "/" + current_user.birth_day_id
       .address-form
         .form-label.bold 郵便番号
-        %span.form-arbitrary 任意     
-      = f.text_field :postal_code, class:"input-address", placeholder: "例）5420076"
+        %span.form-arbitrary 任意
+      -# - if current_user.address.postal_code !== nil
+      - if current_user.address.postal_code == nil
+        = f.text_field :postal_code, class:"input-address",placeholder: "例）5420076"
+      - else
+        = f.text_field :postal_code, class:"input-address", value: current_user.address.postal_code, placeholder: "例）5420076"
       .address-form
         .form-label.bold 都道府県
         %span.form-arbitrary 任意
-      = f.collection_select :prefecture_id, Prefecture.where.not(id: 48), :id, :name  
+      = f.collection_select :prefecture_id, Prefecture.where.not(id: 48), :id, :name
       .address-form
         .form-label.bold 市区町村
         %span.form-arbitrary 任意
-      = f.text_field :postal_code, class:"input-address", placeholder: "例）大阪市中央区"
+      - if current_user.address.city == nil
+        = f.text_field :city, class:"input-address", placeholder: "例）大阪市中央区"
+      -else
+        = f.text_field :city, class:"input-address", value: current_user.address.city, placeholder: "例）大阪市中央区"
       .address-form
         .form-label.bold 番地
         %span.form-arbitrary 任意
-      = f.text_field :postal_code, class:"input-address", placeholder: "例）難波５丁目１−６０"
+      -if current_user.address.house_number == nil
+        = f.text_field :house_number, class:"input-address", placeholder: "例）難波５丁目１−６０"
+      -else
+        = f.text_field :house_number, class:"input-address", value: current_user.address.house_number, placeholder: "例）難波５丁目１−６０"
       .address-form
         .form-label.bold 建物名
         %span.form-arbitrary 任意
-      = f.text_field :postal_code, class:"input-address", placeholder: "例）なんばスカイオ 15階"
+      -if current_user.address.building_name == nil
+        = f.text_field :building_name, class:"input-address", placeholder: "例）なんばスカイオ 15階"
+      -else
+        = f.text_field :building_name, class:"input-address", value: current_user.address.building_name, placeholder: "例）なんばスカイオ 15階"
       = link_to mypages_path, class: "btn-default btn-red" do
         登録する 
       .address-form.id-text-right
