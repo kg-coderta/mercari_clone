@@ -13,7 +13,7 @@
         .profile-box__image-container__user-info
           %figure.user-image
             = image_tag "user_none_img.png", size: "60x60", class: "user-img"
-          = f.text_field :nickname, class:'user_name', placeholder:"例)AYA☆セール中"
+          = f.text_field :nickname, class:'user_name', value: current_user.nickname, placeholder:"例)AYA☆セール中"
       .profile-box__message-container
         = form_with model: @user do |f|
           = f.text_area :name, class:'user-message', placeholder:"例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"
