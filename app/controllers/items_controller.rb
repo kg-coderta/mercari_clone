@@ -1,7 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :buy, :pay, :detail, :destroy]
   before_action :set_selling, only: [:index, :show]
-  # before_action :set_item_find, only:[:destroy]
   before_action :set_item, only: [:show, :buy, :pay, :edit, :update, :destroy]
   before_action :set_card, only: [:buy, :pay]
   before_action :redirect_back, only: :edit

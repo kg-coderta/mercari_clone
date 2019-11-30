@@ -92,4 +92,4 @@ gem 'mechanize'
 gem "dropzonejs-rails"
 gem 'jquery-rails'
 gem 'kaminari'
-
+gem 'recaptcha', require: "recaptcha/rails"
