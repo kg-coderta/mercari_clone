@@ -25,20 +25,17 @@
       .a-container__main__details
         %h3.a-container__main__details__text 商品の詳細
         .a-container__main__details__box
-          .a-container__main__details__box__upper
-            %label.label カテゴリー
-            %span.required 必須
-            = f.collection_select :category_id, Category.roots,:id , :name, {include_blank: true }, class: "a-container__main__details__box__upper__category"
-            -# = f.fields_for :category do |category|
-            -#   = category.collection_select :root, Category.roots,:id , :name, {include_blank: true }, class: "a-container__main__details__box__upper__category" 
-                -# = root.collection_select :child, root.children,:id , :name, {include_blank: true }, class: "a-container__main__details__box__upper__category" 
-                -#   = child.collection_select :category_id, child.children,:id , :name, {include_blank: true }, class: "a-container__main__details__box__upper__category" 
-                  
+          %label.label カテゴリー
+          %span.required 必須
+          .category-box
+            .a-container__main__details__box__upper
+              = f.select :category, @category_parent_array, {}, {class: "a-container__main__details__box__upper__category", id: 'parent_category'}
+
+
           .a-container__main__details__box__center
             %label.label ブランド
             %span.required 任意
             = f.collection_select :brand_id, Brand.all,:id , :name, {include_blank: true }, class: "a-container__main__details__box__center__brand"
-
 
           .a-container__main__details__box__bottom
             %label.label 商品の状態

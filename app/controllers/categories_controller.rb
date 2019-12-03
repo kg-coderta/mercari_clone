@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :set_selling
+  before_action :set_selling, only: :show
 
   def index
   end
