@@ -11,6 +11,10 @@ class SignupController < ApplicationController
   end 
 
   def step2
+    unless verify_recaptcha(model: @user)
+      redirect_to step1_signup_index_path
+    end  
+    
     if user_params[:password] == nil
       session[:nickname]                = user_params[:nickname]
       session[:email]                   = user_params[:email]
