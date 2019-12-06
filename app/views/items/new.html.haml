@@ -29,7 +29,7 @@
             .a-container__main__details__box__upper
               %label.label カテゴリー
               %span.required 必須
-              = f.select :category, @category_parent_array, {}, {class: "a-container__main__details__box__upper__category", id: 'parent_category'}
+              = f.select :parent, @category_parent_array, {}, {class: "a-container__main__details__box__upper__category", id: 'parent_category'}
 
           .a-container__main__details__box__center
             %label.label ブランド

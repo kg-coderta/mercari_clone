@@ -25,7 +25,7 @@ class ItemsController < ApplicationController
   #セレクトボックスの初期値設定
     @category_parent_array = ["---"]
     #データベースから、親カテゴリーのみ抽出し、配列化
-    Category.where(ancestry: nil).each do |parent|
+    Category.roots.each do |parent|
       @category_parent_array << parent.name
     end
   end
@@ -39,7 +39,7 @@ class ItemsController < ApplicationController
   # 子カテゴリーが選択された後に動くアクション
   def get_category_grandchildren
     #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
-    @category_grandchildren = Category.find("#{params[:child_id]}").children
+    @category_grandchildren = Category.find(params[:child_id]).children
   end
 
 
@@ -55,12 +55,6 @@ end
 
 def edit
   10.times { @item.photos.build }
-end
-
-def redirect_back
-  if @item.saler_id != current_user.id
-    redirect_to root_path
-  end
 end
 
 def update
