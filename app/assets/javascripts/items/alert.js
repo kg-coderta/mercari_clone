@@ -7,34 +7,42 @@ $(function(){
     }
     if($('#item_description').val() === ""){
       alert('「商品の説明」を入力してください');
+      $('#item_description').focus();
       return false;
     }
     if($('#grandchild_category').val() == undefined || $('#grandchild_category').val() == "---"){
       alert('カテゴリーを選択してください');
+      $('#parent_category').focus();
       return false;
     }
     if($('#item_state').val() === ""){
       alert('「商品の状態」を選択してください');
+      $('#item_state').focus();
       return false;
     }
     if($('#item_carriage').val() === ""){
       alert('「配送料の負担」を選択してください');
+      $('#item_carriage').focus();
       return false;
     }
     if($('#item_method').val() === ""){
       alert('「配送の方法」を選択してください');
+      $('#item_method').focus();
       return false;
     }
     if($('#item_region').val() === ""){
       alert('「発送元の地域」を選択してください');
+      $('#item_region').focus();
       return false;
     }
     if($('#item_date').val() === ""){
       alert('「発送までの日数」を選択してください');
+      $('#item_date').focus();
       return false;
     }
     if($('#item_price').val() === ""){
       alert('価格を入力してください');
+      $('#item_price').focus();
       return false;
     }
   })
