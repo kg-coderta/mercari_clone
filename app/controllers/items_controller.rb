@@ -3,7 +3,6 @@ class ItemsController < ApplicationController
   before_action :set_selling, only: [:index, :show]
   before_action :set_item, only: [:show, :buy, :pay, :edit, :update, :destroy]
   before_action :set_card, only: [:buy, :pay]
-  before_action :redirect_back, only: :edit
 
   def index
     @populer_categories = Category.find(1,219,985,751)
@@ -30,19 +29,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  # 親カテゴリーが選択された後に動くアクション
-  def get_category_children
-    #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
-    @category_children = Category.find_by(name: "#{params[:parent_id]}").children
-  end
-
-  # 子カテゴリーが選択された後に動くアクション
-  def get_category_grandchildren
-    #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
-    @category_grandchildren = Category.find(params[:child_id]).children
-  end
-
-
 def create
   @item = Item.new(item_params)
   if @item.save
@@ -55,15 +41,33 @@ end
 
 def edit
   10.times { @item.photos.build }
+
+  @category_parent_array = ["---"]
+  #データベースから、親カテゴリーのみ抽出し、配列化
+  Category.roots.each do |parent|
+    @category_parent_array << parent.name
+  end
 end
 
 def update
   if @item.saler_id == current_user.id && @item.update(update_params)
     redirect_to item_path(@item)
   else 
-    redirect_back(fallback_location: "/items/new")
+    redirect_back(fallback_location: edit_item_path)
   end
 end
+
+  # 親カテゴリーが選択された後に動くアクション
+  def get_category_children
+    #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
+    @category_children = Category.find_by(name: "#{params[:parent_id]}").children
+  end
+
+  # 子カテゴリーが選択された後に動くアクション
+  def get_category_grandchildren
+    #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
+    @category_grandchildren = Category.find(params[:child_id]).children
+  end
 
   def show
     @saler = User.find(@item.saler_id)

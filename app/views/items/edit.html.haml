@@ -19,7 +19,6 @@
         %span.required 必須
         = f.text_field :name, class: "name-input"
           
-
         .a-container__main__name__details
           %label.label 商品の説明
           %span.required 必須
@@ -27,12 +26,12 @@
       .a-container__main__details
         %h3.a-container__main__details__text 商品の詳細
         .a-container__main__details__box
-          .a-container__main__details__box__upper
-            %label.label カテゴリー
-            %span.required 必須
-            = f.collection_select :category_id, Category.all,:id , :name, {include_blank: true }, class: "a-container__main__details__box__upper__category"
+          .category-box
+            .a-container__main__details__box__upper
+              %label.label カテゴリー
+              %span.required 必須
+              = f.select :parent, @category_parent_array, {}, {class: "a-container__main__details__box__upper__category", id: 'parent_category'}
             
-
           .a-container__main__details__box__center
             %label.label ブランド
             %span.required 任意
