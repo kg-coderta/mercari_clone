@@ -169,12 +169,6 @@ describe User do
       user.valid?
       expect(user.errors[:email]).to include("is invalid")
     end
-    # パスワードのフォーマットに従わないとエラーになる
-    it "is invalid no match format password" do
-      user = build(:user, password: "あああああああ")  
-      user.valid?
-      expect(user.errors[:password]).to include("is invalid")
-    end
 
     # 姓（カナ）のフォーマットに従わないとエラーになる
     it "is invalid no match format first_name_kana" do
